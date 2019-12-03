@@ -6,7 +6,7 @@ lock '3.11.2'
 set :application, 'freemarket_sample_64b'
 
 # どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:tamuotomo223/freemarket_sample_64b.git'
+set :repo_url,  'git@github.com:tamutomo223/freemarket_sample_64b.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
