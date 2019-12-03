@@ -93,4 +93,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  set :ssh_options, {
+    port: XXXXX,
+    keys: [File.expand_path('~/.ssh/id_rsa')],
+    forward_agent: true,
+    auth_methods: %w(publickey)
+    }
 end
