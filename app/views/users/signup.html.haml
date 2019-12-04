@@ -1,0 +1,40 @@
+
+.wrapper
+  .mercari-logo
+    = link_to root_path, class: "mercari-logo--content" do
+      mercariロゴ 
+
+  %h1 新規会員登録
+
+  .type
+    .type__mail
+      = link_to new_user_registration_path, class: "type__mail__center" do
+        = fa_icon "envelope-o", class: "type__mail__center--icon"
+        %span(class="type__mail__center--content")
+          メールアドレスで登録する
+    .type__facebook
+      = link_to "#" do
+        = fa_icon "facebook-official"
+        　　　Facebookで登録する
+    .type__google
+      = link_to "#" do
+        = fa_icon "google"
+        Googleで登録する
+
+  .rule
+    .rule__policy
+      = link_to new_user_registration_path do
+        プライバシーポリシー
+    .rule__use
+      = link_to "#" do
+        メルカリ利用規約
+    .rule__notation
+      = link_to "#" do
+        特定商取引に関する表記
+
+
+
+
+  = link_to "mercariロゴ", root_path
+
+  © Mercari, Inc.
