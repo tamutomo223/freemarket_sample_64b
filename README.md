@@ -22,7 +22,7 @@
 - has_many :item_comments
 - has_many :likes
 - has_many :user_reviews
-- belongs_to :shipping
+- has_one :shipping
   
 ## shippingsテーブル  
 |Column|Type|Options|
@@ -47,6 +47,8 @@
 |------|----|-------|
 |item_name|string|null: false|
 |seller|string|null: false|
+|order_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |explain|string|null: false|
 |status|string|null: false|
 |fee|string|null: false|
@@ -62,34 +64,38 @@
 - belongs_to :order
 - belongs_to :user
 - has_many :images
-- has_many :categories
+- belongs_to :category
+- belongs_to :brand
 - has_many :item_comments
   
-## categoresテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |Ancestry|text|null: false|
+|item_id|references|foreign_key: true, null: false|
 ### Association
 - has_many :items
-- has_many :category_brands
-- has_many :brands, through:  :category_brands
 
-## btandsテーブル
+
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |brand_name|string|null: false|
+|brand_group_id|integr||
+|item_id|references|foreign_key: true, null: false|
 ### Association
-- has_many :category_brands
-- has_many :categories, through:  :category_brands
+- belongs_to :brand_group
+- has_many :items
+
   
-## category_brandsテーブル
+## brand_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category_id|references|foreign_key: true|
+|group_name|string|null: false|
 |brand_id|references|foreign_key: true|
 ### Association
-- belongs_to :brand
-- belongs_to :category
+- has_many :brands
+
 
 ## imagesテーブル
 |Column|Type|Options|
