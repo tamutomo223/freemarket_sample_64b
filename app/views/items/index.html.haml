@@ -1,31 +1,6 @@
 
 .wrapper
   = link_to sell_items_path do
-    .item_sell
-  .top_header
-    .top_header_content
-      .top_header_content_1
-        = link_to root_path do
-          %img{src: "/ロゴ/image.png"}
-        %input{type: "text",placeholder: "何かお探しですか？"}
-      .top_header_content_2
-        .top_header_content_2_left
-          .top_header_content_2_left_category
-            = link_to "#" do
-              カテゴリーから探す
-          .top_header_content_2_left_brand
-            = link_to "#" do
-              ブランドから探す
-        .top_header_content_2_right
-          .top_header_content_2_right_signup
-            = link_to new_user_registration_path do
-              新規会員登録
-          .top_header_content_2_right_login
-            = link_to new_user_session_path do
-              ログイン
-  .slide
-    %img{src:"/ロゴ/sky.jpg"}
-  = link_to sell_items_path do
     .item__sell
       .item__sell__title
         出品
