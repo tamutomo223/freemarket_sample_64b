@@ -1,33 +1,47 @@
 *{
   margin:0;
   padding:0;
+  i{color: white;}
   a{text-decoration: none;}
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
-.item_sell {
+
+.item__sell {
   width:160px;
   height: calc(160px - 32px);
   background-color: #ea352d;
-  padding-top:32px;
+  padding-top:28px;
   border-radius: 50%;
   position: fixed;
   bottom:30px;
   right:30px;
+  &__title {
+    font-size:22px;
+    text-align: center;
+    color: white;
+  }
+  &__photo{
+    text-align: center;
+    img{
+      height:58px;
+      weight:auto;
+    }
+  }
 }
-.top_header {
+.top__header {
   width:100vw;
   height:100px;
-  &_content {
+  &__content {
     width:1020px;
     margin: 0 auto;
     padding-top:8px;
-    &_1{
+    &__1{
       height: 40px;
       display: flex;
       justify-content: space-between;
       img{
         display: block;
-        height:36px;
+        height:55px;
         width:auto;
       }
       input{
@@ -36,22 +50,26 @@
         width:781px;
         padding:0 50px 0 10px;
         border-radius:5px ;
-        border:solid gray 1px;
+        border:solid #cccccc 1px;
+        background-color: #F5F5F5;
+      }
+      i{color:black;
       }
     }
-    &_2{
+    &__2{
       a{display: block;}
       height: 44px;
       display: flex;
       justify-content: space-between;
       margin-top: 8px;
-      &_left {
+      &__left {
+        i{color:#EA352D;}
         a{color:black;}
         display: flex;
         line-height: 40px;
         font-weight:600;
         font-size:14px;
-        &_category {
+        &__category {
           width:159px;
           a{
             &:hover {
@@ -59,7 +77,7 @@
             }
           }
         }
-        &_brand{
+        &__brand{
           width:149px;
           a{
             &:hover {
@@ -68,10 +86,14 @@
           }
         }
       }
-      &_right {
+      &__right {
+        i{color:#cccccc;
+          font-size:18px;
+          margin-right:5px;}
         display: flex;
         line-height: 16px;
-        &_signup {
+        height: 16px;
+        &__signup {
           background-color: #EA352D;
           height: 16px;
           padding:8px 10px;
@@ -80,7 +102,7 @@
           border-radius:5px ;
           a{color: white;}
         }
-        &_login {
+        &__login {
           margin-left:11px;
           background-color: white;
           border:solid #0095ee 1px ;
@@ -92,13 +114,54 @@
           &:hover {
             transition: 0.5s;
             background-color:#0095ee;
-            a{
-              color: white;
-            }
+            a{color: white;}
           }
-          a{color: #0095ee;
-           
-          }
+          a{color: #0095ee;}
+        }
+
+        &__like {
+          padding-right: 14px;
+          height: 44px;
+          line-height: 32px;
+          font-size: 14px;
+          a{color: black;
+            &:hover {
+              transition: 0.8s;
+              color: #0095ee;
+              i{color: #0095ee;}
+            }}
+        }
+        &__notice {
+          padding:0 14px;
+          height: 44px;
+          font-size: 14px;
+          line-height: 32px;
+          a{color: black;
+            &:hover {
+              color: #0095ee;
+              i{color: #0095ee;}
+            }}
+        }
+        &__todo {
+          padding:0 14px;
+          height: 44px;
+          line-height: 32px;
+          font-size: 14px;
+          a{color: black;
+            &:hover {
+              color: #0095ee;
+              i{color: #0095ee;}
+            }}
+        }
+        &__mypage{
+          padding-left: 14px;
+          height: 44px;
+          line-height: 32px;
+          font-size: 14px;
+          a{color: black;
+            &:hover {
+              color: #0095ee;
+            }}
         }
       }
     }
@@ -110,4 +173,127 @@
     width:100vw;
     height:390px;
   }
+}
+
+.no {
+  height: 1000px;
+}
+
+.footer__top {
+  background-image: url("/ロゴ/フッター.jpg");
+  background-size: cover;
+  width:100vw;
+  height:260px;
+  &__content {
+    display: flex;
+    margin:0 auto;
+    width:750px;
+    color:white;
+    
+    &__left {
+      padding-top:50px;
+      -webkit-box-pack: center;
+      .rogo {
+        height:68px;
+        width:68px;
+        border-radius:17px ;
+        margin-right:20px ;
+      }
+      .google{
+        margin-left:15px ;
+        height:40px;
+        width:135px;
+      }
+      &__notice1{
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom:15px;
+      }
+      &__notice2 {
+        font-size:35px;
+        margin-bottom:20px;
+      }
+    }
+    &__right {
+      
+      img{
+        display: block;
+        margin:15px 30px;
+        height:auto;
+        width:200px;
+      }
+    }
+  }
+}
+
+.footer__bottom {
+  padding:0 20px 10px;
+  width:calc(100vw - 40px );
+  height:389px;
+  background-color: #212121;
+  li{margin-top:16px;
+    font-size: 12px;
+    P{display: inline-block;
+      &:hover{
+      
+        border-bottom:0.3px solid #bcbcbc ;
+        
+      }
+  }
+}
+  a{color:#bcbcbc;}
+  &__content {
+    height:296px;
+    width:1020px;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+    h2{
+      font-weight: 600;
+      color: white;
+    }
+    &__about {
+      width:163px;
+      padding-right:40px;
+      padding-top:18px;
+      &__sns{
+        display: flex;
+        i{
+          font-size: 35px;
+          display: block;
+          margin-right:15px;
+          margin-top:15px ;
+        }
+      }
+    }
+    &__help {
+      height:260px;
+      width:212px;
+      padding-right:40px;
+      padding-top:18px;
+    }
+    &__privacy {
+      height:148px;
+      width:420px;
+      padding-right:40px;
+      padding-top:18px;
+      .lists {
+        display: flex;
+      }
+    }
+    &__country {
+      height:94px;
+      width:68px;
+      padding-right:40px;
+      padding-top:18px;
+    }
+  }
+  &__last {
+    margin:30px 182.5px 20px;
+    img{
+      width:124px;
+      height: auto;
+    }
+  }
+  
 }
