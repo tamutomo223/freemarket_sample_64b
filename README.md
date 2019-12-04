@@ -72,7 +72,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |Ancestry|text|null: false|
-|item_id|references|foreign_key: true, null: false|
 ### Association
 - has_many :items
 
@@ -82,7 +81,6 @@
 |------|----|-------|
 |brand_name|string|null: false|
 |brand_group_id|integr||
-|item_id|references|foreign_key: true, null: false|
 ### Association
 - belongs_to :brand_group
 - has_many :items
