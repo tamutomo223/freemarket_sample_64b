@@ -1,0 +1,103 @@
+*{
+  margin:0;
+  padding:0;
+  a{text-decoration: none;}
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+.top_header {
+  width:100vw;
+  height:100px;
+  &_content {
+    width:1020px;
+    margin: 0 auto;
+    padding-top:8px;
+    &_1{
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+      img{
+        display: block;
+        height:36px;
+        width:auto;
+      }
+      input{
+        display: block;
+        height: 40px;
+        width:781px;
+        padding:0 50px 0 10px;
+        border-radius:5px ;
+        border:solid gray 1px;
+      }
+    }
+    &_2{
+      a{display: block;}
+      height: 44px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      &_left {
+        a{color:black;}
+        display: flex;
+        line-height: 40px;
+        font-weight:600;
+        font-size:14px;
+        &_category {
+          width:159px;
+          a{
+            &:hover {
+              color: #0095ee;
+            }
+          }
+        }
+        &_brand{
+          width:149px;
+          a{
+            &:hover {
+              color: #0095ee;
+            }
+          }
+        }
+      }
+      &_right {
+        display: flex;
+        line-height: 16px;
+        &_signup {
+          background-color: #EA352D;
+          height: 16px;
+          padding:8px 10px;
+          font-size: 14px;
+          width:86px;
+          border-radius:5px ;
+          a{color: white;}
+        }
+        &_login {
+          margin-left:11px;
+          background-color: white;
+          border:solid #0095ee 1px ;
+          height: 16px;
+          padding:8px 10px;
+          font-size: 14px;
+          width:56px;
+          border-radius:5px ;
+          &:hover {
+            transition: 0.5s;
+            background-color:#0095ee;
+            a{
+              color: white;
+            }
+          }
+          a{color: #0095ee;
+           
+          }
+        }
+      }
+    }
+  }
+}
+
+.slide {
+  img {
+    width:100vw;
+    height:390px;
+  }
+}
