@@ -1,6 +1,7 @@
 
 .wrapper
-<<<<<<< Updated upstream
+  = link_to sell_items_path do
+    .item_sell
   .top_header
     .top_header_content
       .top_header_content_1
@@ -17,15 +18,13 @@
               ブランドから探す
         .top_header_content_2_right
           .top_header_content_2_right_signup
-            = link_to "#" do
+            = link_to new_user_registration_path do
               新規会員登録
           .top_header_content_2_right_login
-            = link_to "#" do
+            = link_to new_user_session_path do
               ログイン
   .slide
     %img{src:"/ロゴ/sky.jpg"}
-
-=======
   = link_to sell_items_path do
     .item__sell
       .item__sell__title
@@ -168,7 +167,3 @@
             %li United Stat
     .footer__bottom__last
       %img{src:"/ロゴ/白.png"}
-
-
-
->>>>>>> Stashed changes
