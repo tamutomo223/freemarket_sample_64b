@@ -4,6 +4,16 @@
   a{text-decoration: none;}
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
+.item_sell {
+  width:160px;
+  height: calc(160px - 32px);
+  background-color: #ea352d;
+  padding-top:32px;
+  border-radius: 50%;
+  position: fixed;
+  bottom:30px;
+  right:30px;
+}
 .top_header {
   width:100vw;
   height:100px;
