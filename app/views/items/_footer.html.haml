@@ -6,13 +6,13 @@
       .footer__top__content__left__notice2
         今すぐ無料ダウンロード！
       .footer__top__content__left__app
-        %img{src:"/ロゴ/ロゴ.png" ,class:"rogo"}
+        = image_tag "/ロゴ/ロゴ.png" ,class:"rogo"
         = link_to "", "#", class: "footer-img__icon-box--apple", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-gb/badge-lrg.svg?releaseDate=2012-05-31&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"
         = link_to "#" do
-          %img{src: "/ロゴ/google.png" ,class:"google"}
+          = image_tag "/ロゴ/google.png" ,class:"google"
     .footer__top__content__right
       
-      %img{src: "/ロゴ/スマホ.png"}
+      = image_tag "/ロゴ/スマホ.png"
 .footer__bottom
   .footer__bottom__content
     .footer__bottom__content__about
@@ -106,4 +106,4 @@
           %li
             %P United Stat
   .footer__bottom__last
-    %img{src:"/ロゴ/白.png"}
+    = image_tag"/ロゴ/白.png"
