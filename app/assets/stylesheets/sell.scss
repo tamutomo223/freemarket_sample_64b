@@ -1,3 +1,9 @@
+.box-common{
+  padding: 40px;
+  border-top: solid 2px whitesmoke;
+  //各ブロックの共通設定
+}
+
 .container{
   background-color: #eee;
 }
@@ -20,7 +26,62 @@
     text-align: center;
     line-height: 33px;
     padding: 32px 16px;
-
-
   }
+}
+.label{
+  font-weight: bold;
+  display: flex;
+  display: inline-block;
+  
+}
+.label-mark{
+  background-color: red;
+  color: white;
+  display: flex;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 3px;
+  line-height: 12px;
+  margin: 5px;
+
+}
+.message{
+  color:#8A8A8A;
+  font-weight: bold;
+}
+.small-message{
+  font-size: 14px;
+}
+.input-image{
+  padding: 40px;
+  @extend.box-common;
+}
+
+.input-item-name{
+  @extend.box-common;
+}
+
+.input-details{
+  @extend.box-common;
+}
+
+.input-shipping{
+  @extend.box-common;
+}
+
+.input-price{
+  @extend.box-common;
+}
+.self-content{
+  @extend.box-common;
+}
+.bottom{
+  margin: 0 auto;
+  width: 700px;
+}
+.input-textbox{
+  width: 620px;
+  padding: 10px;
+  box-sizing: border-box;
 }
