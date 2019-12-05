@@ -1,0 +1,134 @@
+.container
+  .header
+    .header-logo
+    = link_to image_tag("/ロゴ/image.png", width: '185',height:'100')
+  .body
+    %form{action: "/sell",method: "post"}
+      .body__head
+        商品の情報を入力
+      .body.content
+        .input-image
+          .label
+            出品画像
+            .label--mark
+            必須
+          .small-label
+            最大10枚までアップロードできます
+          .input-image__form
+            -#画像入力フォーム後で実装
+            -# %label{class: "input-box__image"}
+            -# = icon'fas', 'image'
+            -#%input{type: "file",name:"image"}
+        .input-item-name
+          .label
+            商品名
+            .label--mark
+              必須
+          .input-item-name__form
+            %input{type: "text",name:"item_name",placeholder:"商品名必須40文字まで"}
+        .input-explain
+          .label
+            商品の説明
+            .label--mark
+              必須
+            .input-explain__form
+              %textarea{name:"explain",placeholder:"aaaaa",rows:"4"}
+        .input-details
+          .message
+            商品の詳細
+          .form-box
+            .input-category
+              .label
+                カテゴリー
+              .input-category__form
+                %select{name:"category_id"}
+                  %option{value:0}カテゴリー
+                  %option{value:1}カテゴリー1
+            .input-size
+              .label
+                サイズ
+              .input-size__form
+                %select{name:"size"}
+                  %option{value:0}サイズ
+                  %option{value:1}サイズ1
+            .input-brand
+              .label
+                ブランド
+              .input-size__form
+                %input{type: "text",name:"brand_id",placeholder:"例)シャネル"}
+            .input-status
+              .label
+                状態
+              .input-status__form
+                %select{name:"status"}
+                  %option{value:"0"}状態
+                  %option{value:"1"}状態1
+      .input-shipping
+        .message
+          配送について
+          =link_to '?',"#"
+        .form-box
+          .label
+            配送料の負担
+          .input-fee__form
+            %select{name:"fee"}
+              %option{value:0}負担
+              %option{value:1}負担1
+          .label
+            発送元の地域
+          .s_prefecture__form
+            %select{name:"s_prefecture"}
+              %option{value:0}地域
+              %option{value:1}地域1
+          .label
+            発送までの日数
+          .s_date__form
+            %select{name:"s_date"}
+              %option{value:0}日数
+              %option{value:1}日数1
+      .input-price
+        .message
+          販売価格(300〜9,999,999)
+        .label
+          価格
+          .label--mark
+            必須
+        .price_form
+          %input{type: "text",name:"price"}
+        .charge
+          販売手数料
+        .profit
+          販売利益
+      .self-content.sellbtn-box 
+      = link_to '#' do
+        禁止されている出品
+      = link_to '#' do
+        行為
+      を確認してください 
+      %p またブランド品でシリアルナンバー等がある場合はご記載ください。
+      = link_to '#' do
+        偽ブランドの販売
+      は犯罪であり処罰される可能性があります。
+      %p また、出品をもちまして
+      = link_to '#' do
+        加盟店規約
+      に同意したことになります。
+      /現状では入れられないデータカラムを埋める。機能実装毎に削除
+      %input{type:"hidden",name:"seller",value:"0"}
+      %input{type:"hidden",name:"user_id",value:0}
+      %input{type:"hidden",name:"order_id",value:0}
+      %input{type:"hidden",name:"size_type",value:"0"}
+      %input{type:"hidden",name:"view",value:0}
+      
+      %input.form_submit{type:'submit', value: 'send'}
+      ボタン（戻る）
+    .bottom
+    =link_to '#' do
+      プライバシーポリシー',
+    =link_to '#' do
+      'メルカリ利用規約'
+    =link_to '#' do
+      特定商取引に関する表記
+    = link_to image_tag("/ロゴ/image (2).png", width: '80',height:'65')
+    .copyright
+    ©︎freemarket,

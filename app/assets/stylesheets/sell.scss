@@ -1,0 +1,26 @@
+.container{
+  background-color: #eee;
+}
+.header{
+  text-align: center;
+  height: 128px;
+  &-logo{
+    line-height: 100px;
+
+  }
+}
+.body{
+  background-color:#fff;
+  margin: 0 auto;
+  width: 700px;
+  &__head{
+    height: 33px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 33px;
+    padding: 32px 16px;
+
+
+  }
+}
