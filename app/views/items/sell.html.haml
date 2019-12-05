@@ -3,7 +3,7 @@
     .header-logo
     = link_to image_tag("/ロゴ/image.png", width: '185',height:'100')
   .body
-    %form{action: "/sell",method: "post"}
+    = form_for @item,url:sell_path do |f|
       .body__head
         商品の情報を入力
       .body__content
@@ -15,7 +15,7 @@
           .small-message
             最大10枚までアップロードできます
           .input-image__form
-            = fields_for(@item url:sell_path do |t|)
+            = f.fields_for :images do |t|
               = t.file_field :image_url
             
             -#%label{class: "input-box__image"}
@@ -27,14 +27,14 @@
           .label-mark
             必須
           .input-item-name__form
-            %input{type: "text",name:"item_name",placeholder:"商品名(必須40文字まで)",class:"input-textbox"}
+          = f.text_field :item_name,placeholder:"商品名(必須40文字まで)",class:"input-textbox"
           .input-explain
             .label
               商品の説明
             .label-mark
               必須
           .input-explain__form
-            %textarea{name:"explain",rows:"6",class:"input-textbox",placeholder:"商品の説明(必須1000文字以内)（色、素材、重さ、定価、注意点など）例）\n2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+          = f.text_area :explain,rows:"6",class:"input-textbox",placeholder:"商品の説明(必須1000文字以内)（色、素材、重さ、定価、注意点など）例）\n2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
         .input-details
           .message
             商品の詳細
@@ -45,32 +45,27 @@
               .label-mark
                 必須
               .input-category__form
-                %select{name:"category_id"}
-                  %option{value:0}カテゴリー
-                  %option{value:1}カテゴリー1
+              = f.select :category_id,[["20代", 20]]
             .input-size
               .label
                 サイズ
               .label-mark
                 必須
               .input-size__form
-                %select{name:"size"}
-                  %option{value:0}サイズ
-                  %option{value:1}サイズ1
+              = f.select :size ,[["20代", "20代"]]
+              
             .input-brand
               .label
                 ブランド
               .input-size__form
-                %input{type: "text",name:"brand_id",placeholder:"例)シャネル"}
+              = f.text_area :brand_id,placeholder:"例)シャネル"
             .input-status
               .label
                 状態
               .label-mark
                 必須
               .input-status__form
-                %select{name:"status"}
-                  %option{value:"0"}状態
-                  %option{value:"1"}状態1
+              = f.select :status,[["20代", "20代"]]
       .input-shipping
         .message
           配送について
@@ -81,25 +76,20 @@
           .label-mark
             必須
           .input-fee__form
-            %select{name:"fee"}
-              %option{value:0}負担
-              %option{value:1}負担1
+          = f.select :fee,[["20代", "20代"]]
+            
           .label
             発送元の地域
           .label-mark
             必須
           .s_prefecture__form
-            %select{name:"s_prefecture"}
-              %option{value:0}地域
-              %option{value:1}地域1
+          = f.select :s_prefecture,[["20代", "20代"]]
           .label
             発送までの日数
           .label-mark
             必須
           .s_date__form
-            %select{name:"s_date"}
-              %option{value:0}日数
-              %option{value:1}日数1
+            = f.select :s_date,[["20代", 20]]
       .input-price
         .message
           販売価格(300〜9,999,999)          
@@ -109,7 +99,7 @@
         .label-mark
           必須
         .price_form
-          %input{type: "text",name:"price"}
+          = f.text_area :price
         .charge
           販売手数料
         .profit
@@ -129,12 +119,11 @@
           加盟店規約
         に同意したことになります。
         /現状では入れられないデータカラムを埋める。機能実装毎に削除
-        %input{type:"hidden",name:"user_id",value:0}
-        %input{type:"hidden",name:"order_id",value:0}
-        %input{type:"hidden",name:"size_type",value:"0"}
-        %input{type:"hidden",name:"view",value:0}
-        
-        %input.form_submit{type:'submit', value: 'send'}
+        = f.hidden_field :user_id,value:0
+        = f.hidden_field :order_id,value:0
+        = f.hidden_field :size_type,value:"0"
+        = f.hidden_field :view,value:0
+        = f.submit value: 'send'
         ボタン（戻る）
   .bottom
     =link_to '#' do
