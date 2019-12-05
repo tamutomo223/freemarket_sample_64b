@@ -84,3 +84,4 @@ gem "font-awesome-rails"
 gem "font-awesome-sass"
 gem 'fog-aws'
 gem 'pry-rails'
+gem "jquery-rails"
