@@ -153,7 +153,7 @@
             padding:6px 16px;
             border-radius: 20px;
             color: black;
-            i{color: #cccccc;}
+            i{color: $darkgray;}
           }
           &__bad {
             background-color: $gray;
@@ -187,17 +187,17 @@
         height:100px;
         width:100%;
         background-color: white;
-        border:1px solid #cccccc;
+        border:1px solid $darkgray;
       }
       &__btn {
-        background-color: #aaaaaa;
+        background-color: $gray-black;
         display: block;
         height: 50px;
         width:100%;
         font-size: 14px;
         color: white;
         margin-top:8px;
-        border:1px solid #aaaaaa;
+        border:1px solid $gray-black;
       }
     }
     &__link {

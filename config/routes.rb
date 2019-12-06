@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: "items#index"
   get "/sell" , to: "items#sell", as: "sell_items"
   get "/signup" , to: "users#signup", as: "signup"
-  get "/item/:id", to: "items#show", as: "item"
+  resources :items ,only:[:show]
 end
