@@ -5,5 +5,9 @@ class ItemsController < ApplicationController
 
   def sell
 
+  end
+
+  def show
+
   end  
 end
