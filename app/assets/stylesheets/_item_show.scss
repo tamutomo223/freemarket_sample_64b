@@ -13,9 +13,6 @@
   background-color: $gray;
 }
 
-
-
-
 .show-wrapper {
   background-color: $gray;
   .item {
@@ -116,8 +113,7 @@
         }
         &__sub {
           display: flex;
-          vertical-align:bottom;
-          
+          vertical-align:bottom;          
           &__tax {
             margin-top:33px;
             display: inline;
@@ -179,9 +175,8 @@
           i{color: $skyblue;}
         }
       }
-
-      
     }
+
     &__comment {
       height:238px;
       padding:24px;
@@ -293,13 +288,10 @@
                 font-size: 16px;
                 font-weight:600 ;
               }
-            }
-            
-
+            }       
           }
-
         }
-    }
+      }
     }
   }
   .bread{
@@ -308,18 +300,4 @@
     background-color: $gray;
     border-top:solid 0.5px #cccaca;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
