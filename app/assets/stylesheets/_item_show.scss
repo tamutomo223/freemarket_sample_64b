@@ -12,14 +12,12 @@
   height:24px;
   background-color: $gray;
 }
-
 .show-wrapper {
   background-color: $gray;
   .item {
     width:700px;
     margin:0 auto;
     background-color: white;
-    
     &__show {
       padding:0 40px 40px;
       &__title{
@@ -61,7 +59,6 @@
             font-size:14px;
             border-left: solid 1px $gray;
             border-top:solid 1px $gray ;
-           
             }
             td{
               padding:8px;  
@@ -74,10 +71,10 @@
                 font-size: 14px;
                 .good{
                   margin-right: 15px;
-                i{
-                  color: #EF5185;
-                  font-size:20px;
-                }
+                  i{
+                    color: #EF5185;
+                    font-size:20px;
+                  }
                 }
                 .so{
                   margin-right: 15px;
@@ -85,13 +82,13 @@
                     color: #FBA933;
                     font-size:20px;
                   }
-                  }
+                }
                 .bad{
                   i{
                     color: #69B5D8;
                     font-size:20px;
                   }
-                  }
+                }
               }
             }
             .sky {
@@ -143,7 +140,6 @@
         font-size:18px;
         margin-top:32px;
       }
-
       &__last {
         display: flex;
         justify-content: space-between;
@@ -152,7 +148,6 @@
         &__left {
           display: flex;
           justify-content: space-between;
-          
           &__like {
             background-color: $gray;
             padding:6px 16px;
@@ -176,7 +171,6 @@
         }
       }
     }
-
     &__comment {
       height:238px;
       padding:24px;
@@ -249,15 +243,13 @@
       }
     }
     &__other {
-
       background-color:$gray;
       &__user{
-        
         &__title {
-          
           h2{font-size:22px;
           font-weight:600;
-          color:$skyblue;}
+          color:$skyblue;
+          }
         }
         &__contents {
           display: flex;
