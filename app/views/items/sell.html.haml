@@ -16,11 +16,13 @@
             最大10枚までアップロードできます
           .input-image__form
             = f.fields_for :images do |t|
-              = t.file_field :image_url
+              %label.input-image-drop
+                .drop-zone
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+                  = t.file_field :image_url,class:"input-image-box"#複数投稿は以下を使う, multiple: true
             
-            -#%label{class: "input-box__image"}
-              -#= icon'fas', 'image'
-              -#%input{type: "file",name:"image_url"}
         .input-item-name
           .label
             商品名
@@ -45,27 +47,28 @@
               .label-mark
                 必須
               .input-category__form
-              = f.select :category_id,[["20代", 20]]
+              = f.select :category_id,[["---", 0],["カテゴリー1", "カテゴリー１"]],{},{ class: "select-box" }
+              
             .input-size
               .label
                 サイズ
               .label-mark
                 必須
               .input-size__form
-              = f.select :size ,[["20代", "20代"]]
+              = f.select :size ,[["---", 0],["サイズ1", "サイズ１"]],{},{ class: "select-box" }
               
             .input-brand
               .label
                 ブランド
-              .input-size__form
-              = f.text_area :brand_id,placeholder:"例)シャネル"
+              .input-brand__form
+                = f.text_field :brand_id,placeholder:"例)シャネル"
             .input-status
               .label
                 状態
               .label-mark
                 必須
               .input-status__form
-              = f.select :status,[["20代", "20代"]]
+                = f.select :status,[["---", 0],["状態", "状態1"]],{},{ class: "select-box" }
       .input-shipping
         .message
           配送について
@@ -76,34 +79,52 @@
           .label-mark
             必須
           .input-fee__form
-          = f.select :fee,[["20代", "20代"]]
+          = f.select :fee,[["---", 0],["配送料負担1","配送料負担1"]],{},{ class: "select-box" }
             
           .label
             発送元の地域
           .label-mark
             必須
           .s_prefecture__form
-          = f.select :s_prefecture,[["20代", "20代"]]
+            = f.select :s_prefecture,[["---", 0],["配送先1", "配送先1"]],{},{ class: "select-box" }
           .label
             発送までの日数
           .label-mark
             必須
           .s_date__form
-            = f.select :s_date,[["20代", 20]]
+            = f.select :s_date,[["---", 0],["発送日時", "発送日時"]],{},{ class: "select-box" }
       .input-price
         .message
           販売価格(300〜9,999,999)          
           =link_to '?',"#"
-        .label
-          価格
-        .label-mark
-          必須
-        .price_form
-          = f.text_area :price
-        .charge
-          販売手数料
-        .profit
-          販売利益
+        .form-box
+          .price
+            .box
+              .label
+                価格
+              .label-mark
+                必須
+            .price_form
+       
+              = f.label '¥',class:"price-form__label"
+              = f.number_field :price,placeholder:"例)300",class:"price",id:"price"
+          .charge
+            .charge__message
+              販売手数料(10%)
+            .charge__result
+              計算結果
+              
+              %output{name: "result"} -
+
+              /form method="get" action="output.html" oninput="result.value = Number(a.value) + Number(b.value);"
+
+
+          .profit
+            .profit__message
+              販売利益
+            .profit__result
+              計算結果
+              %output{:name => "result"} -
       .self-content.sellbtn-box 
         = link_to '#' do
           禁止されている出品
@@ -123,8 +144,8 @@
         = f.hidden_field :order_id,value:0
         = f.hidden_field :size_type,value:"0"
         = f.hidden_field :view,value:0
-        = f.submit value: 'send'
-        ボタン（戻る）
+        = f.submit value: '出品する',class:"form-btn"
+        %input(type="button" value="もどる" class="return-btn")
   .bottom
     =link_to '#' do
       プライバシーポリシー',
@@ -132,6 +153,6 @@
       'メルカリ利用規約'
     =link_to '#' do
       特定商取引に関する表記
-    = link_to image_tag("/ロゴ/image (2).png", width: '80',height:'65')
+    =link_to image_tag("/ロゴ/image (2).png", width: '80',height:'65')
     .copyright
-    ©︎freemarket,
+    ©︎freemarket
