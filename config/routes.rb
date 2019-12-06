@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   get "/signup" , to: "users#signup", as: "signup"
 
+  resources :items ,only:[:show]
+
 end

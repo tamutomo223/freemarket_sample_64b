@@ -4,8 +4,16 @@ class ItemsController < ApplicationController
   end  
 
   def sell
+
     @item = Item.new
     @item.images.build
+
+
+  end
+
+  def show
+
+
   end  
 
   def exhibit
