@@ -26,8 +26,6 @@
                 .bad
                   = fa_icon "frown-o"
                   0  
-
-
           %tr.big
             %th カテゴリ
             %td.sky
@@ -74,13 +72,16 @@
         .item__show__last__left
           = link_to "#" do
             .item__show__last__left__like
-              いいね!
+              = fa_icon "heart-o"
+              %span いいね!
           = link_to "#" do
             .item__show__last__left__bad
-              不適切な商品の報告
+              = fa_icon "flag-o"
+              %span 不適切な商品の報告
         = link_to "#" do
           .item__show__last__right
-            あんしん・あんぜんへの取り組み
+            = fa_icon "lock"
+            %span あんしん・あんぜんへの取り組み
     .bar2        
     .item__comment
       .item__comment__notice
@@ -101,11 +102,31 @@
         = fa_icon "twitter"
       .item__sns__pinterest  
         = fa_icon "pinterest"
+    .bar3    
     .item__other
-      .item-other__user
-        .item-other__user__title
+      .item__other__user
+        .item__other__user__title
           = link_to "#" do
-            おれさんのその他の出品
-      .item-other__category
-  .bread  
+            %h2 おれさんのその他の出品
+        .item__other__user__contents    
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+      .bar3          
+      .item-other__user
+        .item__other__user__title
+          = link_to "#" do
+            %h2 スニーカーその他の出品
+        .item__other__user__contents  
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+  .bar        
+  .bread
 = render "footer"

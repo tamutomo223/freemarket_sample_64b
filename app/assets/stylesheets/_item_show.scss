@@ -2,18 +2,22 @@
 
 .bar {
   height:40px;
-  background-color: #f5f5f5;
+  background-color: $gray;
 }
 .bar2{
   height:8px;
-  background-color: #f5f5f5;
+  background-color: $gray;
+}
+.bar3{
+  height:24px;
+  background-color: $gray;
 }
 
 
 
 
 .show-wrapper {
-  background-color: #f5f5f5;
+  background-color: $gray;
   .item {
     width:700px;
     margin:0 auto;
@@ -52,22 +56,22 @@
           }
           tr {
             height:46px;
-            border-right:solid 1px #f5f5f5  ;
+            border-right:solid 1px $gray  ;
             th{
             padding:8px;  
             background-color: #fafafa;
             width:118px;
             font-size:14px;
-            border-left: solid 1px #f5f5f5;
-            border-top:solid 1px #f5f5f5 ;
+            border-left: solid 1px $gray;
+            border-top:solid 1px $gray ;
            
             }
             td{
               padding:8px;  
               width:182px;
               font-size:14px;
-              border-left: solid 1px#f5f5f5;
-              border-top:solid 1px #f5f5f5 ;
+              border-left: solid 1px$gray;
+              border-top:solid 1px $gray ;
               .like {
                 display: flex;
                 font-size: 14px;
@@ -154,22 +158,25 @@
           justify-content: space-between;
           
           &__like {
-            background-color: #f5f5f5;
+            background-color: $gray;
             padding:6px 16px;
             border-radius: 20px;
             color: black;
+            i{color: #cccccc;}
           }
           &__bad {
-            background-color: #f5f5f5;
+            background-color: $gray;
             margin-left:16px ;
             padding:6px 16px;
             border-radius: 20px;
             color: black;
+            i{color: black;}
           }
         }
         &__right {
           line-height: 33px;
           color: $skyblue;
+          i{color: $skyblue;}
         }
       }
 
@@ -207,7 +214,7 @@
     &__link {
       display: flex;
       justify-content: space-between;
-      background-color: #f5f5f5;
+      background-color: $gray;
       line-height:63px;
       a{color:$skyblue;
       font-size:14px;}
@@ -221,6 +228,7 @@
       display: flex;
       justify-content: center;
       margin-top:60px;
+      margin-bottom:24px ;
       &__facebook {
         border-radius: 5px;
         height:44px;
@@ -245,6 +253,60 @@
         background-color: #AA252A;
       }
     }
+    &__other {
+
+      background-color:$gray;
+      &__user{
+        
+        &__title {
+          
+          h2{font-size:22px;
+          font-weight:600;
+          color:$skyblue;}
+        }
+        &__contents {
+          display: flex;
+          display: inline-block;
+          justify-content:space-between;
+          &__content {
+            width:220px;
+            display: inline-block;
+            margin: 5px;
+            &__img {
+              height:220px;
+                width:220px;
+              img{
+                height:220px;
+                width:220px;
+              }
+            }
+            &__body {
+              height:78px;
+              padding:16px;
+              background-color: white;
+              &__name{
+                font-size: 16px;
+                line-height: 48px;
+              }
+              &__price {
+                margin-top:8px;
+                font-size: 16px;
+                font-weight:600 ;
+              }
+            }
+            
+
+          }
+
+        }
+    }
+    }
+  }
+  .bread{
+    height:48px;
+    line-height: 48px;
+    background-color: $gray;
+    border-top:solid 0.5px #cccaca;
   }
 
 
