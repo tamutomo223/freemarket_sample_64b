@@ -48,8 +48,8 @@
         width:781px;
         padding:0 50px 0 10px;
         border-radius:5px ;
-        border:solid #cccccc 1px;
-        background-color: #F5F5F5;
+        border:solid $darkgray 1px;
+        background-color: $gray;
         
       }
       i{color:black;
@@ -89,7 +89,7 @@
         }
       }
       &__right {
-        i{color:#cccccc;
+        i{color:$darkgray;
           font-size:18px;
           margin-right:5px;}
         display: flex;
@@ -191,7 +191,7 @@
   }
 }
 .category-wrapper {
-  background-color: #f5f5f5;
+  background-color: $gray;
   width:100vw;
   .category-all {
     padding-top:42px;
