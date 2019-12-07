@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "items#index"
   
-  resources :items do
+  resources :items , only:[:sell,:exhibit] do
     collection do
       get 'sell'
       post 'exhibit'
