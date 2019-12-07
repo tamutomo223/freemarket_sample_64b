@@ -3,7 +3,7 @@
     .header-logo
     = link_to image_tag("/ロゴ/image.png", width: '185',height:'100')
   .body
-    = form_for @item,url:sell_path do |f|
+    = form_for @item,url:exhibit_items_path do |f|
       .body__head
         商品の情報を入力
       .body__content

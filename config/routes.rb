@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "items#index"
-  get "/sell" , to: "items#sell", as: "sell_items"
-
-  post "/sell",to: "items#exhibit",as: "sell"
+  
+  resources :items do
+    collection do
+      get 'sell'
+      post 'exhibit'
+    end
+  end
 
   get "/signup" , to: "users#signup", as: "signup"
 
-  resources :items ,only:[:show]
+  resources :items ,only:[:show,:sell,:exhibit]
 
 end
