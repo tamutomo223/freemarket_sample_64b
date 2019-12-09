@@ -16,10 +16,10 @@ Rails.application.routes.draw do
 
   get "/signup" , to: "users#signup", as: "signup"
 
-  resources :users ,only:[:mypage] do
+  resources :users ,only:[:mypage,:logout] do
     collection do
       get 'mypage'
+      get 'logout'
     end
   end
-
 end
