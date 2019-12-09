@@ -4,17 +4,6 @@
   height: 100%;
   background-color: #f5f5f5;
 
-  .mercari-logo {
-    text-align: center;
-    background-color: #f5f5f5;
-    width: 100%;
-    height: 128px;
-
-    &--content {
-      line-height: 128px;
-    }
-
-  }
   .user-h1 {
     text-align: center;
     background-color: white;
@@ -27,16 +16,20 @@
     font-weight: bold;
 
   }
+  
+  .type_singup{
+    width: 700px;
+    height: 247px;
+  }
+  
   .type {
     background-color: white;
-    width: 700px;
-    height: 286px;
     margin: auto;
     position: relative;
 
     &__wrapper {
       position: absolute;
-      top: 43px;
+      top: 26px;
       right: 0;
       bottom: 0;
       left: 0;
@@ -70,7 +63,6 @@
         height: 50px;
         margin: 16px auto;
         font-size: 14px;
-        border-radius: 5px;
 
         &__center {
           margin-left: 15px;
@@ -85,13 +77,13 @@
           }
         }
       }
+
       &__google {
         width: 343px;
         height: 50px;
         margin: 16px auto;
         border: solid 0.5px #979797;
         font-size: 14px;
-        border-radius: 5px;
 
         &__center {
           margin-left: 15px;
@@ -108,24 +100,10 @@
           }
         }
       }
-    }
-  }
 
-  .rule {
-    text-align: center;
-    display: flex;
-    margin: 30px auto;
-    font-size: 12px;
-    width: 400px;
-    height: 50px;
-
-    &__wrapper {
-      margin: auto;
-      &--deco {
-        color: #333;
-        margin-right: 10px;
+      &--radius {
+        border-radius: 5px;
       }
     }
-
   }
 }

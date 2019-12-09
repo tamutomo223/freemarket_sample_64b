@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_12_06_030338) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "burthday", null: false
+    t.date "birthday", null: false
     t.string "family_name", null: false
     t.string "first_name", null: false
     t.string "kana_family_name", null: false

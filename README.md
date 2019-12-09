@@ -6,7 +6,7 @@
 |nickname|string|null: false,unique: true|
 |mail|string|null: false,unique: true|
 |password|string|null: false|
-|burthday|string|null: false|
+|birthday|date|null: false|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |kana_family_name|string|null: false|

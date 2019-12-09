@@ -6,14 +6,17 @@
   line-height: 128px;
 }
 
+.form-member_info_input {
+  width: 700px;
+}
 .form-wrapper {
   background-color: #fff;
-  width: 700px;
   margin: 0 auto;
 
-  &__center {
+  &__center-member_info_input {
     margin-left: 180px;
-
+  }
+  &__center {
     .field {
 
       &--label {
@@ -60,15 +63,40 @@
         margin-top: 8px;
       }
 
-      &--burthday {
+      .year {
         width: 76px;
         height: 48px;
         margin-top: 8px;
       }
-      
+      .month {
+        width: 76px;
+        height: 48px;
+        margin-top: 8px;
+      }
+      .day {
+        width: 76px;
+        height: 48px;
+        margin-top: 8px;
+      }      
     }
 
+    &__self-check {
+      width: 280px;
+      height: 75px;
+      line-height: 75px;
+      background-color: #F9F9F9;
+      border: solid 0.1px #D3D3D3;
+      padding-left: 20px;
 
+    }
+
+    &__rule-content {
+      font-size: 14px;
+      color: #333;
+      width: 344px;
+      height: 42px;
+      text-align: center;
+    }
     .actions {
       height: 48px;
 
@@ -77,6 +105,16 @@
         color: #fff;
         width: 343px;
         height: 48px;
+      }
+    }
+
+    &__selfinfo-content {
+      width: 343px;
+      text-align: right;
+      
+      &--link {
+        color: #0099e8;
+        font-size: 14px;
       }
     }
   }
