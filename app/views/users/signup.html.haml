@@ -1,41 +1,24 @@
-
 .wrapper
-  .mercari-logo
-    = link_to root_path, class: "mercari-logo--content" do
-      mercariロゴ 
 
-  %h1 新規会員登録
+  = render "users/users_header"
 
-  .type
-    .type__mail
-      = link_to new_user_registration_path, class: "type__mail__center" do
-        = fa_icon "envelope-o", class: "type__mail__center--icon"
-        %span(class="type__mail__center--content")
-          メールアドレスで登録する
-    .type__facebook
-      = link_to "#" do
-        = fa_icon "facebook-official"
-          Facebookで登録する
-    .type__google
-      = link_to "#" do
-        = fa_icon "google"
-        Googleで登録する
+  %h1.user-h1 新規会員登録
 
-  .rule
-    .rule__policy
-      = link_to new_user_registration_path do
-        プライバシーポリシー
-    .rule__use
-      = link_to "#" do
-        メルカリ利用規約
-    .rule__notation
-      = link_to "#" do
-        特定商取引に関する表記
+  .type.type_singup
+    .type__wrapper
+      .type__wrapper__mail
+        = link_to new_user_registration_path, class: "type__wrapper__mail__center" do
+          = fa_icon "envelope-o lg", class: "type__wrapper__mail__center--icon"
+          %span.type__wrapper__mail__center--content
+            メールアドレスで登録する
+      .type__wrapper__facebook.type__wrapper--radius
+        = link_to "#", class: "type__wrapper__facebook__center" do
+          = fa_icon "facebook-official 2x", class: "type__wrapper__facebook__center--icon"
+          %span.type__wrapper__facebook__center--content  Facebookで登録する
+      .type__wrapper__google.type__wrapper--radius
+        = link_to "#", class: "type__wrapper__google__center" do
+          = fa_icon "google lg", class: "type__wrapper__google__center--icon"
+          %span.type__wrapper__google__center--content
+            Googleで登録する
 
-
-
-
-
-  = link_to "mercariロゴ", root_path
-
-  © Mercari, Inc.
+  = render partial: "users/users_footer"

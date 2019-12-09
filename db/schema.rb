@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_054209) do
+ActiveRecord::Schema.define(version: 2019_12_06_030338) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image_url", null: false
@@ -48,6 +48,16 @@ ActiveRecord::Schema.define(version: 2019_12_05_054209) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "birthday", null: false
+    t.string "family_name", null: false
+    t.string "first_name", null: false
+    t.string "kana_family_name", null: false
+    t.string "kana_first_name", null: false
+    t.string "tel", null: false
+    t.text "profile"
+    t.string "icon"
+    t.integer "money"
+    t.integer "point"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
