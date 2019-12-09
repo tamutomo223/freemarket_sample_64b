@@ -1,0 +1,47 @@
+.rule {
+  text-align: center;
+  display: flex;
+  margin: 80px auto;
+  font-size: 12px;
+  width: 400px;
+
+
+  &__wrapper {
+    margin: auto;
+    &--deco {
+      color: #333;
+      margin-right: 10px;
+    }
+  }
+}
+
+.logo-wrapper {
+  text-align: center;
+
+
+  .mercari-logo {
+    margin-left: 30px;
+
+    &__link {
+      &__svg {
+        fill:#231815;
+        stroke:#fff;
+        stroke-miterlimit:10;
+        width: 200px;
+        height: 65px;
+        opacity: 0.19;
+        &--cls-2{
+          fill: #231815;
+          stroke-miterlimit: 10;
+          font-size: 24px;
+          stroke: #231815;
+          font-family: YuGo-Bold-83pv-RKSJ-H, YuGothic;
+        }
+      }
+    }
+  }
+  &--content {
+    color: #333;
+    font-size: 13px;
+  }
+}
