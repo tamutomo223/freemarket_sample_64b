@@ -12,55 +12,92 @@
         .mypage__icon__number__list  
           %P 出品数
           .bold 80
+          
   %section.tabb-var
     .tab-var__mypage
-      =link_to "#" do
-        %p.tab-notice お知らせ
-      =link_to "#" do
-        %p.tab-todo やることリスト
+      %p.tab.tab-A.active お知らせ
+      %p.tab.tab-B やることリスト
   .tab-content
-    %ul.tab-content__notice-list
+    %ul.tab-content__lists.list-A
       =link_to "#" do
-        %li.notice
+        %li.content
           %figure
           = image_tag "/ロゴ/ロゴ.png", class:"icon"
           .text 商品情報商品情報
           =fa_icon "chevron-right"
       =link_to "#" do
-        %li.notice
+        %li.content
           %figure
           = image_tag "/ロゴ/ロゴ.png", class:"icon"
           .text 商品商品商品商品出品
           = fa_icon "chevron-right"
-        %li.notice
+        %li.content
           %figure
           = image_tag "/ロゴ/ロゴ.png", class:"icon"
           .text 商品商品商品商品出品
           =fa_icon "chevron-right"
         %li.btn
           =link_to "#" do
-            %p.mypage-notice-list 一覧を見る
+            %p.mypage-list 一覧を見る
+
+    %ul.tab-content__lists.list-B.show-none
+      =link_to "#" do
+        %li.content
+          %figure
+          = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .text  やるやるヤルヤルヤルヤル
+          =fa_icon "chevron-right"
+      =link_to "#" do
+        %li.content
+          %figure
+          = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .text やるやるヤルヤルヤルヤル
+          = fa_icon "chevron-right"
+        %li.content
+          %figure
+          = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .text やるやるヤルヤルヤルヤル
+          =fa_icon "chevron-right"
+        %li.btn
+          =link_to "#" do
+            %p.mypage-list 一覧を見る
+
   %h2.buy-head 購入した商品
   %section.tab-buy-bought-content
-  .tab-buy-bought-content__buy
-    =link_to "#" do
-      %p.tab-buy 取引中
-    =link_to "#" do
-      %p.tab-bought 過去の取引
-  .mypage-tab
-    %ul.mypage-tab__buy-list
+  .tab-var__mypage
+    %p.tab.tab-C.active 取引中
+    %p.tab.tab-D 過去の取引
+  .tab-content
+    %ul.tab-content__lists.list-C
       =link_to "#" do
-        %li.buy
+        %li.content
           %figure
           = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text 商品商品商品商品出品
+          .text 買ってる買ってる買ってる
           =fa_icon "chevron-right"
       =link_to "#" do
-        %li.buy
+        %li.content
           %figure
           = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text 商品商品商品商品出品
+          .text 買ってる買ってる買ってる
           =fa_icon "chevron-right"
-        %li.back
+        %li.btn
           =link_to "#" do
-            %p.mypage-buy-list 一覧に戻る
+            %p.mypage-list 一覧に戻る
+
+    %ul.tab-content__lists.list-D.show-none
+      =link_to "#" do
+        %li.content
+          %figure
+          = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .text 過去過去過去過去過去過去
+          =fa_icon "chevron-right"
+      =link_to "#" do
+        %li.content
+          %figure
+          = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .text 過去過去過去過去過去過去
+          =fa_icon "chevron-right"
+        %li.btn
+          =link_to "#" do
+            %p.mypage-list 一覧に戻る
