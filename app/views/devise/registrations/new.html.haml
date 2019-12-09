@@ -1,27 +1,108 @@
 
-%h1 会員情報入力
+.wrapper
+  .input-header
+    = link_to root_path do
+      mercariロゴ
+    会員情報　　電話番号認証　　お届け先住所入力　　支払方法　　完了
 
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname, autofocus: true, placeholder:"例)メルカリ太郎"
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+  %h1.user-h1 会員情報入力
+
+  .form-wrapper.form-member_info_input
+    .form-wrapper__center.form-wrapper__center-member_info_input
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        %br/
+        .field
+          = f.label :"ニックネーム", class: "field--label"
+          %p.field--hs
+            必須
+          %br/
+          = f.text_field :nickname, autofocus: true, placeholder:"　例)メルカリ太郎", class: "field--deco"
+        %br/
+        .field
+          = f.label :"メールアドレス", class: "field--label"
+          %p.field--hs
+            必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "　PC・携帯どちらでも可", class: "field--deco"
+        %br/
+        .field
+          = f.label :"パスワード", class: "field--label"
+          %p.field--hs
+            必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", placeholder: "　7文字以上の半角英数字", class: "field--deco"
+          %p.field--notice_content
+            ※ 英字と数字の両方を含めて設定してください
+
+        %br/
+        .checkbox
+          = check_box_tag :check
+          = label_tag :check, "　パスワードを表示する"
+
+        %br/
+        %p.field--identification 本人確認
+        %p.field--identification_content
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+        %br
+        .field
+          = f.label :"お名前(全角)", class: "field--label"
+          %p.field--hs
+            必須
+          %br/
+          = f.text_field :family_name, autofocus: true, placeholder:"　例)山田", class: "field--deco_name"
+          = f.text_field :first_name, autofocus: true, placeholder:"　例)彩", class: "field--deco_name"
+
+        %br
+        .field
+          = f.label :"お名前カナ(全角) ", class: "field--label"
+          %p.field--hs
+            必須
+          %br/
+          = f.text_field :kana_family_name, autofocus: true, placeholder:"　例)ヤマダ", class: "field--deco_name"
+          = f.text_field :kana_first_name, autofocus: true, placeholder:"　例)アヤ", class: "field--deco_name"
+          
+        %br
+        .field
+          = f.label :"生年月日", class: "field--label"
+          %p.field--hs
+            必須
+          %br/
+          = raw sprintf( f.date_select(:birthday, use_month_numbers: true, start_year: Time.now.year, end_year: 1900, prompt: "--", with_css_classes: 'field--birthday', date_separator: '%s'), '年 ', '月 ') + '日'
+
+        %p.field--notice_content
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+        %br/
+        .form-wrapper__center__self-check
+          = check_box_tag :check
+          = label_tag :check, "私はロボットではありません"
+
+        %br/
+        %p.form-wrapper__center__rule-content
+          「次へ進む」のボタンを押すことにより、
+          = link_to "#" do
+            利用規約
+          %span に同意したものとみなします
+
+        %br/
+        .field
+          = f.label :"電話ばんごう", class: "field--label"
+          %p.field--hs
+            必須
+          %br/
+          = f.text_field :tel, autofocus: true, placeholder:"例)メルカリ太郎", class: "field--deco"
+
+        %br/
+        .actions
+          = f.submit "次へ進む", class: "actions--submit"
+
+        %br/
+        %p.form-wrapper__center__selfinfo-content
+          = link_to "#", class: "form-wrapper__center__selfinfo-content--link" do
+            本人情報の登録について>
+        %br/
+
+  = render partial: "users/users_footer"
+
