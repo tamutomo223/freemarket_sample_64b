@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   root to: "items#index"
   get "/sell" , to: "items#sell", as: "sell_items"
   get "/signup" , to: "users#signup", as: "signup"
-  get "/mypage" , to: "mypage#mypage", as: "mypage"
+  resources :users ,only:[:mypage] do
+    collection do
+      get 'mypage'
+    end
+  end
 end
