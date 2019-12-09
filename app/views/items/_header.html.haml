@@ -30,8 +30,9 @@
               = fa_icon "check"
               %span やることリスト
           .top__header__content__2__right__mypage
-            = link_to "#" do
-              マイページ
+            = link_to "/users/mypage" do
+              = image_tag "/ロゴ/ningen.png", class:"icon"
+              %span.m マイページ
       - else
         .top__header__content__2__right
           .top__header__content__2__right__signup
