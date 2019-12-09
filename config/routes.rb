@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "items#index"
   
   #itemsコントローラ内に作ったオリジナルの変数にルーティングの設定をしたい場合,次の①,②,③に記述してください
-  resources :items , only:[:sell,:exhibit] do#①only内にオリジナルの変数名を記述
+  resources :items , only:[:sell,:exhibit,:show] do#①only内にオリジナルの変数名を記述
     collection do
       #②collection内にhttpメソッド 'オリジナルの変数名'と記述
       get 'sell'
@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 
   get "/signup" , to: "users#signup", as: "signup"
 
-  resources :items ,only:[:show,:sell,:exhibit]#③only内にオリジナルの変数名を記述
+  resources :users ,only:[:mypage] do
+    collection do
+      get 'mypage'
+    end
+  end
 
 end

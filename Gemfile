@@ -85,3 +85,4 @@ gem "font-awesome-sass"
 gem 'fog-aws'
 gem 'pry-rails'
 gem "jquery-rails"
+gem 'payjp'

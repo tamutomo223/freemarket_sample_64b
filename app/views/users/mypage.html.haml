@@ -1,0 +1,13 @@
+= render "myheader"
+= render "mysell"
+.pankuzu
+  =link_to "#" do
+    %p.top メルカリ
+  =fa_icon "chevron-right"
+  .bold マイページ
+.mypage-content
+  = render "myleft-content"
+  = render "mymein-content"
+  
+
+= render "myfooter"
