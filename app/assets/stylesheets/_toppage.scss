@@ -89,6 +89,18 @@
         }
       }
       &__right {
+        padding-left:160px;
+        position: relative;
+        .icon{
+          width: 30px;
+          height: 30px;
+          position: absolute;
+          overflow: hidden;
+          border-radius: 50%;
+        }
+        .m{
+          padding-left: 40px;
+        }
         i{color:$darkgray;
           font-size:18px;
           margin-right:5px;}
