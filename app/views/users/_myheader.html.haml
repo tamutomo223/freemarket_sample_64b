@@ -1,0 +1,34 @@
+.top__header
+  .top__header__content
+    .top__header__content__1
+      = link_to root_path do
+        = image_tag "/ロゴ/image.png"
+      %input{type: "text",placeholder: "何かお探しですか？"}
+        = fa_icon "search"
+    .top__header__content__2
+      .top__header__content__2__left
+        .top__header__content__2__left__category
+          = link_to "#" do
+            = fa_icon "list-ul"
+            %span カテゴリから探す
+        .top__header__content__2__left__brand
+          = link_to "#" do
+            = fa_icon "tag"
+            %span ブランドから探す
+        .top__header__content__2__right
+          .top__header__content__2__right__like
+            = link_to "#" do
+              = fa_icon "heart-o"
+              %span いいね！一覧
+          .top__header__content__2__right__notice
+            = link_to "#" do
+              = fa_icon "bell-o"
+              %span お知らせ               
+          .top__header__content__2__right__todo
+            = link_to "#" do
+              = fa_icon "check"
+              %span やることリスト
+          .top__header__content__2__right__mypage
+            = link_to "#" do
+              = image_tag "/ロゴ/ningen.png", class:"icon"
+              %span.m マイページ

@@ -1,144 +1,18 @@
 
 .wrapper
-  = link_to sell_items_path do
-    .item__sell
-      .item__sell__title
-        出品
-      .item__sell__photo
-        %img{src:"/ロゴ/カメラ.png"}
-  .top__header
-    .top__header__content
-      .top__header__content__1
-        = link_to root_path do
-          %img{src: "/ロゴ/image.png"}
-        %input{type: "text",placeholder: "何かお探しですか？"}
-          = fa_icon "search"
-      .top__header__content__2
-        .top__header__content__2__left
-          .top__header__content__2__left__category
-            = link_to "#" do
-              = fa_icon "list-ul"
-              %span カテゴリから探す
-          .top__header__content__2__left__brand
-            = link_to "#" do
-              = fa_icon "tag"
-              %span ブランドから探す
-        - if user_signed_in?      
-          .top__header__content__2__right
-            .top__header__content__2__right__like
-              = link_to "#" do
-                = fa_icon "heart-o"
-                %span いいね！一覧
-            .top__header__content__2__right__notice
-              = link_to "#" do
-                = fa_icon "bell-o"
-                %span お知らせ               
-            .top__header__content__2__right__todo
-              = link_to "#" do
-                = fa_icon "check"
-                %span やることリスト
-            .top__header__content__2__right__mypage
-              = link_to "#" do
-                マイページ
-        - else
-          .top__header__content__2__right
-            .top__header__content__2__right__signup
-              = link_to signup_users_path do
-                新規会員登録
-            .top__header__content__2__right__login
-              = link_to new_user_session_path do
-                ログイン     
+  = render "sell"
+  = render "header"
+
   .slide
-    %img{src:"/ロゴ/sky.jpg"}
+    .slide-image
+      = image_tag "/ロゴ/部屋.png"
+    .slide-image
+      = image_tag "/ロゴ/クリスマス.png"
 
-  .no
+  .category-title
+    %h2 商品一覧
+  = render "category"
+  = render "category"
+  = render "category"
 
-  .footer__top
-    .footer__top__content
-      .footer__top__content__left
-        .footer__top__content__left__notice1
-          スマホでかんたんフリマアプリ
-        .footer__top__content__left__notice2
-          今すぐ無料ダウンロード！
-        .footer__top__content__left__app
-          %img{src:"/ロゴ/ロゴ.png" ,class:"rogo"}
-          = link_to "", "#", class: "footer-img__icon-box--apple", style: "display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-gb/badge-lrg.svg?releaseDate=2012-05-31&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"
-          = link_to "#" do
-            %img{src: "/ロゴ/google.png" ,class:"google"}
-      .footer__top__content__right
-        
-        %img{src: "/ロゴ/スマホ.png"}
-  .footer__bottom
-    .footer__bottom__content
-      .footer__bottom__content__about
-        %h2 メルカリについて
-        %ul
-          = link_to "#" do
-            %li 
-              %P 会社概要（運営会社）
-          = link_to "#" do
-            %li
-              %P 採用情報
-          = link_to "#" do
-            %li
-              %P プレスリリース
-          = link_to "#" do
-            %li 公式ブログ
-          = link_to "#" do
-            %li メルカリロゴ利用ガイドライン
-          .footer__bottom__content__about__sns
-            =link_to "#" do
-              .footer__bottom__content__about__sns__twitter
-                = fa_icon "twitter"
-            =link_to "#" do
-              .footer__bottom__content__about__sns__facebook
-                = fa_icon "facebook-square"
-      .footer__bottom__content__help
-        %h2 ヘルプ＆ガイド
-        %ul
-          = link_to "#" do
-            %li メルカリガイド
-          = link_to "#" do
-            %li らくらくメルカリ便
-          = link_to "#" do
-            %li ゆうゆうメルカリ便
-          = link_to "#" do
-            %li 大型メルカリ便
-          = link_to "#" do
-            %li 車体取引ガイド
-          = link_to "#" do
-            %li メルカリあんしん・あんぜん宣言！
-          = link_to "#" do
-            %li 偽ブランド品撲滅への取り組み
-          = link_to "#" do
-            %li メルカリボックス
-      .footer__bottom__content__privacy
-        %h2 プライバシーと利用規約
-        .lists
-          %ul
-            = link_to "#" do
-              %li プライバシーポリシー
-            = link_to "#" do
-              %li メルカリ利用規約
-            = link_to "#" do
-              %li あんしんスマホサポート制度に関する利用特約
-            = link_to "#" do
-              %li コンプライアンスポリシー
-          %ul
-            = link_to "#" do
-              %li 個人データの安全管理に係る基本方針
-            = link_to "#" do
-              %li 特定商取引に関する表記
-            = link_to "#" do
-              %li 資金決済法に基づく表示
-            = link_to "#" do
-              %li 法令順守と犯罪抑止のために
-      .footer__bottom__content__country
-        %h2 国
-        %ul
-          = link_to "#" do
-            %li 日本
-          = link_to "#" do
-            %li United Stat
-    .footer__bottom__last
-      %img{src:"/ロゴ/白.png"}
+  = render "footer"
