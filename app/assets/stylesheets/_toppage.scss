@@ -244,7 +244,8 @@
             height:188px;
             img{
               height:188px;
-              object-fit: cover;
+              width:188px;
+              object-fit: contain;
             }
           }
           &__name{
@@ -255,6 +256,7 @@
             display: inline-block;
             text-align: left;
             font-size: 14px;
+            width: 163px;
           }
           &__price {
             color:white;
@@ -264,7 +266,6 @@
             font-size:17px;
             line-height: 28px;
             padding:0 12px;
-            width:50px;
             position: absolute;
             bottom:80px;
             border-top-right-radius: 20px;
