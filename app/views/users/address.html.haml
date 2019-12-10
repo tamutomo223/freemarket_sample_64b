@@ -1,0 +1,72 @@
+.address-wrapper
+  .address-header
+    .address-header__logo
+      = image_tag "/ロゴ/image.png"
+    .address-header__ba  
+      = image_tag "/ロゴ/バナー住所.png"
+  .title 
+    %h2 住所入力
+  .form-address
+    .form-address__content
+      .s-name.ss
+        .s-name__top
+          .label 名前
+          .label-mark 必須
+        .s-name__bottom
+          %input{placeholder:"例）山田"}
+          %input{placeholder:"例）彩"}
+      .s-kana.ss
+        .s-kana__top
+          .label 名前カナ
+          .label-mark 必須
+        .s-kana__bottom
+          %input{placeholder:"例）ヤマダ"}
+          %input{placeholder:"例）アヤ"}
+      .s-num.ss
+        .s-num__top
+          .label 郵便番号
+          .label-mark 必須
+        .s-num__bottom
+          %input{placeholder:"例）123-4567"}
+      .s-state.ss
+        .s-state__top
+          .label 都道府県
+          .label-mark 必須
+        .s-state__bottom
+          %select
+            %option 北海道
+      .s-city.ss
+        .s-city__top
+          .label 市区町村
+          .label-mark 必須
+        .s-city__bottom
+          %input{placeholder:"例）横浜市緑区"}
+      .s-towns.ss
+        .s-town__top
+          .label 番地
+          .label-mark 必須
+        .s-town__bottom
+          %input{placeholder:"例）青山1−1−1"}
+      .s-build.ss
+        .s-build__top
+          .label 建物名
+          .label-mark-n 任意
+        .s-build__bottom
+          %input{placeholder:"例）柳ビル103"}
+      .s-phone.ss
+        .s-phone__top
+          .label 建物名
+          .label-mark-n 任意
+        .s-phone__bottom
+          %input{placeholder:"例）09012345678"}
+      .s-submit.ss
+        %input{type:"submit",value:"次へ進む"}
+  .s-footer
+    %ul.s-footer__ul
+      %li.s-footer__ul__li
+        = link_to "プライバシーポリシー", "#"
+      %li.s-footer__ul__li
+        = link_to "メルカリ利用規約", "#"
+      %li.s-footer__ul__li
+        = link_to "特定商取引に関する表記", "#"
+    = image_tag "/ロゴ/image (2).png"

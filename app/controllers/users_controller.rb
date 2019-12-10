@@ -8,4 +8,7 @@ class UsersController < ApplicationController
   end
   def mypage
   end
+  def address
+    # @address = Address.new
+  end  
 end

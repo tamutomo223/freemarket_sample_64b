@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
   root to: "items#index"
 
   #itemsコントローラ内に作ったオリジナルの変数にルーティングの設定をしたい場合,次の①,②,③に記述してください
@@ -14,10 +15,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users ,only:[:mypage, :signup] do
+  resources :users ,only:[:mypage, :signup,:address,:address_create] do
     collection do
       get 'mypage'
       get "signup"
+      get "address"
+      post "address_create"
     end
   end
 
