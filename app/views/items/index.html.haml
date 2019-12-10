@@ -11,8 +11,6 @@
 
   .category-title
     %h2 商品一覧
-  = render "category"
-  = render "category"
-  = render "category"
+  = render partial: "category", locals: {items: @items}
 
   = render "footer"
