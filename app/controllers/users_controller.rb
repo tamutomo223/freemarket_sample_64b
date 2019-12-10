@@ -6,9 +6,16 @@ class UsersController < ApplicationController
 
   def show
   end
+  
   def mypage
   end
+
   def address
     # @address = Address.new
   end  
+
+
+  def logout
+  end
+
 end

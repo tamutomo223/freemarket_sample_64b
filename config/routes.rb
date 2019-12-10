@@ -15,13 +15,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users ,only:[:mypage, :signup,:address,:address_create] do
+  resources :users do
     collection do
       get 'mypage'
+      get 'logout'
       get "signup"
       get "address"
       post "address_create"
     end
   end
-
 end
