@@ -1,5 +1,6 @@
 .container
   .header
+    
     .header-logo
     = link_to image_tag("/ロゴ/image.png", width: '185',height:'100')
   .body
@@ -16,12 +17,15 @@
             最大10枚までアップロードできます
           .input-image__form
             = f.fields_for :images do |t|
-              %label.input-image-drop
+              .input-image-drop
+                .preview
+                -#画像入力フォームの画像を表示させる場所
                 .drop-zone
                   ドラッグアンドドロップ
                   %br
                   またはクリックしてファイルをアップロード
-                  = t.file_field :image_url,class:"input-image-box"#複数投稿は以下を使う, multiple: true
+                  = t.file_field :image_url,class:"input-image-box",id:"image"#multiple: true
+
             
         .input-item-name
           .label
@@ -156,3 +160,5 @@
     =link_to image_tag("/ロゴ/image (2).png", width: '80',height:'65')
     .copyright
     ©︎freemarket
+
+

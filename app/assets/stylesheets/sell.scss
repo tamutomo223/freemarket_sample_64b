@@ -64,14 +64,10 @@
   font-size: 14px;
   margin-bottom: 10px;
 }
-.input-image-box{
-  height: 160px;
-  width: 620px;
-  display: none;
-}
+
 .drop-zone{
+  //ドラッグアンドドロップのデザイン
   height: 160px;
-  width: 620px;
   font-size: 14px;
   background-color: #F5F5F5;
   border: dashed thin #cccccc;
@@ -79,10 +75,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  display: flex;
 }
+.input-image-box{
+  //画像入力フォームとドラッグ＆ドロップの大きさを同じにし、ドラッグ＆ドロップのデザインと表示を重ねる
+  height: 160px;
+  width: 100%;
+  position: absolute;
+  opacity: 0;
+}
+
+//画像のプレビュー表示
+.image-preview-box{
+  height: 160px;
+  width: 114px;
+  background-color: gray;
+}
+.image-preview{
+  line-height: 114;
+}
+
+
 .input-image{
   padding: 40px;
   @extend.box-common;
+
 }
 //各ブロックでpaddingと区切りの線を入れる
 .input-item-name,.input-details,.input-shipping,.input-price,.self-content{
