@@ -10,6 +10,12 @@ class UsersController < ApplicationController
   def mypage
   end
 
+  def address
+    # @address = Address.new
+  end  
+
+
   def logout
   end
+
 end
