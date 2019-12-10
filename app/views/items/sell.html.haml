@@ -24,7 +24,7 @@
                   ドラッグアンドドロップ
                   %br
                   またはクリックしてファイルをアップロード
-                  = t.file_field :image_url,class:"input-image-box",id:"image"#multiple: true
+                  = t.file_field :image_url,class:"input-image-box",id:"image",multiple: true,name:'images[image_url][]'
 
             
         .input-item-name
@@ -116,19 +116,15 @@
             .charge__message
               販売手数料(10%)
             .charge__result
-              計算結果
-              
-              %output{name: "result"} -
-
-              /form method="get" action="output.html" oninput="result.value = Number(a.value) + Number(b.value);"
-
+              //販売手数料の計算結果を表示する場所
+              ¥
 
           .profit
             .profit__message
               販売利益
             .profit__result
-              計算結果
-              %output{:name => "result"} -
+              //販売利益の計算結果を表示する場所
+              ¥
       .self-content.sellbtn-box 
         = link_to '#' do
           禁止されている出品

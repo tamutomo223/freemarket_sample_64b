@@ -68,6 +68,7 @@
 .drop-zone{
   //ドラッグアンドドロップのデザイン
   height: 160px;
+  width: 620px;
   font-size: 14px;
   background-color: #F5F5F5;
   border: dashed thin #cccccc;
@@ -76,7 +77,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  display: flex;
+  
 }
 .input-image-box{
   //画像入力フォームとドラッグ＆ドロップの大きさを同じにし、ドラッグ＆ドロップのデザインと表示を重ねる
@@ -90,10 +91,17 @@
 .image-preview-box{
   height: 160px;
   width: 114px;
-  background-color: gray;
+  display: flex;
 }
+.input-image-drop{
+  display: flex;
+}
+.preview{
+  display: flex;
+}
+//画像本体
 .image-preview{
-  line-height: 114;
+  
 }
 
 
