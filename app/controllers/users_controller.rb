@@ -11,6 +11,10 @@ class UsersController < ApplicationController
   def mypage
   end
 
+  def profile
+  end 
+  def card
+  end
   def address
     @shipping = Shipping.new
   end
@@ -38,8 +42,7 @@ class UsersController < ApplicationController
     params.require(:shipping).permit(:user_id,:s_family_name,:s_first_name,:s_kana_family_name,:s_kana_first_name,:address_number,:prefecture_id,:city,:town,:building,:s_tel)
   end  
 
-  def profile
-  end
+  
 
 
 end

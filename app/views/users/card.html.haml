@@ -1,0 +1,24 @@
+= render "myheader"
+= render "mysell"
+.pankuzu
+  =link_to "#" do
+    %p.top メルカリ
+  =fa_icon "chevron-right"
+  %p.top マイページ
+  =fa_icon "chevron-right"
+  .bold 支払い方法
+.mypage-content
+  = render "card-var"
+  .card
+    %p.card__head 支払い方法
+    .card__area
+      .card__area__list クレジットカード一覧
+      %section.card__area__feild
+        .card__area__feild__btn
+          =fa_icon "credit-card",class:"i-card"
+          .card__area__feild__btn__p クレジットカードを追加する
+      .card__area__how
+        =link_to "#" do
+          %p.card__area__how__p 支払い方法について
+        =fa_icon "chevron-right"
+= render "/items/footer"

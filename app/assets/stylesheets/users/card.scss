@@ -1,0 +1,68 @@
+@import "color";
+.card {
+  text-align: center;
+  width: 700px;
+  height: 200px;
+  background-color: #fff;
+  &__head {
+    width: 700px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 24px;
+    border-bottom: 1px solid #eeeeee;
+  }
+  &__area {
+    width: 573px;
+    height: 245             px;
+    padding: 64px;
+    background-color: #fff;
+    &__list {
+      font-weight: bold;
+      font-size: 16px;
+      margin-right: 160px;
+    }
+    &__feild {
+      padding: 24px 0;
+      border-bottom: 1px solid #eeeeee;
+      &__btn {
+        width: 320px;
+        margin: 0 auto;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        background-color: #ea352d;
+        display: flex;
+        justify-content: center;
+        &:hover {
+          opacity: 0.5;
+        }
+        .i-card {
+          margin-top: 15px;
+          color: #fff;
+          font-size: 18px;
+        }
+        &__p {
+          margin-left: 10px;
+          font-size: 14px;
+          color: #fff;
+        }
+      }
+    }
+    &__how {
+      display: flex;
+      justify-content: flex-end;
+      &__p {
+        color: $skyblue;
+        font-size: 14px;
+        margin: 40px 0;
+      }
+      i{
+      margin: 43px 0;
+      margin-left:10px ;
+      color: $skyblue;
+      font-size: 14px;
+      }
+    }
+  }
+}
