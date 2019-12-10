@@ -7,9 +7,7 @@
         = link_to "#" do
           もっと見る >
       %ul.category-type__contents
-        - items.each_with_index do |item, i|
-          - if i >= 10
-            - break
+        - items.each do |item|
           = link_to item_path(1) do
             %li.category-type__contents__item
               .category-type__contents__item__image

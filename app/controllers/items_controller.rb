@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all.includes(:images).order("created_at DESC")
+    @items = Item.all.includes(:images).order("created_at DESC").limit(10)
   end  
 
   def sell
