@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   def logout
   end
 
+
   def prefecture
   end  
 
@@ -36,5 +37,9 @@ class UsersController < ApplicationController
   def shipping_params
     params.require(:shipping).permit(:user_id,:s_family_name,:s_first_name,:s_kana_family_name,:s_kana_first_name,:address_number,:prefecture_id,:city,:town,:building,:s_tel)
   end  
+
+  def profile
+  end
+
 
 end
