@@ -14,7 +14,7 @@
   }
   &__area {
     width: 573px;
-    height: 245             px;
+    height: 245 px;
     padding: 64px;
     background-color: #fff;
     &__list {
@@ -52,16 +52,22 @@
     &__how {
       display: flex;
       justify-content: flex-end;
+      &:hover {
+        opacity: 0.5;
+      }
       &__p {
         color: $skyblue;
         font-size: 14px;
         margin: 40px 0;
+        &:hover {
+          border-bottom: 1px solid $skyblue;
+        }
       }
-      i{
-      margin: 43px 0;
-      margin-left:10px ;
-      color: $skyblue;
-      font-size: 14px;
+      i {
+        margin: 43px 0;
+        margin-left: 10px;
+        color: $skyblue;
+        font-size: 14px;
       }
     }
   }
