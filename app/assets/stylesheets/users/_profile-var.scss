@@ -10,7 +10,7 @@
   justify-content: space-between;
   line-height: 50px;
   background-color: #eeeeee;
-  &:hover{
+  &:hover {
     opacity: 0.5;
   }
   &__myp {
@@ -32,7 +32,7 @@
   line-height: 50px;
   background-color: #fff;
   border-bottom:1px solid $darkgray ;
-  &:hover{
+  &:hover {
     opacity: 0.5;
   }
   &__p {
@@ -45,10 +45,3 @@
     margin-right: 10px;
   }
 }
-.title {
-  width: 280px;
-  line-height: 70px;
-  margin-left: 50px;
-  height: 50px;
-  font-weight: bold;
-  }

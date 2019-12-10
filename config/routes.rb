@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get "signup"
       get "address"
       post "address_create"
+      get "profile"
     end
   end
 end
