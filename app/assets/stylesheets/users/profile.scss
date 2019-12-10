@@ -1,0 +1,59 @@
+@import "color";
+.profile-edit {
+  text-align: center;
+  width: 700px;
+  height: 200px;
+  background-color: #fff;
+  &__pro-head{
+    width: 700px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 24px;
+  }
+  &__icon {
+    width: 700px;
+    height: 156px;
+    background-image: url("/ロゴ/back.jpg");
+    margin: 0 auto;
+    display: flex;
+    .samne {
+      width: 60px;
+      height: 60px;
+      margin: 70px 0 55px;
+      margin-left: auto;
+      overflow: hidden;
+      border-radius: 50%;
+    }
+    .name-box{
+      width: 220px;
+      height: 48px;
+      margin: 74px 0 55px;
+      margin-right: auto;
+      margin-left: 10px;
+      border-radius: 4px;
+    }
+  }
+}
+.profile-area{
+  background-color: #fff;
+  padding: 40px 16px;
+}
+.profile-box{
+  width: 668px;
+  height: 216px;
+  border-color: $darkgray#cccccc;
+}
+.profile-btn{
+  margin:0 auto;
+  margin-top: 16px;
+  width: 668px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  background-color:#EA352D;
+  &:hover{
+    background-color:red;
+  }
+}
