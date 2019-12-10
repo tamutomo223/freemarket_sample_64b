@@ -31,13 +31,12 @@
 |prefecture|string|null: false|
 |city|string|null: false|
 |town|string|null: false|
-|house_number|string|null: false|
 |building|string|null: false|
 |user_id|references|null: false, foreign_key: true|
-|s_first_same|string|null: false|
-|s_family_same|string|null: false|
-|s_kana_family_same|string|null: false|
-|s_kana_first_same|string|null: false|
+|s_first_name|string|null: false|
+|s_family_name|string|null: false|
+|s_kana_family_name|string|null: false|
+|s_kana_first_name|string|null: false|
 |s_tel|string||
 ### Association
 - belongs_to :user

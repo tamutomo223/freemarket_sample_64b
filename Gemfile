@@ -88,3 +88,5 @@ gem 'fog-aws'
 gem 'pry-rails'
 gem "jquery-rails"
 gem 'payjp'
+
+gem 'active_hash'
