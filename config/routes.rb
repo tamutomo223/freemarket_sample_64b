@@ -23,7 +23,8 @@ Rails.application.routes.draw do
       get "signup"
       get "address"
       post "address_create"
-      get "profile"
+      get "mypage/profile" ,to: "users#profile"
+      get "mypage/card" ,to: "users#card"
     end
   end
 end
