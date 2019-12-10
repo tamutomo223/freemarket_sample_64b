@@ -35,7 +35,7 @@
             .label 都道府県
             .label-mark 必須
           .s-state__bottom
-            = f.select :prefecture,@prefecture,{},{}
+            =f.collection_select :prefecture_id, Prefecture.all, :id, :name
         .s-city.ss
           .s-city__top
             .label 市区町村
