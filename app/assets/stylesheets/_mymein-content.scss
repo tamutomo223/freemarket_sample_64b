@@ -1,0 +1,128 @@
+.mymein-content {
+  width: 700px;
+}
+.mypage {
+  text-align: center;
+  width: 700px;
+  height: 200px;
+  &__icon {
+    width: 700px;
+    height: 200px;
+    background-image: url("/ロゴ/back.jpg");
+    margin: 0 auto;
+    .icon {
+      margin: 50px auto 10px;
+      overflow: hidden;
+      border-radius: 50%;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    &__nicname {
+      height: 20px;
+      color: #000;
+      text-align: center;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    &__number {
+      margin-top: 8px;
+      height: 16px;
+      display: flex;
+      justify-content: center;
+      &:hover {
+        opacity: 0.5;
+      }
+      &__list {
+        display: flex;
+        margin-inline-start: 16px;
+        .bold {
+          margin-top: 4px;
+          font-weight: bold;
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+}
+.tab-var {
+  &__mypage {
+    background-color: #eeeeee;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    text-align: center;
+    .tab {
+      line-height: 75px;
+      width: 350px;
+      height: 75px;
+      color: black;
+      &:hover {
+        color: gray;
+      }
+    }
+  }
+}
+.tab-content {
+  background-color: #fff;
+  &__notice-list {
+    line-height: 90px;
+    color: black;
+    margin-bottom: 30px;
+  }
+}
+.content {
+  display: flex;
+  line-height: 60px;
+  height: 80px;
+  &:hover {
+    opacity: 0.5;
+  }
+  .text {
+    width: 680px;
+    margin: auto 0;
+    color: black;
+  }
+  i {
+    margin: auto 0;
+    margin-right: 10px;
+    color: black;
+  }
+}
+.btn {
+  background-color: #fff;
+  text-align: center;
+  height: 90px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+.mypage-list {
+  background-color: #eeeeee;
+  line-height: 60px;
+  height: 60px;
+  margin: 30px;
+  color: #000;
+}
+.icon {
+  height: 48px;
+  width: 48px;
+}
+.buy-head {
+  padding: 0 16px;
+  line-height: 75px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 40px;
+  height: 75px;
+  background: #fafafa;
+}
+
+.active {
+  border-top: 1px solid red;
+  background-color: #fff;
+}
+.show-none {
+  display: none;
+}

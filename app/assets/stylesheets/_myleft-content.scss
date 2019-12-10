@@ -1,0 +1,51 @@
+.myleft-content {
+  height: 1252px;
+  padding-right: 40px;
+  margin-right: 40px;
+}
+.mylink-myp {
+  width: 280px;
+  margin: 0 50px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 50px;
+  background-color: #eeeeee;
+  &__myp {
+    color: black;
+    margin-left: 10px;
+  }
+  i {
+    color: black;
+    margin: auto 0;
+    margin-right: 10px;
+  }
+}
+.mylink {
+  width: 280px;
+  margin: 0 50px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 50px;
+  background-color: #fff;
+  &:hover{
+    opacity: 0.5;
+  }
+  &__p {
+    color: black;
+    margin-left: 10px;
+  }
+  i {
+    color: gray;
+    margin: auto 0;
+    margin-right: 10px;
+  }
+}
+.title {
+  width: 280px;
+  line-height: 70px;
+  margin-left: 50px;
+  height: 50px;
+  font-weight: bold;
+  }

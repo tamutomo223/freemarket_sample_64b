@@ -7,83 +7,14 @@
         = link_to "#" do
           もっと見る >
       %ul.category-type__contents
-        = link_to item_path(1) do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999
-        = link_to "#" do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999
-        = link_to "#" do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999
-        = link_to "#" do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999
-        = link_to "#" do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999                     
-        = link_to "#" do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999
-        = link_to "#" do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999
-        = link_to "#" do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999
-        = link_to "#" do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999                     
-        = link_to "#" do
-          %li.category-type__contents__item
-            .category-type__contents__item__image
-              = image_tag"/ロゴ/靴.jpg"
-            .category-type__contents__item__name
-              《新品》おしゃれなスニーカー
-            .category-type__contents__item__price
-              ¥999
+        - items.each do |item|
+          = link_to item_path(1) do
+            %li.category-type__contents__item
+              .category-type__contents__item__image
+                - images = item.images
+                - image = images[0]
+                = image_tag "#{image.image_url}"
+              .category-type__contents__item__name
+                = item.item_name
+              .category-type__contents__item__price
+                = "¥#{item.price.to_s(:delimited)}"

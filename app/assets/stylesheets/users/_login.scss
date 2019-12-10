@@ -1,0 +1,42 @@
+.no_account {
+  text-align: center;
+  background-color: white;
+  width: 456px;
+  height: 104px;
+  margin: auto;
+  padding-top: 40px;
+  border-bottom: solid 0.1px #f5f5f5;
+  font-size: 14px;
+
+  &__signup {
+    background-color: #0099E8;
+    width: 343px;
+    height: 42px;
+    line-height: 42px;
+    margin: 8px auto;
+
+    &--link{
+      color: #FFFFFF;
+    }
+  }
+}
+
+.type_login{
+  width: 456px;
+  height: 181px;
+}
+
+.form-wrapper-login {
+  width: 456px;
+  height: 383px;
+  padding-top: 23px;
+
+  &__center-login {
+    margin-left: 56px;
+  }
+}
+
+.no-pass {
+  font-size: 14px;
+  color: #0099e8;
+}

@@ -1,0 +1,21 @@
+= render "myheader"
+= render "mysell"
+.pankuzu
+  =link_to "#" do
+    %p.top メルカリ
+  =fa_icon "chevron-right"
+  %p.top マイページ
+  =fa_icon "chevron-right"
+  .bold プロフィール
+.mypage-content
+  = render "profile-var"
+  .profile-edit
+    %p.profile-edit__pro-head プロフィール
+    %section.profile-edit__icon
+      %figure
+      = image_tag "/ロゴ/ningen.png", class:"samne"
+      %input{placeholder:"ニックネーム",class:"name-box"}
+    .profile-area
+      %textarea{placeholder:"プロフィールを入力してください。",class:"profile-box"}
+      %p.profile-btn 変更する
+= render "/items/footer"

@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.4'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -57,6 +57,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :test do
@@ -85,3 +87,6 @@ gem "font-awesome-sass"
 gem 'fog-aws'
 gem 'pry-rails'
 gem "jquery-rails"
+gem 'payjp'
+
+gem 'active_hash'

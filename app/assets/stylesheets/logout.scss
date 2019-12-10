@@ -1,0 +1,78 @@
+.pankuzu {
+  margin-left: 80px;
+  display: flex;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  box-shadow: 0px 9px 3px -3px rgba(0,0,0,0.6);
+  .top {
+    color: #000000;
+    &:hover{
+      color: gray;
+      text-decoration:underline ;
+    }
+  }
+  i {
+    color: gray;
+    margin: auto 0;
+    margin-right: 10px;
+    padding-left: 20px;
+  }
+  .bold {
+    font-weight: bold;
+  }
+}
+.mypage-content {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  width: 1440px;
+  height: 1300px;
+  padding-top: 40px;
+  margin-right: 210px;
+}
+.mainbtn{
+  width: 700px;
+  height: 180px;
+  background-color: #fff;
+}
+.log-btn{
+  margin:0 auto;
+  margin-top:60px;
+  width: 320px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  background-color:#EA352D;
+  &:hover{
+    background-color:red;
+  }
+}
+.mypage {
+  text-align: center;
+  width: 700px;
+  height: 200px;
+  &__icon {
+    width: 700px;
+    height: 200px;
+    background-image: url("/ロゴ/back.jpg");
+    margin: 0 auto;
+    .icon {
+      margin: 50px auto 10px;
+      overflow: hidden;
+      border-radius: 50%;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+      &__nicname {
+        height: 20px;
+        color: #000;
+        text-align: center;
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+    }
+  }
