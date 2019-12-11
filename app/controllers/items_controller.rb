@@ -5,23 +5,27 @@ class ItemsController < ApplicationController
 
   def sell
 
-    @item = Item.new
-    @item.images.build
-
+   @item = Item.new
+   @item.images.build
 
   end
 
   def show
 
-
   end  
 
   def exhibit
-    binding.pry
     @item = Item.new(item_params)
     @item.save
-    params[:images][:image_url].each do |i|
-      @item.images.create!(image_url: i,item_id:@item.id)
+    if @item.save
+      params[:images][:image_url].each do |i|
+        @item.images.create!(image_url: i,item_id:@item.id)
+      end
+      redirect_to root_path
+    else
+      #画像フォーム消えることを防ぐため
+      @item.images.build
+      render :sell
     end
   end
 

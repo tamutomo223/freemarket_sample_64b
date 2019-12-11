@@ -25,8 +25,10 @@
                   %br
                   またはクリックしてファイルをアップロード
                   = t.file_field :image_url,class:"input-image-box",id:"image",multiple: true,name:'images[image_url][]'
-
-            
+              - if @item.errors[:images].any?
+                .error
+                  画像がありません
+                  
         .input-item-name
           .label
             商品名
@@ -34,6 +36,7 @@
             必須
           .input-item-name__form
           = f.text_field :item_name,placeholder:"商品名(必須40文字まで)",class:"input-textbox"
+          %p{class: 'error'}=@item.errors.full_messages_for(:item_name)[0]
           .input-explain
             .label
               商品の説明
@@ -41,6 +44,7 @@
               必須
           .input-explain__form
           = f.text_area :explain,rows:"6",class:"input-textbox",placeholder:"商品の説明(必須1000文字以内)（色、素材、重さ、定価、注意点など）例）\n2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          %p{class: 'error'}=@item.errors.full_messages_for(:explain)[0]
         .input-details
           .message
             商品の詳細
@@ -51,16 +55,20 @@
               .label-mark
                 必須
               .input-category__form
-              = f.select :category_id,[["---", 0],["カテゴリー1", "カテゴリー１"]],{},{ class: "select-box" }
-              
+              = f.select :category_id,[["---", ''],["カテゴリー1", "カテゴリー１"]],{},{ class: "select-box" }
+              - if @item.errors[:category_id].any?
+                .error
+                  選択してください
             .input-size
               .label
                 サイズ
               .label-mark
                 必須
               .input-size__form
-              = f.select :size ,[["---", 0],["サイズ1", "サイズ１"]],{},{ class: "select-box" }
-              
+              = f.select :size ,[["---", ''],["サイズ1", "サイズ１"]],{},{ class: "select-box" }
+              - if @item.errors[:size].any?
+                .error
+                  選択してください
             .input-brand
               .label
                 ブランド
@@ -72,7 +80,10 @@
               .label-mark
                 必須
               .input-status__form
-                = f.select :status,[["---", 0],["状態", "状態1"]],{},{ class: "select-box" }
+                = f.select :status,[["---", ''],["状態", "状態1"]],{},{ class: "select-box" }
+                - if @item.errors[:status].any?
+                  .error
+                    選択してください
       .input-shipping
         .message
           配送について
@@ -83,20 +94,28 @@
           .label-mark
             必須
           .input-fee__form
-          = f.select :fee,[["---", 0],["配送料負担1","配送料負担1"]],{},{ class: "select-box" }
-            
+          = f.select :fee,[["---", ''],["配送料負担1","配送料負担1"]],{},{ class: "select-box" }
+          - if @item.errors[:fee].any?
+            .error
+              選択してください
           .label
             発送元の地域
           .label-mark
             必須
           .s_prefecture__form
-            = f.select :s_prefecture,[["---", 0],["配送先1", "配送先1"]],{},{ class: "select-box" }
+            = f.select :s_prefecture,[["---", ''],["配送先1", "配送先1"]],{},{ class: "select-box" }
+            - if @item.errors[:s_prefecture].any?
+              .error
+                選択してください
           .label
             発送までの日数
           .label-mark
             必須
           .s_date__form
-            = f.select :s_date,[["---", 0],["発送日時", "発送日時"]],{},{ class: "select-box" }
+            = f.select :s_date,[["---", ''],["発送日時", "発送日時"]],{},{ class: "select-box" }
+            - if @item.errors[:s_date].any?
+              .error
+                選択してください
       .input-price
         .message
           販売価格(300〜9,999,999)          
@@ -109,16 +128,17 @@
               .label-mark
                 必須
             .price_form
-       
               = f.label '¥',class:"price-form__label"
               = f.number_field :price,placeholder:"例)300",class:"price",id:"price"
+          - if @item.errors[:price].any?
+            .error
+              300以上9,999,999以下で入力してください
           .charge
             .charge__message
               販売手数料(10%)
             .charge__result
               //販売手数料の計算結果を表示する場所
               ¥
-
           .profit
             .profit__message
               販売利益
