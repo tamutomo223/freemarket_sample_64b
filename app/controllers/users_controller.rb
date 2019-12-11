@@ -7,10 +7,18 @@ class UsersController < ApplicationController
 
   def show
   end
+
+  def finish
+
+  end  
   
   def mypage
   end
 
+  def profile
+  end 
+  def card
+  end
   def address
     @shipping = Shipping.new
   end
@@ -18,7 +26,7 @@ class UsersController < ApplicationController
   def address_create
     @shipping = Shipping.new(shipping_params)
     if @shipping.save
-      redirect_to root_path
+      redirect_to new_card_path
     else
       render :address
     end
@@ -38,8 +46,7 @@ class UsersController < ApplicationController
     params.require(:shipping).permit(:user_id,:s_family_name,:s_first_name,:s_kana_family_name,:s_kana_first_name,:address_number,:prefecture_id,:city,:town,:building,:s_tel)
   end  
 
-  def profile
-  end
+  
 
 
 end
