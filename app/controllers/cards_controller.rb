@@ -10,7 +10,6 @@ class CardsController < ApplicationController
     Payjp.api_key = 'sk_test_853b0c9300ad1412a28612e8'
     if params['payjp-token'].blank?
       redirect_to action: "new"
-      binding.pry
     else
       
       customer = Payjp::Customer.create( 
