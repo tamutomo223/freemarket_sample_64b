@@ -7,6 +7,10 @@ class UsersController < ApplicationController
 
   def show
   end
+
+  def finish
+
+  end  
   
   def mypage
   end
@@ -22,7 +26,7 @@ class UsersController < ApplicationController
   def address_create
     @shipping = Shipping.new(shipping_params)
     if @shipping.save
-      redirect_to root_path
+      redirect_to new_card_path
     else
       render :address
     end
