@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
     member do
       #②URIPatternにidが欲しい場合はcollectionではなくmember内に記述
+      get "buy"
     end
   end
 

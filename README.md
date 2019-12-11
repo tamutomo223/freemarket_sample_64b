@@ -52,7 +52,7 @@
 |status|string|null: false|
 |fee|string|null: false|
 |s_prefecture|string|null: false|
-|s_date|integer|null: false|
+|s_date|string|null: false|
 |price|integer|null: false|
 |view|integer||
 |size|string|null: false|
@@ -70,6 +70,7 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|category_name|string|null: false|
 |Ancestry|text|null: false|
 ### Association
 - has_many :items
