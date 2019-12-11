@@ -22,6 +22,41 @@
       font-size: 16px;
       margin-right: 160px;
     }
+    &__num{
+      margin: 0 auto;
+      width:320px;
+      margin-top:40px;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      &__card{
+        &__num{
+          img{height:15px;
+          width:auto;
+        display: block;
+        margin-bottom:10px ;}
+          margin-bottom:10px ;
+        }
+        &__date{
+
+        }
+      }
+      &__button{
+        form{
+        button{
+          display: flex;
+          background-color: #fff;
+          color: $red;
+          border: $red 1px solid;
+          padding:0px 7px;
+          font-weight: bold;
+          font-size: 16px;
+          border-radius:5px ;
+          margin-top:20px;
+        }
+      }
+      }
+    }
     &__feild {
       padding: 24px 0;
       border-bottom: 1px solid #eeeeee;

@@ -6,41 +6,13 @@
       = image_tag "/ロゴ/バナーカード.png"
   .title 
     %h2 支払い方法
-  = form_with url:"/cards", method:"post" ,id:"card_form", html:{name:"inputForm"} do |f|
-    .form-card
-      .form-card__content
-        .c-num.cc
-          .c-num__top
-            .label カード番号
-            .label-mark 必須
-          .c-num__bottom
-            = f.text_field :card_number,type:"text",placeholder:"半角数字のみ"
-            = image_tag "/ロゴ/カード.png"
-        .c-date.cc
-          .c-date__top
-            .label 有効期限
-            .label-mark 必須
-          .c-date__bottom
-            .c-date__bottom__left
-              = f.select :exp_month,[["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} 
-              %span 月
-            .c-date__bottom__right            
-              = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{}
-              %span 年
-        .c-num.cc
-          .c-num__top
-            .label セキュリティコード
-            .label-mark 必須
-          .c-num__bottom
-            = f.text_field :cvc, type: 'text', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
-        .c-submit.ss
-          = f.submit '次へ進む', class: 'content-bottom--add-btn', id: 'token_submit'
-    .c-footer
-      %ul.c-footer__ul
-        %li.c-footer__ul__li
-          = link_to "プライバシーポリシー", "#"
-        %li.c-footer__ul__li
-          = link_to "メルカリ利用規約", "#"
-        %li.c-footer__ul__li
-          = link_to "特定商取引に関する表記", "#"
-      = image_tag "/ロゴ/image (2).png"     
+  = render "new"
+  .c-footer
+    %ul.c-footer__ul
+      %li.c-footer__ul__li
+        = link_to "プライバシーポリシー", "#"
+      %li.c-footer__ul__li
+        = link_to "メルカリ利用規約", "#"
+      %li.c-footer__ul__li
+        = link_to "特定商取引に関する表記", "#"
+    = image_tag "/ロゴ/image (2).png"     

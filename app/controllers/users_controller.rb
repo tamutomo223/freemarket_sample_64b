@@ -18,6 +18,12 @@ class UsersController < ApplicationController
   def profile
   end 
   def card
+    @card = Card.where(user_id: current_user.id).first
+    unless @card.blank?
+      Payjp.api_key = 'sk_test_853b0c9300ad1412a28612e8'
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
   def address
     @shipping = Shipping.new
