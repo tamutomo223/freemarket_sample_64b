@@ -51,6 +51,7 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :validatable,
           :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
+  has_many :items
   validates :nickname, presence: true
   validates :family_name, presence: true
   validates :first_name, presence: true

@@ -6,8 +6,9 @@
   =fa_icon "chevron-right"
   .bold マイページ
 .mypage-content
-  = render "myleft-content"
-  = render "mymein-content"
-  
-
+  = render "/users/myleft-content"
+  .right-content
+    .c-title
+      %h2 クレジットカード情報入力
+    = render "new"
 = render "/items/footer"
