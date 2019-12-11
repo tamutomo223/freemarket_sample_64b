@@ -5,14 +5,33 @@ $(function() {
 
   //フォームに入れた画像を表示
   $('.input-image-box').change(function(){
-    //フォームに入れた画像を表示するためのurlを作る
+    
+    var a = image.files.length
+    console.log(a)
+    if (image.files.length == 1){
+      //条件が真の時
+      //フォームに入れた画像を表示するためのurlを作る
     var image_path = URL.createObjectURL(image.files[0]);
     var html = `<div class="image-preview-box" >
                   <img src="${image_path}" class="image-preview"height="64" width="114" >
                 </div>`
     $('.preview').append(html);
     URL.revokeObjectURL(".image_preview.src");
+    }
+    else{
+      console.log("画像が２つ以上です")
+      console.log(image.files)
+      
+      $.each(image.files,function(index, value){
+        console.log(index + ":" + value)
+        var image_path = URL.createObjectURL(value);
+        var html = `<div class="image-preview-box" >
+                  <img src="${image_path}" class="image-preview"height="64" width="114" >
+                </div>`
+        $('.preview').append(html);
 
+      })
+    }
   });
 
   
