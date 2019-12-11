@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
   
 
-  resources :users do
+  resources :users ,only:[:mypage,:logout,:signup,:address,:address_create] do
     collection do
       get 'mypage'
       get 'logout'
