@@ -11,7 +11,6 @@ $(function() {
     current.removeClass("disp-active-main");    
 
     index = sub_obj_array.indexOf(this);
-    console.log(index);
     main_obj[index].classList.remove("disp-none-main");
     main_obj[index].classList.add("disp-active-main");
     
