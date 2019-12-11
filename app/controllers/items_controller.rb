@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :get_item, only: [:show]
+  before_action :set_item, only: [:show]
 
   def index
     @items = Item.all.includes(:images).order("created_at DESC").limit(10)
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
     params.permit(:image_url)
   end
 
-  def get_item
+  def set_item
     @item = Item.find(params[:id])
   end
 end
