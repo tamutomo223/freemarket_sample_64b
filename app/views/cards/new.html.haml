@@ -6,36 +6,7 @@
       = image_tag "/ロゴ/バナーカード.png"
   .title 
     %h2 支払い方法
-  .form-card
-    .form-card__content
-      .c-num.cc
-        .c-num__top
-          .label カード番号
-          .label-mark 必須
-        .c-num__bottom
-          %input{placeholder:"半角数字のみ"}
-          = image_tag "/ロゴ/カード.png"
-      .c-date.cc
-        .c-date__top
-          .label 有効期限
-          .label-mark 必須
-        .c-date__bottom
-          .c-date__bottom__left
-            %select
-              %option ---
-            %span 月
-          .c-date__bottom__right            
-            %select
-              %option ---
-            %span 年
-      .c-num.cc
-        .c-num__top
-          .label セキュリティコード
-          .label-mark 必須
-        .c-num__bottom
-          %input{placeholder:"カード背面4桁もしくは3桁の番号"}
-      .c-submit.ss
-        %input{value:"次へ進む"}
+  = render "new"
   .c-footer
     %ul.c-footer__ul
       %li.c-footer__ul__li

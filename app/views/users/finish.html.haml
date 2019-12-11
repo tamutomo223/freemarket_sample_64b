@@ -1,0 +1,24 @@
+.finish-wrapper
+  .finish-header
+    .finish-header__logo
+      = image_tag "/ロゴ/image.png"
+    .finish-header__ba  
+      = image_tag "/ロゴ/バナーカード.png"
+  .title 
+    %h2 会員登録完了
+  .f-content
+    .f-message
+      ありがとうございます。
+      %br 会員登録が完了しました。
+    = link_to root_path do
+      .f-link
+        メルカリを始める
+  .f-footer
+    %ul.f-footer__ul
+      %li.f-footer__ul__li
+        = link_to "プライバシーポリシー", "#"
+      %li.f-footer__ul__li
+        = link_to "メルカリ利用規約", "#"
+      %li.f-footer__ul__li
+        = link_to "特定商取引に関する表記", "#"
+    = image_tag "/ロゴ/image (2).png"     

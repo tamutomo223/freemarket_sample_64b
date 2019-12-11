@@ -7,9 +7,14 @@ Rails.application.routes.draw do
   }
 
   root to: "items#index"
+  
+  resources :cards, only: [:new, :index, :destroy,:create,:add] do
+    collection do
+      get "add"
+    end  
 
-  resources :cards, only: [:new, :index, :create, :destroy]
-  #itemsコントローラ内に作ったオリジナルの変数にルーティングの設定をしたい場合,次の①,②,③に記述してください
+  end  
+  #itemsコントローラ内に作ったオリジナルの変数にルーティングの設定をしたい場合,次の①,②に記述してください
   resources :items , only:[:sell,:exhibit,:show] do#①only内にオリジナルの変数名を記述
     collection do
       #②collection内にhttpメソッド 'オリジナルの変数名'と記述
@@ -18,10 +23,12 @@ Rails.application.routes.draw do
     end
     member do
       #②URIPatternにidが欲しい場合はcollectionではなくmember内に記述
+      get "buy"
     end
   end
+  
 
-  resources :users do
+  resources :users ,only:[:mypage,:logout,:signup,:address,:address_create] do
     collection do
       get 'mypage'
       get 'logout'
@@ -30,6 +37,7 @@ Rails.application.routes.draw do
       post "address_create"
       get "mypage/profile" ,to: "users#profile"
       get "mypage/card" ,to: "users#card"
+      get "finish"
     end
   end
 end
