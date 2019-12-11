@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       post "address_create"
       get "mypage/profile" ,to: "users#profile"
       get "mypage/card" ,to: "users#card"
+      get "finish"
     end
   end
 end
