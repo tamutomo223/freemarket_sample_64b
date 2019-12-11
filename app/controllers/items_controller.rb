@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show]
+
   def index
     @items = Item.all.includes(:images).order("created_at DESC").limit(10)
   end  
@@ -7,12 +9,14 @@ class ItemsController < ApplicationController
 
     @item = Item.new
     @item.images.build
-
+    @categories = Category.all.order("id ASC")
 
   end
 
-  def show
+  def buy
+  end
 
+  def show
 
   end  
 
@@ -30,9 +34,15 @@ class ItemsController < ApplicationController
     #次の4つは本来は出品ページから入れる物ではないため、機能実装後に削除
     #:order_id,:user_id,:size_type,:view
     params.require(:item).permit(:item_name,:explain,:status,:fee,:s_prefecture,:s_date,:price,:size,:category_id,:brand_id,:order_id,:user_id,:size_type,:view)
+
   end
 
   def image_params(params)
     params.permit(:image_url)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
+

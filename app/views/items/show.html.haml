@@ -5,17 +5,28 @@
   .item
     .item__show 
       .item__show__title
-        %h2 《新品》おしゃれなスニーカー
+        %h2
+          = @item.item_name
       .item__show__content
         .item__show__content__img
-          .item__show__content__img__main
-            = image_tag "/ロゴ/靴.jpg"
+          - images = @item.images
+          .item__show__content__img__main.disp-active-main
+            = image_tag "#{images[0].image_url}"
+          - images.each_with_index do |image, i|
+            .item__show__content__img__main.disp-none-main
+              = image_tag "#{images[i].image_url}"
           .item__show__content__img__sub
+            - images.each_with_index do |image, i|
+              = image_tag "#{image.image_url}"
+          .item__show__content__img__sub-test
+          .item__show__content__img__sub-test
+
         %table.item__show__content__table
           %tr.big
             %th 出品者
-            %td
-              %P おれ
+            %td.sky
+              = link_to "#", class: "sky--link" do 
+                = @item.user.nickname
               .like
                 .good
                   = fa_icon "smile-o"
@@ -29,12 +40,20 @@
           %tr.big
             %th カテゴリ
             %td.sky
-              %p レディース
-              %p >バッグ
-              %p >リュック/バックパック
+              %p
+                = link_to "#", class: "sky--link" do
+                  = @item.category.category_name
+              %p
+                = link_to "#", class: "sky--link" do
+                  >バッグ
+              %p
+                = link_to "#", class: "sky--link" do
+                  >リュック/バックパック
           %tr
             %th ブランド
-            %td 
+            %td.sky
+              = link_to "#", class: "sky--link" do
+                シャネル
           %tr
             %th 商品の状態
             %td 未使用に近い
@@ -46,14 +65,17 @@
             %td 未定
           %tr
             %th 発送元の地域
-            %td.sky 東京都
+            %td.sky
+              = link_to "#", class: "sky--link" do 
+                = Prefecture.data[@item.s_prefecture.to_i - 1][:name]
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td 
+              = @item.s_date
 
       .item__show__price
         .item__show__price__main
-          ¥999
+          = "¥#{@item.price.to_s(:delimited)}"
         .item__show__price__sub
           .item__show__price__sub__tax
             (税込)
@@ -61,7 +83,8 @@
             送料込み 
       = link_to "#" do    
         .item__show__buy
-          購入画面に進む
+          = link_to buy_item_path, class: "item__show__buy" do
+            購入画面に進む
       .item__show__exprain
         %P まだ一度も使用しておりません。
         %p ターボ機能付きで移動に便利です

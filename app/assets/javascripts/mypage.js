@@ -1,6 +1,5 @@
 $(function()   {
     $(".tab-A").click(function(){
-      console.log("kkk")
       $(".tab-B").removeClass("active");
       $(".tab-A").addClass("active");
       $(".list-A").removeClass("show-none");
