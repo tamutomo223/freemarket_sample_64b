@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root to: "items#index"
-
-  #itemsコントローラ内に作ったオリジナルの変数にルーティングの設定をしたい場合,次の①,②,③に記述してください
+  
+  resources :cards, only: [:new, :index, :destroy,:create]
+  #itemsコントローラ内に作ったオリジナルの変数にルーティングの設定をしたい場合,次の①,②に記述してください
   resources :items , only:[:sell,:exhibit,:show] do#①only内にオリジナルの変数名を記述
     collection do
       #②collection内にhttpメソッド 'オリジナルの変数名'と記述
@@ -15,15 +16,18 @@ Rails.application.routes.draw do
       get "buy"
     end
   end
+  
 
-  resources :users do
+  resources :users ,only:[:mypage,:logout,:signup,:address,:address_create] do
     collection do
       get 'mypage'
       get 'logout'
       get "signup"
       get "address"
       post "address_create"
-      get "profile"
+      get "mypage/profile" ,to: "users#profile"
+      get "mypage/card" ,to: "users#card"
+      get "finish"
     end
   end
 end

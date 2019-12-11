@@ -1,0 +1,134 @@
+@import "color";
+
+.card-wrapper{
+  background-color: $gray;
+  .card-header{
+    height:128px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    &__logo{
+    img{
+      display: block;
+      height:69px;
+      width:auto;
+      margin-right:40px;
+      padding-top:30px ;
+    }
+    }
+    &__ba{
+      img{
+        display: block;
+        height:110px;
+        width:auto;
+        padding-top: 14px;
+      }
+    }
+  }
+  .title{
+    margin: 0 auto;
+    width:636px;
+    border-bottom: 1px solid $gray;
+    background-color: white;
+    padding:32px;
+  h2{
+    text-align: center;
+    font-weight: 700;
+    font-size: 22px;
+    
+  }
+  }
+  .form-card{
+    width:700px;
+    margin: 0 auto;
+    background-color: white;
+    padding-bottom:64px;
+    &__content{
+      width:303px;
+      margin:0 auto;
+    .cc{
+      padding-top:22px;
+      input{
+        display: block;
+        margin-top:8px;
+        height:30px;
+        padding:10px 10px 8px;
+        border-radius: 4px;
+        border: solid 1px $darkgray;
+        line-height: 1.5;
+        font-size:16px;
+        width:100%;
+      }
+      select{
+        display: block;
+        margin-top:8px;
+        height:48px;
+        border-radius: 4px;
+        border: solid 1px $darkgray;
+        line-height: 1.5;
+        font-size:16px;
+        width:120px;
+        background-color: white;
+        margin-right:20px;
+      }
+    }
+    .c-submit {
+      input{
+      background-color: $red;
+      color: white;
+      font-size:14px;
+      height:48px;
+      text-align: center;
+      margin-top:40px;
+      width:calc(100% + 20px);
+      border: none;
+      }
+    }
+
+  }
+
+  }
+  .c-footer{
+    width:456px;
+    margin:0 auto;
+    height: 180px;
+    padding:40px 0;
+    text-align: center;
+    .c-footer__ul{
+      display: flex;
+      justify-content: space-between;
+      a{
+      display: block;
+      font-size:12px;
+      color: black;
+    }
+    }
+    img{
+      display: block;
+      margin:0 auto;
+      margin-top:40px;
+      height:100px;
+      width:auto;
+    }
+  }
+  .c-date__bottom{
+    display: flex;
+    justify-content: space-between;
+    &__left{
+      display: flex;
+      justify-content: space-between;
+      line-height: 60px;
+      margin-right:20px;
+    }
+    &__right{
+      display: flex;
+      justify-content: space-between;
+      line-height: 66px;
+    }
+  }
+  .c-num__bottom{
+    img{height:33px;
+      width:auto}
+  }
+}
