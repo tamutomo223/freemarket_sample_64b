@@ -14,9 +14,10 @@
           .label-mark
             必須
           .small-message
+            
             最大10枚までアップロードできます
           .input-image__form
-            = f.fields_for :images do |t|
+            = f.fields_for :images do |t| 
               .input-image-drop
                 .preview
                 -#画像入力フォームの画像を表示させる場所
@@ -24,10 +25,9 @@
                   ドラッグアンドドロップ
                   %br
                   またはクリックしてファイルをアップロード
-                  = t.file_field :image_url,class:"input-image-box",id:"image",multiple: true,name:'images[image_url][]'
-              - if @item.errors[:images].any?
-                .error
-                  画像がありません
+                  = t.file_field :image_url,class:"input-image-box",id:"image",multiple: true#,name:'images[image_url][]'
+              %p{class: 'error'}=@item.errors[:images][0]
+                  
                   
         .input-item-name
           .label
