@@ -9,7 +9,7 @@
   .bold ログアウト
 .mypage-content
   = render "left-var"
-  .mainbtn
-  = link_to destroy_user_session_path ,method: :delete do
-    %p.log-btn ログアウト
+  .log-btn
+    = link_to destroy_user_session_path ,method: :delete do
+      %p.log-btn__p ログアウト
 = render "/items/footer"
