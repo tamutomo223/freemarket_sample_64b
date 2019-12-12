@@ -61,4 +61,5 @@ class User < ApplicationRecord
 
   has_many :cards
   has_many :shippings
+  has_many :orders
 end

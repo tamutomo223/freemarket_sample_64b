@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     member do
       #②URIPatternにidが欲しい場合はcollectionではなくmember内に記述
       get "buy"
+      post "buy_create"
     end
   end
   
@@ -40,4 +41,5 @@ Rails.application.routes.draw do
       get "finish"
     end
   end
+
 end

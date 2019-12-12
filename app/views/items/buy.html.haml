@@ -49,7 +49,11 @@
             .item-bottom__shipping__main__name
               = "#{@name1} #{@name2}"
         .item-bottom__submit
-          %input{type:"submit",value:"購入する"}
+          = form_with url:buy_create_item_path(@item) , method: :post do |f|
+            = f.hidden_field :user_id,value:current_user.id
+            = f.hidden_field :item_id,value:@item.id
+            = f.hidden_field :progress,value:1
+            = f.submit value:"購入する"
   .b-footer
     %ul.b-footer__ul
       %li.b-footer__ul__li

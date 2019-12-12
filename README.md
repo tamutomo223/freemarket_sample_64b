@@ -106,9 +106,8 @@
 ## ordersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|buyer_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |item_id|references|foreign_key: true|
-|b_day|string|null: false|
 |progress|integer||
 |service|string||
 |pay|string||

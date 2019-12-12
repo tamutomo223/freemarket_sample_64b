@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
+  require 'payjp'
 
   def index
     @items = Item.all.includes(:images).order("created_at DESC").limit(10)
@@ -35,6 +36,23 @@ class ItemsController < ApplicationController
     @name2 =  @shipping.s_first_name 
   end
 
+
+
+  def buy_create
+    @item = Item.find(params[:id])
+    @card = Card.where(user_id: current_user.id).first
+    @order = Order.new(order_params)
+    if @order.save
+    Payjp.api_key = "sk_test_853b0c9300ad1412a28612e8"
+    Payjp::Charge.create(
+      amount: @item.price, # 決済する値段
+      customer: @card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
+    )
+    redirect_to root_path
+    end
+  end
+
   def show
 
   end  
@@ -59,6 +77,10 @@ class ItemsController < ApplicationController
 
   def image_params(params)
     params.permit(:image_url)
+  end
+
+  def order_params
+    params.permit(:user_id,:item_id,:progress)
   end
 
   def set_item
