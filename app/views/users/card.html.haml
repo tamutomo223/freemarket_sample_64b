@@ -1,5 +1,5 @@
-= render "myheader"
-= render "mysell"
+= render "/items/header"
+= render "/items/sell"
 .pankuzu
   =link_to "#" do
     %p.top メルカリ
@@ -12,13 +12,30 @@
   .card
     %p.card__head 支払い方法
     .card__area
-      .card__area__list クレジットカード一覧
-      %section.card__area__feild
-        .card__area__feild__btn
-          =fa_icon "credit-card",class:"i-card"
-          .card__area__feild__btn__p クレジットカードを追加する
+      - if @card
+        .card__area__list クレジットカード一覧
+        .card__area__num
+          .card__area__num__card
+            .card__area__num__card__num
+              %img{src: "/ロゴ/VISA.png"}
+              = "**** **** **** " + @default_card_information.last4
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            .card__area__num__card__date  
+              = exp_month + " / " + exp_year
+          .card__area__num__button
+            = form_tag(card_path(@card), method: :delete, id: 'charge-form',  name: "inputForm") do
+              %input{ type: "hidden", name: "card_id", value: "" }
+              %button.delete 削除する
+        %section.card__area__feild
+        = link_to add_cards_path do
+          .card__area__feild__btn
+            =fa_icon "credit-card",class:"i-card"
+            .card__area__feild__btn__p クレジットカードを追加する
       .card__area__how
         =link_to "#" do
           %p.card__area__how__p 支払い方法について
         =fa_icon "chevron-right"
 = render "/items/footer"
+
+

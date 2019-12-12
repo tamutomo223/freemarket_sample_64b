@@ -2,11 +2,14 @@ class UsersController < ApplicationController
   # signup 「新規会員登録」画面
 
   def signup
-    
   end
 
   def show
   end
+
+  def finish
+
+  end  
   
   def mypage
   end
@@ -14,6 +17,12 @@ class UsersController < ApplicationController
   def profile
   end 
   def card
+    @card = Card.where(user_id: current_user.id).first
+    unless @card.blank?
+      Payjp.api_key = 'sk_test_853b0c9300ad1412a28612e8'
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
   end
   def address
     @shipping = Shipping.new
@@ -22,7 +31,7 @@ class UsersController < ApplicationController
   def address_create
     @shipping = Shipping.new(shipping_params)
     if @shipping.save
-      redirect_to root_path
+      redirect_to new_card_path
     else
       render :address
     end

@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users,
+  controllers: { 
+    sessions: 'users/sessions',
+    registrations: 'users/registrations' ,
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 
   root to: "items#index"
   
+  resources :cards, only: [:new, :index, :destroy,:create,:add] do
+    collection do
+      get "add"
+    end  
 
-  resources :cards, only: [:new, :index, :create, :destroy]
+  end  
   #itemsコントローラ内に作ったオリジナルの変数にルーティングの設定をしたい場合,次の①,②に記述してください
   resources :items , only:[:sell,:exhibit,:show] do#①only内にオリジナルの変数名を記述
     collection do
@@ -14,11 +23,12 @@ Rails.application.routes.draw do
     end
     member do
       #②URIPatternにidが欲しい場合はcollectionではなくmember内に記述
+      get "buy"
     end
   end
   
 
-  resources :users do
+  resources :users ,only:[:mypage,:logout,:signup,:address,:address_create] do
     collection do
       get 'mypage'
       get 'logout'
@@ -27,6 +37,7 @@ Rails.application.routes.draw do
       post "address_create"
       get "mypage/profile" ,to: "users#profile"
       get "mypage/card" ,to: "users#card"
+      get "finish"
     end
   end
 end

@@ -2,7 +2,8 @@
   .header
     
     .header-logo
-    = link_to image_tag("/ロゴ/image.png", width: '185',height:'100')
+    = link_to root_path do 
+      = image_tag("/ロゴ/image.png", width: '185',height:'100')
   .body
     = form_for @item,url:exhibit_items_path do |f|
       .body__head
@@ -55,10 +56,19 @@
               .label-mark
                 必須
               .input-category__form
-              = f.select :category_id,[["---", ''],["カテゴリー1", "カテゴリー１"]],{},{ class: "select-box" }
+              
+              - temp = []
+              - categories_array = []
+              - @categories.each do |category|
+                - temp[0] = category.category_name
+                - temp[1] = category.id
+                - categories_array << temp
+                - temp = []
+              = f.select :category_id,categories_array,{prompt: "---"},{ class: "select-box" }
               - if @item.errors[:category_id].any?
                 .error
                   選択してください
+              
             .input-size
               .label
                 サイズ
@@ -103,16 +113,18 @@
           .label-mark
             必須
           .s_prefecture__form
-            = f.select :s_prefecture,[["---", ''],["配送先1", "配送先1"]],{},{ class: "select-box" }
+            = f.collection_select :s_prefecture,Prefecture.all, :id, :name, {prompt: "---"}, {class: "select-box"}
             - if @item.errors[:s_prefecture].any?
               .error
-                選択してください
+                選択してください 
+
           .label
             発送までの日数
           .label-mark
             必須
           .s_date__form
-            = f.select :s_date,[["---", ''],["発送日時", "発送日時"]],{},{ class: "select-box" }
+            - s_date_type = [["---", 0],["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]]
+            = f.select :s_date,s_date_type,{},{ class: "select-box" }
             - if @item.errors[:s_date].any?
               .error
                 選択してください
@@ -160,7 +172,7 @@
           加盟店規約
         に同意したことになります。
         /現状では入れられないデータカラムを埋める。機能実装毎に削除
-        = f.hidden_field :user_id,value:0
+        = f.hidden_field :user_id,value:current_user.id
         = f.hidden_field :order_id,value:0
         = f.hidden_field :size_type,value:"0"
         = f.hidden_field :view,value:0

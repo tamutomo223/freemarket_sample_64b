@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
 
+
   validates :item_name, length: {maximum:40},presence: true
   validates :order_id,presence: true
   validates :user_id,presence: true
@@ -20,4 +21,8 @@ class Item < ApplicationRecord
   def image_check
     errors.add(:images, "画像がありません")if images.size < 1
   end
+
+  belongs_to :category
+  belongs_to :user
+
 end

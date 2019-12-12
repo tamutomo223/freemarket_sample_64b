@@ -8,7 +8,7 @@
           もっと見る >
       %ul.category-type__contents
         - items.each do |item|
-          = link_to item_path(1) do
+          = link_to item_path(item.id) do
             %li.category-type__contents__item
               .category-type__contents__item__image
                 - images = item.images

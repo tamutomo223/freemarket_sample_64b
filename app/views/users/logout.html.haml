@@ -1,4 +1,4 @@
-= render "myheader"
+= render "/items/header"
 = render "mysell"
 .pankuzu
   =link_to "#" do
@@ -10,5 +10,6 @@
 .mypage-content
   = render "left-var"
   .mainbtn
+  = link_to destroy_user_session_path ,method: :delete do
     %p.log-btn ログアウト
 = render "/items/footer"

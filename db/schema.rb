@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_091735) do
+ActiveRecord::Schema.define(version: 2019_12_10_105241) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "customer_id"
+    t.string "card_id"
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
@@ -35,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_091735) do
     t.string "status", null: false
     t.string "fee", null: false
     t.string "s_prefecture", null: false
-    t.integer "s_date", null: false
+    t.string "s_date", null: false
     t.string "size", null: false
     t.string "size_type", null: false
     t.integer "category_id", null: false
@@ -61,6 +68,15 @@ ActiveRecord::Schema.define(version: 2019_12_10_091735) do
     t.datetime "updated_at", null: false
     t.integer "prefecture_id"
     t.index ["user_id"], name: "index_shippings_on_user_id"
+  end
+
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,4 +105,5 @@ ActiveRecord::Schema.define(version: 2019_12_10_091735) do
   add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "shippings", "users"
+  add_foreign_key "sns_credentials", "users"
 end
