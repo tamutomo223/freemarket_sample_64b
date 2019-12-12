@@ -12,11 +12,11 @@
           %span.type__wrapper__mail__center--content
             メールアドレスで登録する
       .type__wrapper__facebook.type__wrapper--radius
-        = link_to "#", class: "type__wrapper__facebook__center" do
+        = link_to user_facebook_omniauth_authorize_path, class: "type__wrapper__facebook__center" do
           = fa_icon "facebook-official 2x", class: "type__wrapper__facebook__center--icon"
           %span.type__wrapper__facebook__center--content  Facebookで登録する
       .type__wrapper__google.type__wrapper--radius
-        = link_to "#", class: "type__wrapper__google__center" do
+        = link_to user_google_oauth2_omniauth_authorize_path , class: "type__wrapper__google__center" do
           = fa_icon "google lg", class: "type__wrapper__google__center--icon"
           %span.type__wrapper__google__center--content
             Googleで登録する
