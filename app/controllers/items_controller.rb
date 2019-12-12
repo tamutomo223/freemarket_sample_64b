@@ -70,11 +70,11 @@ class ItemsController < ApplicationController
       end
       redirect_to root_path
     else
+      binding.pry
       #画像フォーム消えることを防ぐため
       @item.images.build
       render :sell
     end
-    redirect_to root_path
   end
 
   private
