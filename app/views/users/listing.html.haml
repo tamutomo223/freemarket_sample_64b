@@ -1,0 +1,6 @@
+出品した商品-出品中
+-#  別途、実装中
+- @items.each do |item|
+  = link_to edit_item_path(item.id) do 
+    %p
+      = item.item_name

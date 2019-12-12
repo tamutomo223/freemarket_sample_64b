@@ -14,6 +14,10 @@ class UsersController < ApplicationController
   def mypage
   end
 
+  def listing
+    @items = Item.where user_id: current_user.id
+  end
+
   def profile
   end 
   def card

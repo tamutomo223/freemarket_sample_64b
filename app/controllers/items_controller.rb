@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit, :edit_input]
   require 'payjp'
 
   def index
@@ -57,11 +57,16 @@ class ItemsController < ApplicationController
   end
 
   def show
-
   end  
 
+  def edit
+  end
+
+  def edit_input
+
+  end
+
   def exhibit
-    
     @item = Item.new(item_params)
     
     if @item.save
