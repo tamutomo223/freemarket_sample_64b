@@ -1,0 +1,26 @@
+= render "header"
+
+.bar
+.show-wrapper
+  .item
+    .item__show 
+      = render "show_table"
+
+    .bar3
+    .item__wrapper
+      .item__wrapper__edit
+        = link_to sell_edit_item_path(@item.id), class: "item__wrapper__edit--link" do
+          商品の編集
+      %p.item__wrapper__or
+        or
+      .item__wrapper__edit.item__wrapper__deco
+        = link_to "#", class: "item__wrapper__edit--link" do
+          出品を一旦停止する
+      .item__wrapper__edit.item__wrapper__deco
+        = link_to "#", class: "item__wrapper__edit--link" do
+          この商品を削除する
+          
+    .bar3
+    = render "show_comment"
+
+= render "footer"

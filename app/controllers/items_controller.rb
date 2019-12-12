@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit, :edit_input]
 
   def index
     @items = Item.all.includes(:images).order("created_at DESC").limit(10)
@@ -17,11 +17,16 @@ class ItemsController < ApplicationController
   end
 
   def show
-
   end  
 
+  def edit
+  end
+
+  def edit_input
+
+  end
+
   def exhibit
-    binding.pry
     @item = Item.new(item_params)
     @item.save
     params[:images][:image_url].each do |i|

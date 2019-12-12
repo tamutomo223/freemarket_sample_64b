@@ -1,0 +1,155 @@
+= render "header"
+= render "sell"
+.bar
+.show-wrapper
+  .item
+    .item__show 
+      .item__show__title
+        %h2
+          = @item.item_name
+      .item__show__content
+        .item__show__content__img
+          - images = @item.images
+          .item__show__content__img__main.disp-active-main
+            = image_tag "#{images[0].image_url}"
+          - images.each_with_index do |image, i|
+            .item__show__content__img__main.disp-none-main
+              = image_tag "#{images[i].image_url}"
+          .item__show__content__img__sub
+            - images.each_with_index do |image, i|
+              = image_tag "#{image.image_url}"
+          .item__show__content__img__sub-test
+          .item__show__content__img__sub-test
+
+        %table.item__show__content__table
+          %tr.big
+            %th 出品者
+            %td.sky
+              = link_to "#", class: "sky--link" do 
+                = @item.user.nickname
+              .like
+                .good
+                  = fa_icon "smile-o"
+                  51873
+                .so
+                  = fa_icon "meh-o"
+                  44  
+                .bad
+                  = fa_icon "frown-o"
+                  0  
+          %tr.big
+            %th カテゴリ
+            %td.sky
+              %p
+                = link_to "#", class: "sky--link" do
+                  = @item.category.category_name
+              %p
+                = link_to "#", class: "sky--link" do
+                  >バッグ
+              %p
+                = link_to "#", class: "sky--link" do
+                  >リュック/バックパック
+          %tr
+            %th ブランド
+            %td.sky
+              = link_to "#", class: "sky--link" do
+                シャネル
+          %tr
+            %th 商品の状態
+            %td 未使用に近い
+          %tr
+            %th 配送料の負担	
+            %td 送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td 未定
+          %tr
+            %th 発送元の地域
+            %td.sky
+              = link_to "#", class: "sky--link" do 
+                = Prefecture.data[@item.s_prefecture.to_i - 1][:name]
+          %tr
+            %th 発送日の目安
+            %td 
+              = @item.s_date
+
+      .item__show__price
+        .item__show__price__main
+          = "¥#{@item.price.to_s(:delimited)}"
+        .item__show__price__sub
+          .item__show__price__sub__tax
+            (税込)
+          .item__show__price__sub__deli
+            送料込み 
+      = link_to "#" do    
+        .item__show__buy
+          = link_to buy_item_path, class: "item__show__buy" do
+            購入画面に進む
+      .item__show__exprain
+        %P まだ一度も使用しておりません。
+        %p ターボ機能付きで移動に便利です
+        %p 撥水機能がついています
+        %p 洗練されたデザインで、冠婚葬祭に活用いただけます
+        %p よろしくお願い致します。
+      .item__show__last
+        .item__show__last__left
+          = link_to "#" do
+            .item__show__last__left__like
+              = fa_icon "heart-o"
+              %span いいね!
+          = link_to "#" do
+            .item__show__last__left__bad
+              = fa_icon "flag-o"
+              %span 不適切な商品の報告
+        = link_to "#" do
+          .item__show__last__right
+            = fa_icon "lock"
+            %span あんしん・あんぜんへの取り組み
+    .bar2        
+    .item__comment
+      .item__comment__notice
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.item__comment__comemnt
+      %input.item__comment__btn{type:"submit",value:"コメントする"}
+    .item__link
+      = link_to "#" do
+        .item__link__prev
+          < 中日ドラゴンズファンブック
+      = link_to "#" do
+        .item__link__next
+          ポケモン図鑑 >
+    .item__sns
+      .item__sns__facebook
+        = fa_icon "facebook-official"
+      .item__sns__twitter 
+        = fa_icon "twitter"
+      .item__sns__pinterest  
+        = fa_icon "pinterest"
+    .bar3    
+    .item__other
+      .item__other__user
+        .item__other__user__title
+          = link_to "#" do
+            %h2 おれさんのその他の出品
+        .item__other__user__contents    
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+      .bar3          
+      .item-other__user
+        .item__other__user__title
+          = link_to "#" do
+            %h2 スニーカーその他の出品
+        .item__other__user__contents  
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+  .bar        
+  .bread
+= render "footer"
