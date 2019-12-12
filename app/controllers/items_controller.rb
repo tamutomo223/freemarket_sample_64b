@@ -14,6 +14,25 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    @item = Item.find(params[:id])
+    image = @item.images[0]
+    @image = image.image_url
+    @card = Card.where(user_id: current_user.id).first
+    unless @card.blank?
+      Payjp.api_key = 'sk_test_853b0c9300ad1412a28612e8'
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+    @user = current_user
+    @shippings = @user.shippings
+    @shipping = @shippings[0]
+    @yubin = @shipping.address_number
+    @prefecture = Prefecture.find(@shipping.prefecture_id)
+    @prefecture_name = @prefecture.name
+    @city = @shipping.city
+    @town = @shipping.town
+    @name1 = @shipping.s_family_name 
+    @name2 =  @shipping.s_first_name 
   end
 
   def show
@@ -21,12 +40,13 @@ class ItemsController < ApplicationController
   end  
 
   def exhibit
-    binding.pry
     @item = Item.new(item_params)
     @item.save
+    binding.pry
     params[:images][:image_url].each do |i|
       @item.images.create!(image_url: i,item_id:@item.id)
     end
+    redirect_to root_path
   end
 
   private

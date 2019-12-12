@@ -60,4 +60,5 @@ class User < ApplicationRecord
   validates :birthday, presence: true
 
   has_many :cards
+  has_many :shippings
 end
