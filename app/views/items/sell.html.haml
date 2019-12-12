@@ -15,9 +15,10 @@
           .label-mark
             必須
           .small-message
+            
             最大10枚までアップロードできます
           .input-image__form
-            = f.fields_for :images do |t|
+            = f.fields_for :images do |t| 
               .input-image-drop
                 .preview
                 -#画像入力フォームの画像を表示させる場所
@@ -26,8 +27,9 @@
                   %br
                   またはクリックしてファイルをアップロード
                   = t.file_field :image_url,class:"input-image-box",id:"image",multiple: true,name:'images[image_url][]'
-
-            
+              %p{class: 'error'}=@item.errors[:images][0]
+                  
+                  
         .input-item-name
           .label
             商品名
@@ -35,6 +37,7 @@
             必須
           .input-item-name__form
           = f.text_field :item_name,placeholder:"商品名(必須40文字まで)",class:"input-textbox"
+          %p{class: 'error'}=@item.errors.full_messages_for(:item_name)[0]
           .input-explain
             .label
               商品の説明
@@ -42,6 +45,7 @@
               必須
           .input-explain__form
           = f.text_area :explain,rows:"6",class:"input-textbox",placeholder:"商品の説明(必須1000文字以内)（色、素材、重さ、定価、注意点など）例）\n2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          %p{class: 'error'}=@item.errors.full_messages_for(:explain)[0]
         .input-details
           .message
             商品の詳細
@@ -52,6 +56,7 @@
               .label-mark
                 必須
               .input-category__form
+              
               - temp = []
               - categories_array = []
               - @categories.each do |category|
@@ -60,6 +65,9 @@
                 - categories_array << temp
                 - temp = []
               = f.select :category_id,categories_array,{prompt: "---"},{ class: "select-box" }
+              - if @item.errors[:category_id].any?
+                .error
+                  選択してください
               
             .input-size
               .label
@@ -67,8 +75,10 @@
               .label-mark
                 必須
               .input-size__form
-              = f.select :size ,[["---", 0],["サイズ1", "サイズ１"]],{},{ class: "select-box" }
-              
+              = f.select :size ,[["---", ''],["XXS以下"],["XS(SS)"],["S"],["M"],["L"],["XL(XL)"],["2XL(3L)"],["3XL(4L)"],["4XL(5L)以上"],["FREE SIZE"]],{},{ class: "select-box" }
+              - if @item.errors[:size].any?
+                .error
+                  選択してください
             .input-brand
               .label
                 ブランド
@@ -80,7 +90,10 @@
               .label-mark
                 必須
               .input-status__form
-                = f.select :status,[["---", 0],["状態", "状態1"]],{},{ class: "select-box" }
+                = f.select :status,[["---", ''],["新品"],["未使用に近い"],["目立った傷や汚れなし"],["やや傷汚れあり"],["傷や汚れあり"],["全体的に状態が悪い"]],{},{ class: "select-box" }
+                - if @item.errors[:status].any?
+                  .error
+                    選択してください
       .input-shipping
         .message
           配送について
@@ -91,21 +104,30 @@
           .label-mark
             必須
           .input-fee__form
-          = f.select :fee,[["---", 0],["配送料負担1","配送料負担1"]],{},{ class: "select-box" }
-            
+          = f.select :fee,[["---", ''],["送料込み(出品者負担)"],["着払い(購入者負担)"]],{},{ class: "select-box" }
+          - if @item.errors[:fee].any?
+            .error
+              選択してください
           .label
             発送元の地域
           .label-mark
             必須
           .s_prefecture__form
             = f.collection_select :s_prefecture,Prefecture.all, :id, :name, {prompt: "---"}, {class: "select-box"}
+            - if @item.errors[:s_prefecture].any?
+              .error
+                選択してください 
+
           .label
             発送までの日数
           .label-mark
             必須
           .s_date__form
-            - s_date_type = [["---", 0],["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]]
+            - s_date_type = [["---", ''],["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]]
             = f.select :s_date,s_date_type,{},{ class: "select-box" }
+            - if @item.errors[:s_date].any?
+              .error
+                選択してください
       .input-price
         .message
           販売価格(300〜9,999,999)          
@@ -118,16 +140,17 @@
               .label-mark
                 必須
             .price_form
-       
               = f.label '¥',class:"price-form__label"
               = f.number_field :price,placeholder:"例)300",class:"price",id:"price"
+          - if @item.errors[:price].any?
+            .error
+              300以上9,999,999以下で入力してください
           .charge
             .charge__message
               販売手数料(10%)
             .charge__result
               //販売手数料の計算結果を表示する場所
               ¥
-
           .profit
             .profit__message
               販売利益

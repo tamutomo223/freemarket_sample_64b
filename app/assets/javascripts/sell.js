@@ -7,29 +7,32 @@ $(function() {
   $('.input-image-box').change(function(){
     
     var a = image.files.length
-    console.log(a)
     if (image.files.length == 1){
-      //条件が真の時
+      //画像が一枚だけの時
       //フォームに入れた画像を表示するためのurlを作る
     var image_path = URL.createObjectURL(image.files[0]);
+
+    //表示するhtmlの作成
     var html = `<div class="image-preview-box" >
                   <img src="${image_path}" class="image-preview"height="64" width="114" >
                 </div>`
+    //htmlをビューへ追加
     $('.preview').append(html);
     URL.revokeObjectURL(".image_preview.src");
     }
     else{
-      console.log("画像が２つ以上です")
-      console.log(image.files)
-      
+      //画像が複数の時
       $.each(image.files,function(index, value){
-        console.log(index + ":" + value)
+        //フォームに入れた画像を表示するためのurlを作る
         var image_path = URL.createObjectURL(value);
+
+        //表示するhtmlの作成
         var html = `<div class="image-preview-box" >
                   <img src="${image_path}" class="image-preview"height="64" width="114" >
                 </div>`
+        //htmlをビューへ追加
         $('.preview').append(html);
-
+        URL.revokeObjectURL(".image_preview.src");
       })
     }
   });

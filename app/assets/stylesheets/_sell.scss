@@ -1,4 +1,5 @@
 //各ブロックの共通設定
+
 .box-common{
   padding: 40px;
   border-top: solid 2px whitesmoke;
@@ -101,10 +102,16 @@
 
 //画像のプレビュー表示
 .image-preview-box{
+  display: inline-block;
   height: 160px;
   width: 114px;
-  display: flex;
+  background-color: whitesmoke;
 }
+//エラー文字の調整
+.error{
+  color: red;
+}
+
 .input-image-drop{
   display: flex;
 }

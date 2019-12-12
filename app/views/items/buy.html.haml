@@ -1,1 +1,65 @@
-購入画面
+.buy-wrapper
+  .buy-header
+    .buy-header__logo
+      = image_tag "/ロゴ/image.png"
+  .buy-contents
+    .title 
+      %h2 購入内容の確認
+    .items 
+      .item-contents
+        .item-contents__content
+          .item-contents__content__image
+            = image_tag "#{@image}"
+          .item-contents__content__name
+            .item-contents__content__name__name
+              = @item.item_name
+            .item-contents__content__name__price
+              = "¥#{@item.price}（税込)"
+              %span
+                - if @item.fee == "配送料負担1"
+                  = "送料込み" 
+
+      .item-bottom
+        .item-bottom__price
+          .item-bottom__price__top
+            .item-bottom__price__top__title
+              支払い金額
+            .item-bottom__price__top__price
+              = "¥#{@item.price}"
+          .item-bottom__price__bottom
+        .item-bottom__pay
+          %h3 支払い方法
+          %img{src: "/ロゴ/VISA.png"}
+            = "**** **** **** " + @default_card_information.last4
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          .item-bottom__pay__month
+            = exp_month + " / " + exp_year
+        .item-bottom__shipping
+          .item-bottom__shipping__title
+            .item-bottom__shipping__title__title
+              %h3 配送先
+            .item-bottom__shipping__title__henkou
+              %span 変更する
+          .item-bottom__shipping__main  
+            .item-bottom__shipping__main__yubin
+              = "〒#{@yubin}"
+            .item-bottom__shipping__main__town  
+              = "#{@prefecture_name}  #{@city} #{@town}"
+            .item-bottom__shipping__main__name
+              = "#{@name1} #{@name2}"
+        .item-bottom__submit
+          = form_with url:buy_create_item_path(@item) , method: :post do |f|
+            = f.hidden_field :user_id,value:current_user.id
+            = f.hidden_field :item_id,value:@item.id
+            = f.hidden_field :progress,value:1
+            = f.submit value:"購入する"
+  .b-footer
+    %ul.b-footer__ul
+      %li.b-footer__ul__li
+        = link_to "プライバシーポリシー", "#"
+      %li.b-footer__ul__li
+        = link_to "メルカリ利用規約", "#"
+      %li.b-footer__ul__li
+        = link_to "特定商取引に関する表記", "#"
+    = image_tag "/ロゴ/image (2).png"

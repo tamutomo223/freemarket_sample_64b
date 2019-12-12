@@ -1,0 +1,187 @@
+@import "color";
+.buy-wrapper{
+  background-color: $gray;
+  .buy-header{
+    height:128px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    .buy-header__logo{
+      img{
+        display: block;
+        height:69px;
+        width:auto;
+        padding-top:30px ;
+      }
+    }
+  }
+  .buy-contents{
+    .title{
+    margin: 0 auto;
+    width:636px;
+    border-bottom: 1px solid $gray;
+    background-color: white;
+    padding:32px;
+      h2{
+      text-align: center;
+      font-weight: 700;
+      font-size: 22px;
+      }
+    }
+    .items{
+      background-color: white;
+      width:calc(700px);
+      margin: 0 auto;
+      border-bottom: 1px solid $gray;
+      .item-contents{
+        padding:32px 16px;
+        display: flex;
+        justify-content: center;
+        height: calc(145px - 64px);
+        width:100%;
+        margin: 0 auto;
+        border-bottom: 1px solid $gray;
+        
+        &__content{
+          width:343px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: left;
+        &__image{
+          img{
+            height: 80px;
+            width:80px;
+            object-fit: contain;
+          }
+        }
+        &__name{
+          margin-left:16px ;
+          &__name{
+            font-size:14px;
+          }
+          &__price{
+            font-weight: 600;
+          }
+
+        }
+      }
+      }
+      .item-bottom{
+        padding:32px;
+        width:calc(700px - 64px);
+        margin: 0 auto;
+        
+        &__price{
+          border-bottom: 1px solid $gray;
+          height: 134px;
+          width:calc(343px - 32px);
+          margin: 0 auto;
+          font-size:12px;
+          font-weight: 600;
+          line-height: 120px;
+          padding:0 16px;
+            &__top{
+              display:flex;
+              justify-content: space-between;
+              &__title{
+                font-size: 18px;
+              }
+              &__price{
+                font-size: 30px;
+              }
+            }
+            &__bottom{
+
+            }
+        }
+        &__pay{
+          border-bottom: 1px solid $gray;
+          height: calc(106px- 32px);
+          width:calc(343px - 32px);
+          margin: 0 auto;
+          padding:16px 16px;
+          h3{
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom:20px ;
+                    }
+          img{
+            height:20px;
+            width:auto;
+            display: block;
+            margin-bottom:20px ;}
+        }
+        &__shipping{
+          border-bottom: 1px solid $gray;
+          width:calc(343px - 32px);
+          height: calc(156px - 70px);
+          margin: 0 auto;
+          padding:32px 16px;
+          &__title {
+            display: flex;
+            justify-content: space-between;
+            &__title{
+              h3{font-weight: 600;
+              font-size:14px;
+              }
+            }
+            &__henkou{
+              font-size: 14px;
+              color:$skyblue;
+            }
+          }
+          &__main{
+            font-size: 14px;
+          }
+        }
+        &__submit{
+          input{
+            display: block;
+            margin: 0 auto;
+            background-color:$red;
+            width:343px;
+            font-size: 14px;
+            font-weight: 600;
+            color:white;
+            padding:13px 0;
+            margin-top:30px;
+            margin-bottom:20px ;
+            border: none;
+          }
+          
+        }
+      }
+    }
+    
+  }
+
+  .b-footer{
+    width:456px;
+  margin:0 auto;
+  height: 180px;
+  padding:40px 0;
+  text-align: center;
+    &__ul{
+      display: flex;
+      justify-content: space-between;
+      a{
+      display: block;
+      font-size:12px;
+      color: black;
+      }
+    }
+    img{
+      display: block;
+      margin:0 auto;
+      margin-top:40px;
+      height:100px;
+      width:auto;
+    }
+  }
+
+
+
+
+
+}
