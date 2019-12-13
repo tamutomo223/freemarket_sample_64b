@@ -14,6 +14,10 @@ class UsersController < ApplicationController
   def mypage
   end
 
+  def listing
+    @items = Item.where user_id: current_user.id
+  end
+
   def profile
   end 
   def card
@@ -23,6 +27,8 @@ class UsersController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
+  end
+  def listings
   end
   def address
     @shipping = Shipping.new

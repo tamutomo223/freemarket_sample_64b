@@ -18,4 +18,11 @@ class Item < ApplicationRecord
   validates :size_type,presence: true
   validates :category_id,presence: true
   
+
+
+  belongs_to :category
+  belongs_to :user
+
+  belongs_to :order,optional: true
 end
+

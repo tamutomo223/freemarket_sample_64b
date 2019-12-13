@@ -145,7 +145,7 @@
         }
       }
       &__buy {
-        background-color: #EA352D;
+        background-color: $red;
         height:60px;
         margin:16px 0;
         color:white;
@@ -189,6 +189,30 @@
         }
       }
     }
+    &__wrapper{
+      text-align: center;
+      font-size: 20px;
+
+      &__edit{
+        width: 620px;
+        height: 60px;
+        line-height: 60px;
+        background-color: $red;
+        margin: 10px 40px 10px;
+
+        &--link {
+          color:white;
+        }
+      }
+      &__or {
+        height: 50px;
+        line-height: 50px;
+      }
+      &__deco {
+        background-color: $gray-black;
+      }
+    }
+
     &__comment {
       height:238px;
       padding:24px;
