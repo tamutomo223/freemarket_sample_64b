@@ -1,7 +1,8 @@
 class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
-
+  belongs_to :category
+  belongs_to :user
 
   validates :item_name, length: {maximum:40},presence: true
   validates :order_id,presence: true
@@ -17,12 +18,4 @@ class Item < ApplicationRecord
   validates :size_type,presence: true
   validates :category_id,presence: true
   
-  validate :image_check
-  def image_check
-    errors.add(:images, "画像がありません")if images.size < 1
-  end
-
-  belongs_to :category
-  belongs_to :user
-
 end

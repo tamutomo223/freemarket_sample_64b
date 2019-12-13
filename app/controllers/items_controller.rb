@@ -7,9 +7,6 @@ class ItemsController < ApplicationController
 
   def sell
 
-   @item = Item.new
-   @item.images.build
-
     @item = Item.new
     @item.images.build
     @categories = Category.all.order("id ASC")
@@ -24,9 +21,7 @@ class ItemsController < ApplicationController
   end  
 
   def exhibit
-    
     @item = Item.new(item_params)
-    
     if @item.save
       params[:images][:image_url].each do |i|
         @item.images.create!(image_url: i,item_id:@item.id)
@@ -35,6 +30,7 @@ class ItemsController < ApplicationController
     else
       #画像フォーム消えることを防ぐため
       @item.images.build
+      @categories = Category.all.order("id ASC")
       render :sell
     end
   end
@@ -47,10 +43,6 @@ class ItemsController < ApplicationController
 
   end
 
-
-  def image_params(params)
-    params.permit(:image_url)
-  end
 
   def set_item
     @item = Item.find(params[:id])
