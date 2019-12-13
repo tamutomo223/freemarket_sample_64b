@@ -55,14 +55,13 @@ $(function() {
 
   //画像バリデーション
   $('#new_item').submit(function() {
-    alert("画像チェック")
+    
     
     if (image.files.length == 0) {
-      alert("画像なし")
       $('.image-error').html("画像がありません")
       return false; 
     } else {
-      alert("画像あり")
+      
       return true; 
     }
   })
