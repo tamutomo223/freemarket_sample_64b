@@ -29,6 +29,28 @@ class UsersController < ApplicationController
     end
   end
   def listings
+    # @items = Item.where(user_id: current_user.id ).order("id DESC")
+    @items = Item.where(user_id: current_user.id)
+    
+    @orders = Order.where(item_id: @items.ids)
+    order_ids = []
+    @orders.each_with_index do |order, i|
+      order_ids[i] = order.item_id
+    end
+    @orders_items = Item.where(id: order_ids).order("id DESC")
+    
+    @items2 = Item.where.not(id: @orders_items.ids)
+    
+  end
+  def complete
+    @items = Item.where(user_id: current_user.id)
+    
+    @orders = Order.where(item_id: @items.ids)
+    order_ids = []
+    @orders.each_with_index do |order, i|
+      order_ids[i] = order.item_id
+    end
+    @orders_items = Item.where(id: order_ids).order("id DESC")
   end
   def address
     @shipping = Shipping.new
@@ -58,6 +80,5 @@ class UsersController < ApplicationController
   end  
 
   
-
 
 end
