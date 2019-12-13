@@ -1,11 +1,11 @@
 .container
   .header
-    
+  
     .header-logo
     = link_to root_path do 
       = image_tag("/ロゴ/image.png", width: '185',height:'100')
   .body
-    = form_for @item,url:exhibit_items_path do |f|
+    = form_for @item,url:exhibit_items_path ,onSubmit:"return check();" do |f|
       .body__head
         商品の情報を入力
       .body__content
@@ -27,8 +27,8 @@
                   %br
                   またはクリックしてファイルをアップロード
                   = t.file_field :image_url,class:"input-image-box",id:"image",multiple: true,name:'images[image_url][]'
-              %p{class: 'error'}=@item.errors[:images][0]
-                  
+              .image-error
+
                   
         .input-item-name
           .label
@@ -150,7 +150,7 @@
               販売手数料(10%)
             .charge__result
               //販売手数料の計算結果を表示する場所
-              ¥
+              %p -
           .profit
             .profit__message
               販売利益
@@ -188,5 +188,4 @@
     =link_to image_tag("/ロゴ/image (2).png", width: '80',height:'65')
     .copyright
     ©︎freemarket
-
 
