@@ -17,6 +17,7 @@ class Item < ApplicationRecord
   validates :size,presence: true
   validates :size_type,presence: true
   validates :category_id,presence: true
+  
 
 
   belongs_to :category
