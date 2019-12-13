@@ -1,3 +1,5 @@
+.mypage-content{
+  height: 100%;
 .listing {
   &__head {
     height: 72px;
@@ -37,9 +39,8 @@
   }
   &__box {
     width: 700px;
-    height: 236px;
     
-    background-color: #fff;
+    
     p {
       background-image: url("/ロゴ/crea.png");
       background-repeat: no-repeat;
@@ -48,6 +49,7 @@
       text-align: center;
       padding-top: 160px;
       margin: 0 auto;
+      
     }
   }
   &__arrow{
@@ -68,4 +70,5 @@
       }
     }
   }
+}
 }
