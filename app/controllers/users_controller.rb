@@ -24,6 +24,8 @@ class UsersController < ApplicationController
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
   end
+  def listings
+  end
   def address
     @shipping = Shipping.new
   end

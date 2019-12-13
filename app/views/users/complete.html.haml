@@ -1,0 +1,34 @@
+= render "/items/header"
+= render "mysell"
+.pankuzu
+  =link_to "#" do
+    %p.top メルカリ
+  =fa_icon "chevron-right"
+  %p.top マイページ
+  =fa_icon "chevron-right"
+  .bold ログアウト
+.mypage-content
+  = render "comp-var"
+  .listing
+    .listing__head
+      %p.l-head  出品した商品
+    .listing__tab
+      .listing__tab.tab-b
+        =link_to "#" do
+          %p 出品中
+      .listing__tab.tab-b
+        =link_to "#" do
+          %p 取引中
+      .listing__tab.tab-a
+        =link_to "#" do
+          %p 売却済み
+    .listing__box
+      %p 出品中の商品がありません
+    .listing__arrow
+      =link_to "#" do
+        .listing__arrow__box
+          =fa_icon "chevron-left"
+      =link_to "#" do
+        .listing__arrow__box
+          =fa_icon "chevron-right"
+= render "/items/footer"
