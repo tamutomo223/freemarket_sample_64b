@@ -75,7 +75,7 @@ class ItemsController < ApplicationController
       end
       redirect_to root_path
     else
-      binding.pry
+      @categories = Category.all.order("id ASC")
       #画像フォーム消えることを防ぐため
       @item.images.build
       render :sell

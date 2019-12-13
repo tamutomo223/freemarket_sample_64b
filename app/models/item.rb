@@ -17,10 +17,10 @@ class Item < ApplicationRecord
   validates :size_type,presence: true
   validates :category_id,presence: true
   
-  # validate :image_check
-  # def image_check
-  #   errors.add(:images, "画像がありません")if images.size < 1
-  # end
+  validate :image_check
+  def image_check
+    errors.add(:images, "画像がありません")if images.size < 1
+  end
 
   belongs_to :category
   belongs_to :user

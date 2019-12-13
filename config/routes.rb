@@ -40,6 +40,9 @@ Rails.application.routes.draw do
       post "address_create"
       get "mypage/profile" ,to: "users#profile"
       get "mypage/card" ,to: "users#card"
+      get "mypage/listings" ,to: "users#listings"
+      get "mypage/tranceration" ,to: "users#tranceration"
+      get "mypage/complete" ,to: "users#complete"
       get "finish"
     end
   end
