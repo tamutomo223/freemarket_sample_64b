@@ -38,18 +38,18 @@ $(function() {
 
 
   //手数料の計算
-  $('.price').change(function(){
+  $('price_field').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
-    
+    console.log(price)
     //手数料
-    var charge = parseInt(price)*0.10;
-    
+    // debugger;
     //販売利益
-    var profit = parseInt(price)-parseInt(charge)
+    var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
+    var charge = (price - profit)//parseInt(price)*0.10;
     $('.charge__result').html(charge)
    
-    $('.profit__result').append(profit)
+    $('.profit__result').html(profit)
    
   });
 
