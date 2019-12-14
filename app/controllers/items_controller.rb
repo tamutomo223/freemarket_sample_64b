@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.includes(:images).order("created_at DESC").limit(10)
+    @category = Category.all
   end  
 
   def sell
@@ -47,7 +48,7 @@ class ItemsController < ApplicationController
     Payjp::Charge.create(
       amount: @item.price, # 決済する値段
       customer: @card.customer_id, #顧客ID
-      currency: 'jpy', #日本円
+      currency: 'jpy' #日本円
     )
     redirect_to root_path
     end

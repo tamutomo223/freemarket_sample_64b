@@ -1,5 +1,7 @@
 @import "color";
-
+.none{
+  display: none;
+}
 .item__sell {
   width:160px;
   height: calc(160px - 32px);
@@ -27,6 +29,7 @@
   width:100vw;
   height:100px;
   margin-bottom:2px ;
+  background-color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.178);
   &__content {
     width:1020px;
@@ -73,9 +76,30 @@
         font-size:14px;
         &__category {
           width:159px;
+          position: relative;
+          height: 600px;
+          z-index: 100;
           a{
             &:hover {
               color: $skyblue;
+            }
+          }
+          .hidden{
+            position: absolute;
+            z-index: 100;
+            top:44px;
+            left:4px;
+            font-weight: 400;
+            background-color: white;
+            &__category{
+              height: 46px;
+              line-height: 46px;
+              padding: 0 20px;
+              width:180px;
+              &:hover {
+                background-color: $red;
+                color: white;
+              }
             }
           }
         }

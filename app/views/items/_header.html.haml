@@ -11,6 +11,11 @@
           = link_to "#" do
             = fa_icon "list-ul"
             %span カテゴリから探す
+          -# .hidden
+          -#   - @category= Category.all
+          -#   - @category.each do |c|
+          -#     .hidden__category.none
+          -#       = c.category_name
         .top__header__content__2__left__brand
           = link_to "#" do
             = fa_icon "tag"

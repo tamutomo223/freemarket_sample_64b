@@ -49,7 +49,7 @@
             .item-bottom__shipping__main__name
               = "#{@name1} #{@name2}"
         .item-bottom__submit
-          = form_with url:buy_create_item_path(@item) , method: :post do |f|
+          = form_with url:buy_create_item_path(@item) , method: :post,local:true do |f|
             = f.hidden_field :user_id,value:current_user.id
             = f.hidden_field :item_id,value:@item.id
             = f.hidden_field :progress,value:1
