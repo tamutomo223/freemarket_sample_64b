@@ -1,7 +1,6 @@
 .identification-wrapper
   = render "/items/header"
   = render "/items/sell"
-
   .pankuzu
     =link_to "#" do
       %p.top メルカリ
@@ -9,16 +8,67 @@
     %p.top マイページ
     =fa_icon "chevron-right"
     .bold 支払い方法
-
-
   .identification-content
     = render "identification-var"
-    .mypage-content
-      本人情報の登録
-      お客さまの本人情報をご登録ください。
-      登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-      = link_to '#' do
-        本人確認書類のアップロードについて
+    .identification
+      = form_for @shipping,url:users_path,method:"post" do |f|
+        .identification__top
+          本人情報の登録
+        .identification__form
+          .identification__form--message
+            お客さまの本人情報をご登録ください。
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            = link_to '#' do
+              本人確認書類のアップロードについて
+          .identification__form--box
+            .big__text
+            お名前
+            .value
+              = @user.family_name
+              = @user.first_name 
+          .identification__form--box
+            .big__text
+            お名前カナ
+            .value
+              = @user.kana_family_name
+              = @user.kana_first_name
+          .identification__form--box
+            .big__text
+            生年月日
+            .value
+              = @user.birthday
+          .identification__form--box
+            .big__text
+              郵便番号
+            .form
+            = f.text_field :address_number,placeholder:"例）123-4567",class:"identification-form"
+          .identification__form--box
+            .big__text
+              都道府県
+            .form
+              =f.collection_select :prefecture_id, Prefecture.all, :id,:name
+          .identification__form--box
+            .big__text
+              市町村区
+            .form
+              = f.text_field :city,placeholder:"例）横浜市緑区",class:"identification-form"
+          .identification__form--box
+            .big__text
+              番地
+            .form
+              = f.text_field :town,placeholder:"例）青山1−1−1",class:"identification-form"
+          .identification__form--box
+            .big__text
+              建物
+            .form
+              = f.text_field :building,placeholder:"例）柳ビル103",class:"identification-form"
+          .identification__form--btn
+            = f.submit value:"次へ進む",class:"identification-send"
+          .message
+            = link_to '#' do
+              本人確認書類の登録について
+        
+      
 
 
 
