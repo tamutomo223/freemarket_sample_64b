@@ -1,12 +1,9 @@
 $(function() {
-
-  
   let image_array = new Array();//配列の宣言送信時に初期化する
 
   //フォームに入れた画像を表示
   $('.input-image-box').change(function(){
     
-    var a = image.files.length
     if (image.files.length == 1){
       //画像が一枚だけの時
       //フォームに入れた画像を表示するためのurlを作る
@@ -17,7 +14,7 @@ $(function() {
                   <img src="${image_path}" class="image-preview"height="64" width="114" >
                 </div>`
     //htmlをビューへ追加
-    $('.preview').append(html);
+    $('.preview').html(html);
     URL.revokeObjectURL(".image_preview.src");
     }
     else{
@@ -44,13 +41,30 @@ $(function() {
   $('.price').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
+    
     //手数料
     var charge = parseInt(price)*0.10;
+    
     //販売利益
     var profit = parseInt(price)-parseInt(charge)
-    $('.charge__result').append(charge);
-    $('.profit__result').append(profit);
+    $('.charge__result').html(charge)
+   
+    $('.profit__result').append(profit)
+   
   });
+
+  //画像バリデーション
+  $('#new_item').submit(function() {
+    
+    
+    if (image.files.length == 0) {
+      $('.image-error').html("画像がありません")
+      return false; 
+    } else {
+      
+      return true; 
+    }
+  })
   
-  
+
 });
