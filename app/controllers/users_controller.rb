@@ -64,7 +64,6 @@ class UsersController < ApplicationController
       redirect_to mypage_users_path
     else
       #本人情報ページ表示用
-      @user = User.find(current_user.id)
       @shipping = current_user.shippings.first
       render :identification
     end  
