@@ -1,43 +1,63 @@
 $(function() {
-  let image_array = new Array();//配列の宣言送信時に初期化する
+  let images = [];
+  let form =[];
+  function buildHTML(imgSrc){
+    let html =  `<div class="preview-box">
+                   <div class="preview-box__img-box">
+                    <img src="${imgSrc}" "height="64" width="114">
+                  </div>
+                  <div class="preview-box__select">
+                     <div class="preview-box__select--edit">
+                    <p>編集</p>
+                  </div>
+                  <div class="preview-box__select--delete">
+                    <p>削除</p>
+                  </div>
+                </div>
+              </div>`
+    $('.preview').prepend(html);
+  };
 
-  //フォームに入れた画像を表示
-  $('.input-image-box').change(function(){
+  $('.input-image-box').change(function(e){
+    a = $('.input-image-box').val();
+    form.push(a);
+    console.log("フォームの中身は")
+    console.log(a)
+    console.log("送信用フォームの中身は")
+    console.log(form)
+    let files = e.target.files;
+    for (var i = 0, f; f = files[i]; i++){
+      let reader = new FileReader();
+      reader.readAsDataURL(f);
+      reader.onload = function(){
+        let imgSrc = reader.result;
+        buildHTML(imgSrc);
+        images.push(imgSrc);
+        console.log("表示用配列の中身は")
+        console.log(images)
+        $('.input-image-box').val(form);
+
+    }
+    }
+  })
+  $('.input-image-box').on('drop', function(e) {
     
-    if (image.files.length == 1){
-      //画像が一枚だけの時
-      //フォームに入れた画像を表示するためのurlを作る
-    var image_path = URL.createObjectURL(image.files[0]);
+    e.preventDefault();
+    e.stopPropagation();
+    let dropImages = e.originalEvent.dataTransfer.files;
+      for(let i = 0; i < dropImages.length; i++ ) {
+        let imgSrc = URL.createObjectURL(dropImages[i]);
+        buildHTML(imgSrc);
+        images.push(dropImages[i].name);
+      }
+  });
+  $(document).on('click', '.preview-box__select--delete p', function(){
+    $(this).closest('.preview-box').remove();
 
-    //表示するhtmlの作成
-    var html = `<div class="image-preview-box" >
-                  <img src="${image_path}" class="image-preview"height="64" width="114" >
-                </div>`
-    //htmlをビューへ追加
-    $('.preview').html(html);
-    URL.revokeObjectURL(".image_preview.src");
-    }
-    else{
-      //画像が複数の時
-      $.each(image.files,function(index, value){
-        //フォームに入れた画像を表示するためのurlを作る
-        var image_path = URL.createObjectURL(value);
-
-        //表示するhtmlの作成
-        var html = `<div class="image-preview-box" >
-                  <img src="${image_path}" class="image-preview"height="64" width="114" >
-                </div>`
-        //htmlをビューへ追加
-        $('.preview').append(html);
-        URL.revokeObjectURL(".image_preview.src");
-      })
-    }
   });
 
-  
-
-
   //手数料の計算
+<<<<<<< Updated upstream
   $('.price').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
@@ -47,6 +67,17 @@ $(function() {
     
     //販売利益
     var profit = parseInt(price)-parseInt(charge)
+=======
+  $('.price_field').change(function(){
+    //フォームに入れた数字
+    var price = $(this).val()
+    
+    
+    //販売利益
+    var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
+    //手数料
+    var charge = (price - profit)//parseInt(price)*0.10;
+>>>>>>> Stashed changes
     $('.charge__result').html(charge)
    
     $('.profit__result').append(profit)

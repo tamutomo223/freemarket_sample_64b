@@ -28,7 +28,7 @@
                   またはクリックしてファイルをアップロード
                   = t.file_field :image_url,class:"input-image-box",id:"image",multiple: true,name:'images[image_url][]'
               .image-error
-
+              -#エラー文の表示
                   
         .input-item-name
           .label
@@ -179,13 +179,15 @@
         = f.submit value: '出品する',class:"form-btn"
         %input(type="button" value="もどる" class="return-btn")
   .bottom
-    =link_to '#' do
-      プライバシーポリシー',
-    =link_to '#' do
-      'メルカリ利用規約'
-    =link_to '#' do
-      特定商取引に関する表記
-    =link_to image_tag("/ロゴ/image (2).png", width: '80',height:'65')
+    .bottom__message
+      =link_to '#' do
+        プライバシーポリシー',
+      =link_to '#' do
+        'メルカリ利用規約'
+      =link_to '#' do
+        特定商取引に関する表記
+    .bottom__logo
+      =link_to image_tag("/ロゴ/image (3).png", width: '80',height:'65')
     .copyright
-    ©︎freemarket
+      ©︎freemarket
 
