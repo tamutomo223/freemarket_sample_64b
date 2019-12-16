@@ -54,19 +54,19 @@ class UsersController < ApplicationController
   def identification
     #本人情報ページ表示用
     @user = User.find(current_user.id)
-    @shipping = Shipping.where(user_id:current_user.id).first
+    @shipping = current_user.shippings.first
 
   end
 
   def update
     #本人情報登録
-    @shipping = Shipping.where(user_id:current_user.id).first
+    @shipping = current_user.shippings.first
     if @shipping.update(update_shipping_params)
       redirect_to mypage_users_path
     else
       #本人情報ページ表示用
       @user = User.find(current_user.id)
-      @shipping = Shipping.new
+      @shipping = current_user.shippings.first
       render :identification
     end  
   end

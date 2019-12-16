@@ -41,7 +41,7 @@ $(function() {
   $('price_field').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
-    console.log(price)
+    
     //手数料
     // debugger;
     //販売利益
