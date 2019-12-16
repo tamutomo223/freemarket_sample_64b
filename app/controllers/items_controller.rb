@@ -44,6 +44,7 @@ class ItemsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first
     @order = Order.new(order_params)
     if @order.save
+      @item.update(order_id: @order.id)
     Payjp.api_key = "sk_test_853b0c9300ad1412a28612e8"
     Payjp::Charge.create(
       amount: @item.price, # 決済する値段
