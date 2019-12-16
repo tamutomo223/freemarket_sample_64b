@@ -141,7 +141,7 @@
                 必須
             .price_form
               = f.label '¥',class:"price-form__label"
-              = f.number_field :price,placeholder:"例)300",class:"price",id:"price"
+              = f.number_field :price,placeholder:"例)300",class:"price_field",id:"price"
           - if @item.errors[:price].any?
             .error
               300以上9,999,999以下で入力してください
@@ -150,7 +150,7 @@
               販売手数料(10%)
             .charge__result
               //販売手数料の計算結果を表示する場所
-              %p -
+              ¥
           .profit
             .profit__message
               販売利益
