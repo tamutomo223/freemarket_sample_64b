@@ -57,7 +57,6 @@ $(function() {
   });
 
   //手数料の計算
-<<<<<<< Updated upstream
   $('.price').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
@@ -67,17 +66,6 @@ $(function() {
     
     //販売利益
     var profit = parseInt(price)-parseInt(charge)
-=======
-  $('.price_field').change(function(){
-    //フォームに入れた数字
-    var price = $(this).val()
-    
-    
-    //販売利益
-    var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
-    //手数料
-    var charge = (price - profit)//parseInt(price)*0.10;
->>>>>>> Stashed changes
     $('.charge__result').html(charge)
    
     $('.profit__result').append(profit)
