@@ -4,14 +4,16 @@
       = link_to "#" do
         %figure
         = image_tag "/ロゴ/ningen.png", class:"icon"
-      %p.mypage__icon__nicname nicname
+      .mypage__icon__nicname 
+        = current_user.nickname
       .mypage__icon__number
         .mypage__icon__number__list
           %p 評価
           .bold 60
         .mypage__icon__number__list  
           %P 出品数
-          .bold 80
+          .bold 
+            =@items.length
           
   %section.tabb-var
     .tab-var__mypage

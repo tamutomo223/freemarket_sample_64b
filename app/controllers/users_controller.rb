@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end  
   
   def mypage
+    @items = Item.where(user_id: current_user.id)
   end
 
   def listing
