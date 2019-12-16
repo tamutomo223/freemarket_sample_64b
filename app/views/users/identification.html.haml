@@ -24,19 +24,19 @@
             .big__text
             お名前
             .value
-              = @user.family_name
-              = @user.first_name 
+              = current_user.family_name
+              = current_user.first_name 
           .identification__form--box
             .big__text
             お名前カナ
             .value
-              = @user.kana_family_name
-              = @user.kana_first_name
+              = current_user.kana_family_name
+              = current_user.kana_first_name
           .identification__form--box
             .big__text
             生年月日
             .value
-              = @user.birthday
+              = current_user.birthday
           .identification__form--box
             .big__text
               郵便番号
@@ -67,13 +67,5 @@
           .message
             = link_to '#' do
               本人確認書類の登録について
-        
-      
-
-
-
-
-
-
 
 = render "/items/footer"

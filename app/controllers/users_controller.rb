@@ -53,7 +53,6 @@ class UsersController < ApplicationController
 
   def identification
     #本人情報ページ表示用
-    @user = User.find(current_user.id)
     @shipping = current_user.shippings.first
 
   end
