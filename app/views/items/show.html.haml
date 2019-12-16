@@ -28,26 +28,19 @@
       .item__other__user
         .item__other__user__title
           = link_to "#" do
-            %h2 おれさんのその他の出品
+            %h2
+              = "#{@item.user.nickname}さんのその他の出品"
         .item__other__user__contents    
-          = render "show_items"
-          = render "show_items"
-          = render "show_items"
-          = render "show_items"
-          = render "show_items"
-          = render "show_items"
+          = render "show_items"          
       .bar3          
       .item-other__user
         .item__other__user__title
           = link_to "#" do
-            %h2 スニーカーその他の出品
+            %h2
+              ="#{@item.category.category_name}その他の出品"
         .item__other__user__contents  
-          = render "show_items"
-          = render "show_items"
-          = render "show_items"
-          = render "show_items"
-          = render "show_items"
-          = render "show_items"
+          = render "category_items"
+          
   .bar        
   .bread
 = render "footer"

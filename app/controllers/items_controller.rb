@@ -56,7 +56,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-  end  
+    @user_item = Item.where(user_id: current_user.id).where(order_id: 0)
+    @category_item = Item.where(category_id: @item.category_id).where(order_id: 0)
+  end
 
   def edit
   end

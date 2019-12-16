@@ -348,14 +348,17 @@
               height:78px;
               padding:16px;
               background-color: white;
+              
               &__name{
                 font-size: 16px;
                 line-height: 48px;
+                color:black;
               }
               &__price {
                 margin-top:8px;
                 font-size: 16px;
                 font-weight:600 ;
+                color:black;
               }
             }       
           }

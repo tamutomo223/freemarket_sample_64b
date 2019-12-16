@@ -1,8 +1,9 @@
-- @user_item.each do |item|
+- @category_item.each do |item|
   = link_to item_path(item.id) do
     .item__other__user__contents__content
       .item__other__user__contents__content__img
-        = item.images[0]
+        - image = item.images[0].image_url
+        = image_tag "#{image}"
       .item__other__user__contents__content__body
         .item__other__user__contents__content__body__name
           = item.item_name
