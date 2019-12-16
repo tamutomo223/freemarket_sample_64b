@@ -12,6 +12,29 @@
   height:24px;
   background-color: $gray;
 }
+
+.soldd{
+  position: absolute;
+  border-top: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-bottom: 120px solid  $red;
+  border-left: 120px solid  transparent;
+  top:-120px;
+  left:-120px;
+  transform: rotate(-45deg);
+}
+
+.soldd-c{
+  z-index: 89;
+  color: white;
+  transform: rotate(-45deg);
+  font-size: 30px;
+  font-weight: 600;
+  position: absolute;
+  top:35px;
+  left:10px;
+}
+
 .show-wrapper {
   background-color: $gray;
   .item {
@@ -36,9 +59,11 @@
           width:300px;
           .disp-active-main{
             height:300px;
+            position: relative;
             img{
               height:300px;
               width:300px;
+              
             }
           }
           .disp-none-main{
@@ -143,6 +168,16 @@
             vertical-align:bottom;
           }
         }
+      }
+      &__sold{
+        background-color: $gray-black;
+        line-height: 60px;
+        font-size: 24px;
+        font-weight:600;
+        height:60px;
+        color:white;
+        text-align: center;
+        margin:16px 0;
       }
       &__buy {
         background-color: $red;

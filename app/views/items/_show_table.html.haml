@@ -6,6 +6,9 @@
     - images = @item.images
     .item__show__content__img__main.disp-active-main
       = image_tag "#{images[0].image_url}"
+      - if @item.order != nil
+        .soldd
+        .soldd-c SOLD
     - images.each_with_index do |image, i|
       .item__show__content__img__main.disp-none-main
         = image_tag "#{images[i].image_url}"
@@ -83,9 +86,12 @@
 
 - if !request.path.include?("edit")
   -# 購入画面前のみ表示させる。編集時には、表示させない。
-  = link_to "#" do    
-    .item__show__buy
-      = link_to buy_item_path, class: "item__show__buy" do
+  - if @item.order != nil
+    .item__show__sold
+      売り切れました
+  -else
+    = link_to buy_item_path, class: "item__show__buy" do
+      .item__show__buy
         購入画面に進む
   .item__show__exprain
     %P

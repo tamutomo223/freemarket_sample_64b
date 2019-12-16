@@ -2,6 +2,29 @@
 .none{
   display: none;
 }
+
+.sold {
+  border-top: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-bottom: 80px solid  $red;
+  border-left: 80px solid  transparent;
+  position: absolute;
+  top:-80px;
+  left:-80px;
+  transform: rotate(-45deg);
+  z-index: 88;
+}
+.sold-c{
+  z-index: 89;
+  color: white;
+  transform: rotate(-45deg);
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  top:25px;
+  left:10px;
+}
+
 .item__sell {
   width:160px;
   height: calc(160px - 32px);

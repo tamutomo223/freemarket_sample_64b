@@ -1,6 +1,7 @@
-= link_to "/items/sell" do
-  .item__sell
-    .item__sell__title
-      出品
-    .item__sell__photo
-      = image_tag "/ロゴ/カメラ.png"
+- if user_signed_in?
+  = link_to "/items/sell" do
+    .item__sell
+      .item__sell__title
+        出品
+      .item__sell__photo
+        = image_tag "/ロゴ/カメラ.png"
