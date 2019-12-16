@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
     @arrey = []
     # @orders = @items.orders
-    @items.each do |item|
+    @items.map do |item|
       if item.order == nil
          @arrey << item
       end   
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def complete
     @items = Item.where(user_id: current_user.id)
     @arrey = []
-  @items.each do |item|
+  @items.map do |item|
     if item.order != nil
       @arrey << item
     end
