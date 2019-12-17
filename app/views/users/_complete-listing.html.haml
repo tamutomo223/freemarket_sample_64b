@@ -1,0 +1,18 @@
+- @items.each do |item|
+  = link_to edit_item_path(item.id) do
+    .listing-list
+      .listing-list__items
+        .listing-list__items__image
+          .listing-list__items__image__icon
+            = image_tag "#{item.images[0].image_url}"
+        .listing-list__items__upper-info
+          .listing-list__items__upper-info__itemname
+            = item.item_name
+          .listing-list__items__content
+            = fa_icon "heart-o"
+            %span 0
+            = fa_icon "comment-o"
+            %span 0
+            .gray 売却済
+      .listing-list__arrow
+        =fa_icon "chevron-right"

@@ -12,6 +12,29 @@
   height:24px;
   background-color: $gray;
 }
+
+.soldd{
+  position: absolute;
+  border-top: 90px solid transparent;
+  border-right: 90px solid transparent;
+  border-bottom: 90px solid  $red;
+  border-left: 90px solid  transparent;
+  top:-90px;
+  left:-90px;
+  transform: rotate(-45deg);
+}
+
+.soldd-c{
+  z-index: 89;
+  color: white;
+  transform: rotate(-45deg);
+  font-size: 24px;
+  font-weight: 600;
+  position: absolute;
+  top:28px;
+  left:8px;
+}
+
 .show-wrapper {
   background-color: $gray;
   .item {
@@ -36,9 +59,11 @@
           width:300px;
           .disp-active-main{
             height:300px;
+            position: relative;
             img{
               height:300px;
               width:300px;
+              
             }
           }
           .disp-none-main{
@@ -85,6 +110,7 @@
               .like {
                 display: flex;
                 font-size: 14px;
+                margin-top: 10px;
                 .good{
                   margin-right: 15px;
                   i{
@@ -109,6 +135,7 @@
             }
             .sky {
               &--link{
+                display: block;
                 color:$skyblue;
               }
             }
@@ -143,6 +170,16 @@
             vertical-align:bottom;
           }
         }
+      }
+      &__sold{
+        background-color: $gray-black;
+        line-height: 60px;
+        font-size: 24px;
+        font-weight:600;
+        height:60px;
+        color:white;
+        text-align: center;
+        margin:16px 0;
       }
       &__buy {
         background-color: $red;
@@ -313,14 +350,17 @@
               height:78px;
               padding:16px;
               background-color: white;
+              
               &__name{
                 font-size: 16px;
                 line-height: 48px;
+                color:black;
               }
               &__price {
                 margin-top:8px;
                 font-size: 16px;
                 font-weight:600 ;
+                color:black;
               }
             }       
           }
@@ -332,6 +372,27 @@
     height:48px;
     line-height: 48px;
     background-color: $gray;
+    font-size: 14px;
     border-top:solid 0.5px #cccaca;
+    .a{
+      padding-left:220px;
+      a{
+        color: black;
+        &:hover{
+          border-bottom:1px solid black ;
+          opacity: 0.5;
+        }
+      }
+    }
+    .b{
+      padding-left:10px;
+    }
+    .c{
+      padding-left:10px;
+      font-weight: 600;
+    }
+    i{
+      color: gray;
+    }
   }
 }

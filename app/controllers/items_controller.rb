@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.includes(:images).order("created_at DESC").limit(10)
+    @category = Category.all
   end  
 
   def sell
@@ -15,6 +16,9 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @item = Item.find(params[:id])
     image = @item.images[0]
     @image = image.image_url
@@ -43,18 +47,23 @@ class ItemsController < ApplicationController
     @card = Card.where(user_id: current_user.id).first
     @order = Order.new(order_params)
     if @order.save
+      @item.update(order_id: @order.id)
     Payjp.api_key = "sk_test_853b0c9300ad1412a28612e8"
     Payjp::Charge.create(
       amount: @item.price, # 決済する値段
       customer: @card.customer_id, #顧客ID
-      currency: 'jpy', #日本円
+      currency: 'jpy' #日本円
     )
     redirect_to root_path
     end
   end
 
   def show
-  end  
+    @user_item = Item.where(user_id: current_user.id).where(order_id: 0).where.not(id: @item.id)
+    @category_item = Item.where(category_id: @item.category_id).where(order_id: 0).where.not(id: @item.id)
+    @next_item = Item.find_by(id: @item.id.to_i + 1)
+    @prev_item = Item.find_by(id: @item.id.to_i - 1)
+  end
 
   def edit
   end
