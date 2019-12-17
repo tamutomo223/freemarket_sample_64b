@@ -83,13 +83,12 @@ $(function() {
   });
   $(document).on('click', '.preview-box__select--delete p', function(){
     $(this).closest('.preview-box').remove();
-
-
+    });
   //手数料の計算
   $('.price_field').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
-    
+    console.log("あ")
     
     //販売利益
     var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
@@ -101,7 +100,7 @@ $(function() {
     $('.profit__result').html(profit)
 
   });
-});
+
   //画像バリデーション
   $('#new_item').submit(function() {
     
