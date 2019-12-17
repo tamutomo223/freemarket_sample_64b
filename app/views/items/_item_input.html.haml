@@ -3,7 +3,7 @@
     
     .header-logo
     = link_to root_path do 
-      = image_tag("/ロゴ/image.png", width: '185',height:'100')
+      = image_tag("/ロゴ/image.png", width: '185',height:'auto')
   .body
     - url = ""
     - if request.path.include?("edit")
@@ -211,15 +211,15 @@
           %input(type="button" value="キャンセル" class="return-btn")
 
           
-  .bottom
+  .sellbottom
     =link_to '#' do
-      プライバシーポリシー',
+      プライバシーポリシー
     =link_to '#' do
-      'メルカリ利用規約'
+      メルカリ利用規約
     =link_to '#' do
       特定商取引に関する表記
-    =link_to image_tag("/ロゴ/image (2).png", width: '80',height:'65')
+    =link_to image_tag("/ロゴ/logo-gray.png", width: '80',height:'auto')
     .copyright
-    ©︎freemarket
+      ©︎freemarket
 
 
