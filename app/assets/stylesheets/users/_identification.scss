@@ -1,0 +1,55 @@
+.identification-wrapper{
+  .identification-content{
+    background-color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+  }
+  .identification{
+    width: 700px;
+    &__top{
+      background-color: #FFFFFF;
+      padding: 8px 24px;
+      font-weight: bold;
+      font-size: 24px;
+      border-bottom: solid 2px whitesmoke;
+
+    }
+    &__form{
+      padding: 64px;
+      background-color: white;
+      &--box{
+        margin-top: 40px;
+      }
+      
+    }
+
+  }
+  //formの送信ボタンの設定
+  .identification-send{
+    cursor : pointer;
+    background-color: red;
+    color: white;
+    height: 50px;
+    width: 570px;
+    margin-top: 40px;
+        
+  }
+  //formの送信ボタンの設定
+  .identification-form{
+    width: 570px;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 10px 16px 8px;
+    size: 16px;
+  }
+  #shipping_prefecture_id{
+    width: 570px;
+    height: 50px;
+    size: 16px;
+  }
+  .message{
+    width: 570px;
+    text-align: right;
+  }
+}

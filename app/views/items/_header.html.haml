@@ -1,8 +1,9 @@
 .top__header
   .top__header__content
     .top__header__content__1
-      = link_to root_path do
-        = image_tag "/ロゴ/image.png"
+      .top__header__content__1__img
+        = link_to root_path do
+          = image_tag "/ロゴ/image.png"
       %input{type: "text",placeholder: "何かお探しですか？"}
         = fa_icon "search"
     .top__header__content__2
@@ -11,6 +12,11 @@
           = link_to "#" do
             = fa_icon "list-ul"
             %span カテゴリから探す
+          -# .hidden
+          -#   - @category= Category.all
+          -#   - @category.each do |c|
+          -#     .hidden__category.none
+          -#       = c.category_name
         .top__header__content__2__left__brand
           = link_to "#" do
             = fa_icon "tag"

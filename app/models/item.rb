@@ -3,7 +3,6 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images
   belongs_to :category
   belongs_to :user
-  belongs_to :order,optional: true
 
   validates :item_name, length: {maximum:40},presence: true
   validates :order_id,presence: true
@@ -18,8 +17,9 @@ class Item < ApplicationRecord
   validates :size,presence: true
   validates :size_type,presence: true
   validates :category_id,presence: true
-  
 
-  
+
+  has_one :order
+
 end
 
