@@ -63,11 +63,16 @@
       display: flex;
       justify-content: space-between;
       position: relative;
+      &__img{
+        width:90px;
+        margin-left:30px;
       img{
-        display: block;
-        height:55px;
-        width:auto;
+        line-height: 40px;
+        height:60px;
+        position: absolute;
+        top:-10px;
       }
+    }
       input{
         display: block;
         height: 40px;

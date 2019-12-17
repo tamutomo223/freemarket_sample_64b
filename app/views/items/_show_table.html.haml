@@ -40,17 +40,17 @@
         %p
           = link_to "#", class: "sky--link" do
             = @item.category.category_name
-        %p
-          = link_to "#", class: "sky--link" do
-            >バッグ
-        %p
-          = link_to "#", class: "sky--link" do
-            >リュック/バックパック
+        -# %p
+        -#   = link_to "#", class: "sky--link" do
+        -#     >バッグ
+        -# %p
+        -#   = link_to "#", class: "sky--link" do
+        -#     >リュック/バックパック
     %tr
       %th ブランド
       %td.sky
         = link_to "#", class: "sky--link" do
-          シャネル
+          = @item.brand_id
     %tr
       %th 商品の状態
       %td 未使用に近い
@@ -59,7 +59,7 @@
       %td 送料込み(出品者負担)
     %tr
       %th 配送の方法
-      %td 未定
+      %td ゆうゆうフリマ便
     %tr
       %th 発送元の地域
       %td.sky
@@ -77,7 +77,10 @@
     .item__show__price__sub__tax
       (税込)
     .item__show__price__sub__deli
-      送料込み
+      -if @item.fee == "送料込み(出品者負担)"
+        送料込み
+      -else
+        送料別  
 - if request.path.include?("edit")
   -# 編集画面前のみ表示させる。購入時には、表示させない。
   .item__show__exprain

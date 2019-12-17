@@ -110,6 +110,7 @@
               .like {
                 display: flex;
                 font-size: 14px;
+                margin-top: 10px;
                 .good{
                   margin-right: 15px;
                   i{
@@ -134,6 +135,7 @@
             }
             .sky {
               &--link{
+                display: block;
                 color:$skyblue;
               }
             }
@@ -370,6 +372,27 @@
     height:48px;
     line-height: 48px;
     background-color: $gray;
+    font-size: 14px;
     border-top:solid 0.5px #cccaca;
+    .a{
+      padding-left:220px;
+      a{
+        color: black;
+        &:hover{
+          border-bottom:1px solid black ;
+          opacity: 0.5;
+        }
+      }
+    }
+    .b{
+      padding-left:10px;
+    }
+    .c{
+      padding-left:10px;
+      font-weight: 600;
+    }
+    i{
+      color: gray;
+    }
   }
 }
