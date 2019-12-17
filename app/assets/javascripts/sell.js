@@ -88,7 +88,7 @@ $(function() {
   $('.price_field').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
-    console.log("あ")
+    
     
     //販売利益
     var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
