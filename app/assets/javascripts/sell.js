@@ -50,7 +50,7 @@ $(function() {
                 </div>
                 <div class="image-preview-space" data-space_js = 0></div>`
     //htmlをビューへ追加
-    $('.preview').append(html);
+    $('.preview').html(html);
     URL.revokeObjectURL(".image_preview.src");
     }
     else{
@@ -81,14 +81,33 @@ $(function() {
   });
 
   //手数料の計算
-  $('.price').change(function(){
+  $('price_field').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
+    
     //手数料
-    var charge = parseInt(price)*0.10;
+    // debugger;
     //販売利益
-    var profit = parseInt(price)-parseInt(charge)
-    $('.charge__result').append(charge);
-    $('.profit__result').append(profit);
+    var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
+    var charge = (price - profit)//parseInt(price)*0.10;
+    $('.charge__result').html(charge)
+   
+    $('.profit__result').html(profit)
+   
   });
+});
+  //画像バリデーション
+  $('#new_item').submit(function() {
+    
+    
+    if (image.files.length == 0) {
+      $('.image-error').html("画像がありません")
+      return false; 
+    } else {
+      
+      return true; 
+    }
+  })
+  
+
 });

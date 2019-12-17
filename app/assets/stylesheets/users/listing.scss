@@ -1,0 +1,74 @@
+.mypage-content{
+  height: 100%;
+.listing {
+  &__head {
+    height: 72px;
+    width: 700px;
+    background-color: #fafafa;
+    .l-head {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 72px;
+      padding-left: 16px;
+    }
+  }
+  &__tab {
+    height: 72px;
+    width: 700px;
+    background-color: #fff;
+    display: flex;
+    font-weight: bold;
+    line-height: 72px;
+    a {
+      text-align: center;
+      margin: 0 auto;
+      color: black;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
+    .tab-a {
+      border-top: 1px solid red;
+    }
+    .tab-b {
+      background-color: #eeeeee;
+    }
+    .tab-c {
+      background-color: #eeeeee;
+    }
+  }
+  &__box {
+    width: 700px;
+    
+    
+    p {
+      background-image: url("/ロゴ/crea.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #eeeeee;
+      text-align: center;
+      padding-top: 160px;
+      margin: 0 auto;
+      
+    }
+  }
+  &__arrow{
+    display: flex;
+    justify-content: space-between;
+    &__box{
+      margin-top: 40px;
+      width: 44px;
+      height: 44px;
+      background-color: #fff;
+      border:1px solid #eeeeee;
+      text-align: center;
+      line-height: 44px;
+      &:hover{opacity: 0.5;
+      }
+      i{
+        color:black;
+      }
+    }
+  }
+}
+}
