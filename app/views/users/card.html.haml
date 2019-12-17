@@ -1,10 +1,11 @@
 = render "/items/header"
 = render "/items/sell"
 .pankuzu
-  =link_to "#" do
+  =link_to root_path do
     %p.top メルカリ
   =fa_icon "chevron-right"
-  %p.top マイページ
+  =link_to mypage_users_path do
+    %p.top マイページ
   =fa_icon "chevron-right"
   .bold 支払い方法
 .mypage-content

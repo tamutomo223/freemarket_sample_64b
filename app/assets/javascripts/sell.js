@@ -1,4 +1,6 @@
 $(function() {
+
+
   // 出品・編集画面にて、アップロードしたファイルの削除ボタンが押下された場合に使用するフラグ領域
   let image_destroy_flg = [];
 
@@ -77,22 +79,27 @@ $(function() {
         delete_index++;
       })
     };
+
   });
+  $(document).on('click', '.preview-box__select--delete p', function(){
+    $(this).closest('.preview-box').remove();
+
 
   //手数料の計算
-  $('price_field').change(function(){
+  $('.price_field').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
     
-    //手数料
-    // debugger;
+    
     //販売利益
     var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
-    var charge = (price - profit)//parseInt(price)*0.10;
+    //手数料
+
+    var charge = (price - profit)
     $('.charge__result').html(charge)
    
     $('.profit__result').html(profit)
-   
+
   });
 });
   //画像バリデーション
