@@ -1,11 +1,14 @@
 = render "/items/header"
 = render "mysell"
 .pankuzu
-  =link_to "#" do
+  =link_to root_path do
     %p.top メルカリ
-  =fa_icon "chevron-right"
-  %p.top マイページ
-  =fa_icon "chevron-right"
+  .pan
+    =fa_icon "chevron-right"
+  =link_to mypage_users_path do
+    %p.top マイページ
+  .pan
+    =fa_icon "chevron-right"
   .bold 出品中
 .mypage-content
   = render "listing-var"

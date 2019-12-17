@@ -1,12 +1,10 @@
 = render "/items/header"
 = render "/items/sell"
 .pankuzu
--# - breadcrumb :mypage
--# = render "layouts/breadcrumbs"
-  -# =link_to "#" do
-  -#   %p.top メルカリ
-  -# =fa_icon "chevron-right"
-  -# .bold マイページ
+  =link_to root_path do
+    %p.top メルカリ
+  =fa_icon "chevron-right"
+  .bold マイページ
 .mypage-content
   = render "myleft-content"
   = render "mymein-content"
