@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def mypage
   end
 
-  def listing
+  def listings
     @items = Item.where user_id: current_user.id
   end
 
