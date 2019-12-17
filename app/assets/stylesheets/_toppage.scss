@@ -166,7 +166,7 @@
           font-size: 14px;
           width:86px;
           border-radius:5px ;
-          a{color: white;}
+          color: white;
         }
         &__login {
           margin-left:11px;
@@ -180,9 +180,9 @@
           &:hover {
             transition: 0.5s;
             background-color:$skyblue;
-            a{color: white;}
+            color: white;
           }
-          a{color: $skyblue;}
+          color: $skyblue;
         }
         &__like {
           padding-right: 14px;

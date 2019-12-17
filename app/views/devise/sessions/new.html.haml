@@ -31,9 +31,7 @@
           = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "field--deco"
         
         %br/
-        .form-wrapper__center__self-check
-          = check_box_tag :check
-          = label_tag :check, "私はロボットではありません"
+  
 
         %br/
         .actions
@@ -44,4 +42,4 @@
           パスワードをお忘れの方
 
 
-  = render "users/users_footer"
+  = render "items/c-footer"

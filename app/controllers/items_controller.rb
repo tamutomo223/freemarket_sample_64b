@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @user_item = Item.where(user_id: current_user.id).where(order_id: 0).where.not(id: @item.id)
+    @user_item = Item.where(user_id: @item.user_id).where(order_id: 0).where.not(id: @item.id)
     @category_item = Item.where(category_id: @item.category_id).where(order_id: 0).where.not(id: @item.id)
     @next_item = Item.find_by(id: @item.id.to_i + 1)
     @prev_item = Item.find_by(id: @item.id.to_i - 1)

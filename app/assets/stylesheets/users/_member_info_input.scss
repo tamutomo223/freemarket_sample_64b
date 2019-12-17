@@ -1,3 +1,4 @@
+@import "color";
 .input-header {
   text-align: center;
   background-color: #f5f5f5;
@@ -36,10 +37,12 @@
 
       }
       &--deco {
-        width: 343px;
-        height: 48px;
+        width: 323px;
+        height: 28px;
         margin-top: 8px;
-        
+        padding:10px;
+        border: solid 1px $darkgray;
+        border-radius: 5px;
       }
       &--notice_content {
         color: #898989;
@@ -58,25 +61,32 @@
       }
       
       &--deco_name {
-        width: 165.5px;
-        height: 48px;
+        width: 145.5px;
+        height: 28px;
         margin-top: 8px;
+        padding:10px;
+        border: solid 1px $darkgray;
+        border-radius: 5px;
+
       }
 
       .year {
         width: 76px;
         height: 48px;
         margin-top: 8px;
+        background-color: #fff;
       }
       .month {
         width: 76px;
         height: 48px;
         margin-top: 8px;
+        background-color: #fff;
       }
       .day {
         width: 76px;
         height: 48px;
         margin-top: 8px;
+        background-color: #fff;
       }      
     }
 
@@ -99,7 +109,7 @@
     }
     .actions {
       height: 48px;
-
+      margin-top:20px;
       &--submit {
         background-color: #ea352d;
         color: #fff;
