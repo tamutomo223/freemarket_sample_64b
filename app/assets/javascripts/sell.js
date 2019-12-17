@@ -58,10 +58,12 @@ $(function() {
     //販売利益
     var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
     //手数料
-    var charge = (price - profit)//parseInt(price)*0.10;
+
+    var charge = (price - profit)
     $('.charge__result').html(charge)
    
     $('.profit__result').html(profit)
+
   });
 
   //画像バリデーション

@@ -28,5 +28,5 @@
 public/uploads/*
 .DS_Store
 
-config/credentials.yml.enc
+
 .env
