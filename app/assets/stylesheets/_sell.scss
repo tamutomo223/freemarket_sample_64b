@@ -1,7 +1,8 @@
 //各ブロックの共通設定
 
+@import "color";
 .box-common{
-  padding: 40px;
+  padding: 40px 40px 20px;
   border-top: solid 2px whitesmoke;
 }
 
@@ -15,7 +16,7 @@
   height: 128px;
   &-logo{
     line-height: 100px;
-
+    padding-top:20px;
   }
 }
 .body{
@@ -38,14 +39,15 @@
   
 }
 .label-mark{
-  background-color: red;
+  background-color: $red;
   color: white;
   display: inline-block;
-  border-radius: 3px;
+  border-radius: 2px;
   font-size: 12px;
-  padding: 3px;
+  padding: 4px;
   line-height: 12px;
-  margin: 5px;
+  margin: 5px 5px 5px;
+  font-weight: 600;
 
 }
 
@@ -90,7 +92,9 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  
+  font-weight: 600;
+  letter-spacing: -2px;
+
 }
 .input-image-box{
   //画像入力フォームとドラッグ＆ドロップの大きさを同じにし、ドラッグ＆ドロップのデザインと表示を重ねる
@@ -137,39 +141,84 @@
   @extend.box-common;
 }
 
-.bottom{
-  margin: 0 auto;
-  width: 700px;
+.self-content{
+  font-size:14px;
+  a{color: $skyblue;
+  font-size: 14px;}
+  P{font-size: 14px;}
 }
+
+.sellbottom{
+  margin: 0 auto;
+  padding-top:30px;
+  width: 700px;
+  font-size: 12px;
+  text-align: center;
+  a{
+    color: black;
+    margin:20px 10px;
+  }
+  img{
+    display: block;
+    margin: 0 auto;
+    margin-top:40px;
+    margin-bottom:40px ;
+  }
+}
+
 .input-textbox{
   width: 620px;
-  padding: 10px;
   box-sizing: border-box;
 }
+
+#item_item_name{
+  height: 48px;
+  border-radius: 5px;
+  border: solid 1px $darkgray;
+  padding: 10px 16px 8px;
+  margin-bottom:30px;
+}
+
+#item_explain{
+  padding:10px;
+  height: 142px;
+  border: solid 1px $darkgray;
+}
+
+
 #item_brand_id{
   width: 400px;
   height: 48px;
   padding: 10px 16px 8px;
+  margin-bottom:30px;
   box-sizing: border-box;
 }
 .select-box{
   width: 400px;
   height: 48px;
   padding: 16px;
+  border: solid 1px $darkgray;
+  background-color: white;
+  font-size: 16px;
+  margin-bottom:30px;
 }
 .input-details,.input-shipping,.input-price{
   display: flex;
 }
 .price_form{
   display: flex;
-  width: 160px;
+  width: 170px;
   .price-form__label{
     font-size: 12px;
-    line-height: 38px;
+    line-height: 48px;
+    margin-right:10px ;
   }
 }
 .box{
   width: 80px;
+  height: 40px;
+  margin-top: 15px;
+  text-align: left;
 }
 .price{
   display: flex;
@@ -185,7 +234,19 @@
 }
 .price{
   text-align: right;
-  padding: 10px;
+  padding: 20px 0px;
+  .price_form{
+    height: 48px;
+    input{
+    display: block;
+    height: 48px;
+    width:calc(160px);
+    text-align: right;
+    border-radius:5px ;
+    border:solid $darkgray 1px ;
+    }
+
+  }
 }
 
 //nunberフォームのボタン削除
@@ -201,10 +262,10 @@ input[type="number"]::-webkit-inner-spin-button {
   background-color: #EA352C;
   color: white;
   font-size: 14px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .form-btn:hover {
-  background-color: red;
+  background-color:$red;
   }
 .return-btn{
 cursor : pointer;
@@ -213,5 +274,10 @@ width: 280px;
 background-color: gray;
 text-align: center;
 color: white;
-margin: 40px 170px 0px;
+margin: 20px 170px 20px;
+}
+
+.copyright{
+  display: block;
+  padding-bottom:40px;
 }
