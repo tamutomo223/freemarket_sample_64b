@@ -133,7 +133,7 @@ class ItemsController < ApplicationController
   end
 
   def set_categories
-    @categories = Category.all.order("id ASC")
+    @categories = Category.order("id ASC")
   end
 end
 

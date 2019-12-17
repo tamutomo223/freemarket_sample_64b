@@ -18,7 +18,6 @@ $(function() {
     let space = $(".image-preview-space");
     space.filter(function(){
       let space_index = $(this).data("space_js");
-      console.log(space_index);
       if (space_index === temp){
         $(this).remove();
       }
