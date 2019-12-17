@@ -4,13 +4,13 @@
 }
 
 .sold {
-  border-top: 80px solid transparent;
-  border-right: 80px solid transparent;
-  border-bottom: 80px solid  $red;
-  border-left: 80px solid  transparent;
+  border-top: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid  $red;
+  border-left: 50px solid  transparent;
   position: absolute;
-  top:-80px;
-  left:-80px;
+  top:-50px;
+  left:-50px;
   transform: rotate(-45deg);
   z-index: 88;
 }
@@ -18,11 +18,11 @@
   z-index: 89;
   color: white;
   transform: rotate(-45deg);
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
   position: absolute;
-  top:25px;
-  left:10px;
+  top:15px;
+  left:6px;
 }
 
 .item__sell {
@@ -191,7 +191,6 @@
           font-size: 14px;
           a{color: black;
             &:hover {
-              transition: 0.8s;
               color: $skyblue;
               i{color: $skyblue;}
             }

@@ -15,12 +15,12 @@
 
 .soldd{
   position: absolute;
-  border-top: 120px solid transparent;
-  border-right: 120px solid transparent;
-  border-bottom: 120px solid  $red;
-  border-left: 120px solid  transparent;
-  top:-120px;
-  left:-120px;
+  border-top: 90px solid transparent;
+  border-right: 90px solid transparent;
+  border-bottom: 90px solid  $red;
+  border-left: 90px solid  transparent;
+  top:-90px;
+  left:-90px;
   transform: rotate(-45deg);
 }
 
@@ -28,11 +28,11 @@
   z-index: 89;
   color: white;
   transform: rotate(-45deg);
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 600;
   position: absolute;
-  top:35px;
-  left:10px;
+  top:28px;
+  left:8px;
 }
 
 .show-wrapper {

@@ -16,6 +16,9 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @item = Item.find(params[:id])
     image = @item.images[0]
     @image = image.image_url
