@@ -199,7 +199,7 @@
         = f.hidden_field :size_type,value:"0"
         = f.hidden_field :view,value:0
         /画像削除フラグ　本編集画面にて選択されたファイルの削除ボタンが押下された場合に設定を行う。
-        = f.hidden_field :image_flg, value: "0", class: "hidden-image-flg"
+        = f.hidden_field :image_flg, value: "11", class: "hidden-image-flg"
         - if !request.path.include?("edit")
           -# 購入画面前の場合
           = f.submit value: '出品する',class:"form-btn"
