@@ -6,8 +6,9 @@
     .item__show 
       = render "show_table"
 
-    - if @item.order_id != 0 
+    - if @item.order_id == 0 
       -# 購入済みでない場合に表示させる。
+      -# 0は未購入
       .bar3
       .item__wrapper
         = link_to sell_edit_item_path(@item.id), class: "item__wrapper__edit--link" do
