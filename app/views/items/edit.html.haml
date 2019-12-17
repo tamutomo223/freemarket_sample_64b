@@ -6,21 +6,26 @@
     .item__show 
       = render "show_table"
 
-    .bar3
-    .item__wrapper
-      .item__wrapper__edit
+    - if @item.order_id != 0 
+      -# 購入済みでない場合に表示させる。
+      .bar3
+      .item__wrapper
         = link_to sell_edit_item_path(@item.id), class: "item__wrapper__edit--link" do
-          商品の編集
-      %p.item__wrapper__or
-        or
-      .item__wrapper__edit.item__wrapper__deco
+          .item__wrapper__edit
+            商品の編集
+        %p.item__wrapper__or
+          or
+        -# ※※　「出品を一旦停止する」は、現状非表示にしておく。
+        -# = link_to "#", class: "item__wrapper__edit--link" do
+        -#   .item__wrapper__edit.item__wrapper__deco
+        -#     出品を一旦停止する
         = link_to "#", class: "item__wrapper__edit--link" do
-          出品を一旦停止する
-      .item__wrapper__edit.item__wrapper__deco
-        = link_to "#", class: "item__wrapper__edit--link" do
-          この商品を削除する
-          
-    .bar3
-    = render "show_comment"
+          .item__wrapper__edit.item__wrapper__deco
+            この商品を削除する
+            
+      .bar3
+      = render "show_comment"
+    - else
+      .bar3
 
 = render "footer"

@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :edit_input]
+  before_action :set_item, only: [:show, :edit, :edit_input, :update]
+  before_action :set_categories, only:[:sell, :edit_input]
   require 'payjp'
 
   def index
@@ -8,12 +9,11 @@ class ItemsController < ApplicationController
 
   def sell
 
-   @item = Item.new
-   @item.images.build
+    @item = Item.new
+    @item.images.build
 
     @item = Item.new
     @item.images.build
-    @categories = Category.all.order("id ASC")
 
   end
 
@@ -63,19 +63,36 @@ class ItemsController < ApplicationController
   end
 
   def edit_input
+  end
 
+  def update
+    image_flg =  set_image_flg
+    if @item.update(item_params) && (params[:images] != nil)
+      params[:images][:image_url].each_with_index do |image, i|
+        if !image_flg.include?(i.to_s)
+          @item.images.create!(image_url: image,item_id: @item.id)
+        end
+      end
+      redirect_to edit_item_path(params[:id])
+    else
+      #画像フォームが消えることを防ぐため
+      @item.images.build
+      redirect_to edit_item_path(params[:id])
+    end
+    
   end
 
   def exhibit
     @item = Item.new(item_params)
-    
+    image_flg = set_image_flg
     if @item.save
-      params[:images][:image_url].each do |i|
-        @item.images.create!(image_url: i,item_id:@item.id)
+      params[:images][:image_url].each_with_index do |image, i|
+        if !image_flg.include?(i.to_s)
+          @item.images.create!(image_url: image,item_id:@item.id)
+        end
       end
       redirect_to root_path
     else
-      binding.pry
       #画像フォーム消えることを防ぐため
       @item.images.build
       render :sell
@@ -86,10 +103,13 @@ class ItemsController < ApplicationController
   def item_params
     #次の4つは本来は出品ページから入れる物ではないため、機能実装後に削除
     #:order_id,:user_id,:size_type,:view
-    params.require(:item).permit(:item_name,:explain,:status,:fee,:s_prefecture,:s_date,:price,:size,:category_id,:brand_id,:order_id,:user_id,:size_type,:view)
+    params.require(:item).permit(:item_name,:explain,:status,:fee,:s_prefecture,:s_date,:price,:size,:category_id,:brand_id,:order_id,:user_id,:size_type,:view, images_attributes: [:image_url, :id, :_destroy])
 
   end
 
+  def set_image_flg
+    params.require(:item).permit(:image_flg)["image_flg"].split(",")
+  end
 
   def image_params(params)
     params.permit(:image_url)
@@ -101,6 +121,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.all.order("id ASC")
   end
 end
 

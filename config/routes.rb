@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   end  
   #itemsコントローラ内に作ったオリジナルの変数にルーティングの設定をしたい場合,次の①,②に記述してください
-  resources :items , only:[:sell,:exhibit,:show, :edit, :create] do#①only内にオリジナルの変数名を記述
+  resources :items , only:[:sell,:exhibit,:show, :edit, :update, :destroy] do#①only内にオリジナルの変数名を記述
     collection do
       #②collection内にhttpメソッド 'オリジナルの変数名'と記述
       get 'sell'
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   resources :users ,only:[:mypage,:logout,:signup,:address,:address_create] do
     collection do
       get 'mypage'
-      get "mypage/listing", to: "users#listing"
+      get "mypage/listings", to: "users#listings"
       get 'logout'
       get "signup"
       get "address"
