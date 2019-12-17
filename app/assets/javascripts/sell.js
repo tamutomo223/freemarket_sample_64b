@@ -19,12 +19,6 @@ $(function() {
   };
 
   $('.input-image-box').change(function(e){
-    a = $('.input-image-box').val();
-    form.push(a);
-    console.log("フォームの中身は")
-    console.log(a)
-    console.log("送信用フォームの中身は")
-    console.log(form)
     let files = e.target.files;
     for (var i = 0, f; f = files[i]; i++){
       let reader = new FileReader();
@@ -33,8 +27,7 @@ $(function() {
         let imgSrc = reader.result;
         buildHTML(imgSrc);
         images.push(imgSrc);
-        console.log("表示用配列の中身は")
-        console.log(images)
+
         $('.input-image-box').val(form);
 
     }
@@ -60,7 +53,7 @@ $(function() {
   $('.price_field').change(function(){
     //フォームに入れた数字
     var price = $(this).val()
-    console.log(price)
+    
     
     //販売利益
     var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
