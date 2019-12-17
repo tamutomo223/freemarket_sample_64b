@@ -10,18 +10,12 @@
     = render "show_comment"
 
     .item__link
-      - if @prev_item != nil
-        = link_to item_path(@prev_item) do
-          .item__link__prev
-            < 
-            %span
-              = @prev_item.item_name
-      .item__link__next        
-      - if @next_item != nil        
-        = link_to item_path(@next_item) do  
-          = @next_item.item_name
-          %span
-            >
+      = link_to "#" do
+        .item__link__prev
+          < 中日ドラゴンズファンブック
+      = link_to "#" do
+        .item__link__next
+          ポケモン図鑑 >
     .item__sns
       .item__sns__facebook
         = fa_icon "facebook-official"
@@ -31,30 +25,29 @@
         = fa_icon "pinterest"
     .bar3    
     .item__other
-      - unless @user_item.empty?
-        .item__other__user
-          .item__other__user__title
-            = link_to "#" do
-              %h2
-                = "#{@item.user.nickname}さんのその他の出品"
-          .item__other__user__contents    
-            = render "show_items"          
-      .bar3
-      - unless @category_item.empty?
-        .item-other__user
-          .item__other__user__title
-            = link_to "#" do
-              %h2
-                ="#{@item.category.category_name}その他の出品"
-          .item__other__user__contents  
-            = render "category_items"
-          
+      .item__other__user
+        .item__other__user__title
+          = link_to "#" do
+            %h2 おれさんのその他の出品
+        .item__other__user__contents    
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+      .bar3          
+      .item-other__user
+        .item__other__user__title
+          = link_to "#" do
+            %h2 スニーカーその他の出品
+        .item__other__user__contents  
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
+          = render "show_items"
   .bar        
   .bread
-    %span.a
-      = link_to "メルカリ" ,root_path
-    %span.b
-      = fa_icon "chevron-right"
-    %span.c
-      = @item.item_name
 = render "footer"

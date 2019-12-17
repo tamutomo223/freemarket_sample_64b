@@ -85,7 +85,7 @@
 - belongs_to :brand_group
 - has_many :items
 
-
+  
 ## brand_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|

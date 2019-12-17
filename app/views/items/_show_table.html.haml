@@ -6,9 +6,6 @@
     - images = @item.images
     .item__show__content__img__main.disp-active-main
       = image_tag "#{images[0].image_url}"
-      - if @item.order != nil
-        .soldd
-        .soldd-c SOLD
     - images.each_with_index do |image, i|
       .item__show__content__img__main.disp-none-main
         = image_tag "#{images[i].image_url}"
@@ -40,17 +37,17 @@
         %p
           = link_to "#", class: "sky--link" do
             = @item.category.category_name
-        -# %p
-        -#   = link_to "#", class: "sky--link" do
-        -#     >バッグ
-        -# %p
-        -#   = link_to "#", class: "sky--link" do
-        -#     >リュック/バックパック
+        %p
+          = link_to "#", class: "sky--link" do
+            >バッグ
+        %p
+          = link_to "#", class: "sky--link" do
+            >リュック/バックパック
     %tr
       %th ブランド
       %td.sky
         = link_to "#", class: "sky--link" do
-          = @item.brand_id
+          シャネル
     %tr
       %th 商品の状態
       %td 未使用に近い
@@ -59,7 +56,7 @@
       %td 送料込み(出品者負担)
     %tr
       %th 配送の方法
-      %td ゆうゆうフリマ便
+      %td 未定
     %tr
       %th 発送元の地域
       %td.sky
@@ -77,10 +74,7 @@
     .item__show__price__sub__tax
       (税込)
     .item__show__price__sub__deli
-      -if @item.fee == "送料込み(出品者負担)"
-        送料込み
-      -else
-        送料別  
+      送料込み
 - if request.path.include?("edit")
   -# 編集画面前のみ表示させる。購入時には、表示させない。
   .item__show__exprain
@@ -89,12 +83,9 @@
 
 - if !request.path.include?("edit")
   -# 購入画面前のみ表示させる。編集時には、表示させない。
-  - if @item.order != nil
-    .item__show__sold
-      売り切れました
-  -else
-    = link_to buy_item_path, class: "item__show__buy" do
-      .item__show__buy
+  = link_to "#" do    
+    .item__show__buy
+      = link_to buy_item_path, class: "item__show__buy" do
         購入画面に進む
   .item__show__exprain
     %P
