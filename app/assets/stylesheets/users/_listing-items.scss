@@ -1,0 +1,50 @@
+@import "color";
+.listing-list {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  &:hover {
+    opacity: 0.5;
+  }
+  &__items {
+    color: black;
+    display: flex;
+    background-color: #fff;
+    border-bottom: 1px solid #eeeeee;
+    padding: 16px;
+    &__image {
+      img {
+        width: 48px;
+        height: 48px;
+      }
+    }
+    &__upper-info {
+      &__itemname {
+        margin-left: 10px;
+      }
+    }
+    &__content {
+      margin: 0 10px;
+      i {
+        color: #cccccc;
+      }
+      .blue {
+        background-color: $skyblue;
+        color: white;
+        display: inline-block;
+        border-radius: 3px;
+        font-size: 12px;
+        padding: 3px;
+        line-height: 12px;
+        margin: 5px;
+      }
+    }
+  }
+  &__arrow {
+    i {
+      color: black;
+      line-height: 85px;
+      margin-right: 10px;
+    }
+  }
+}

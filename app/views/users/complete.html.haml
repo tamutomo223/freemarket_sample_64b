@@ -6,21 +6,21 @@
   =fa_icon "chevron-right"
   %p.top マイページ
   =fa_icon "chevron-right"
-  .bold 出品中
+  .bold 売却済み
 .mypage-content
-  = render "listing-var"
+  = render "comp-var"
   .listing
     .listing__head
       %p.l-head  出品した商品
     .listing__tab
-      .listing__tab.tab-a
+      .listing__tab.tab-b
         =link_to mypage_listings_users_path do
           %p 出品中
       .listing__tab.tab-b
         =link_to "#" do
           %p 取引中
-      .listing__tab.tab-c
+      .listing__tab.tab-a
         =link_to mypage_complete_users_path do
           %p 売却済み
-    = render "listing-items"
+    = render "complete-listing"
 = render "/items/footer"

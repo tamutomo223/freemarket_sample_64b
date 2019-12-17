@@ -10,6 +10,9 @@
         - items.each do |item|
           = link_to item_path(item.id) do
             %li.category-type__contents__item
+              - if item.order != nil 
+                .sold 
+                .sold-c SOLD
               .category-type__contents__item__image
                 - images = item.images
                 - image = images[0]

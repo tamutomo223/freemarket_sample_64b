@@ -1,7 +1,8 @@
 .buy-wrapper
   .buy-header
-    .buy-header__logo
-      = image_tag "/ロゴ/image.png"
+    = link_to root_path do
+      .buy-header__logo
+        = image_tag "/ロゴ/image.png"
   .buy-contents
     .title 
       %h2 購入内容の確認
@@ -29,12 +30,14 @@
           .item-bottom__price__bottom
         .item-bottom__pay
           %h3 支払い方法
-          %img{src: "/ロゴ/VISA.png"}
-            = "**** **** **** " + @default_card_information.last4
-            - exp_month = @default_card_information.exp_month.to_s
-            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-          .item-bottom__pay__month
-            = exp_month + " / " + exp_year
+          - if @default_card_information != nil
+            %img{src: "/ロゴ/VISA.png"}
+              = "**** **** **** " + @default_card_information.last4
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            .item-bottom__pay__month
+              = exp_month + " / " + exp_year
+          - else    
         .item-bottom__shipping
           .item-bottom__shipping__title
             .item-bottom__shipping__title__title
@@ -49,11 +52,14 @@
             .item-bottom__shipping__main__name
               = "#{@name1} #{@name2}"
         .item-bottom__submit
-          = form_with url:buy_create_item_path(@item) , method: :post do |f|
+          = form_with url:buy_create_item_path(@item) , method: :post,local:true do |f|
             = f.hidden_field :user_id,value:current_user.id
             = f.hidden_field :item_id,value:@item.id
             = f.hidden_field :progress,value:1
-            = f.submit value:"購入する"
+            - if @default_card_information != nil
+              = f.submit value:"購入する"
+            - else   
+              .not 購入できません
   .b-footer
     %ul.b-footer__ul
       %li.b-footer__ul__li
@@ -62,4 +68,4 @@
         = link_to "メルカリ利用規約", "#"
       %li.b-footer__ul__li
         = link_to "特定商取引に関する表記", "#"
-    = image_tag "/ロゴ/image (2).png"
+    = image_tag "/ロゴ/logo-gray.png"

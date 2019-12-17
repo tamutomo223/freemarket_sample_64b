@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   end
   
 
-  resources :users ,only:[:mypage,:logout,:signup,:address,:address_create] do
+  resources :users ,only:[:mypage,:logout,:signup,:address,:address_create,:identification,:update] do
     collection do
       get 'mypage'
       get "mypage/listings", to: "users#listings"
@@ -40,7 +40,12 @@ Rails.application.routes.draw do
       post "address_create"
       get "mypage/profile" ,to: "users#profile"
       get "mypage/card" ,to: "users#card"
+      get "mypage/listings" ,to: "users#listings"
+      get "mypage/tranceration" ,to: "users#tranceration"
+      get "mypage/complete" ,to: "users#complete"
+      get "mypage/identification",to:"users#identification"
       get "finish"
+      post "update"
     end
   end
 
