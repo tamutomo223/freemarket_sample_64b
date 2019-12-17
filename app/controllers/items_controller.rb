@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :edit_input]
+  before_action :set_item, only: [:show, :edit, :edit_input, :update]
+  before_action :set_categories, only:[:sell, :edit_input]
   require 'payjp'
 
   def index
@@ -11,11 +12,13 @@ class ItemsController < ApplicationController
 
     @item = Item.new
     @item.images.build
-    @categories = Category.all.order("id ASC")
 
   end
 
   def buy
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
     @item = Item.find(params[:id])
     image = @item.images[0]
     @image = image.image_url
@@ -56,26 +59,47 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @user_item = Item.where(user_id: current_user.id).where(order_id: 0)
-    @category_item = Item.where(category_id: @item.category_id).where(order_id: 0)
+    @user_item = Item.where(user_id: current_user.id).where(order_id: 0).where.not(id: @item.id)
+    @category_item = Item.where(category_id: @item.category_id).where(order_id: 0).where.not(id: @item.id)
+    @next_item = Item.find_by(id: @item.id.to_i + 1)
+    @prev_item = Item.find_by(id: @item.id.to_i - 1)
   end
 
   def edit
   end
 
   def edit_input
+  end
 
+  def update
+    image_flg =  set_image_flg
+    if @item.update(item_params) && (params[:images] != nil)
+      params[:images][:image_url].each_with_index do |image, i|
+        if !image_flg.include?(i.to_s)
+          @item.images.create!(image_url: image,item_id: @item.id)
+        end
+      end
+      redirect_to edit_item_path(params[:id])
+    else
+      #画像フォームが消えることを防ぐため
+      @item.images.build
+      redirect_to edit_item_path(params[:id])
+    end
+    
   end
 
   def exhibit
     @item = Item.new(item_params)
+    image_flg = set_image_flg
+    
     if @item.save
-      params[:images][:image_url].each do |i|
-        @item.images.create!(image_url: i,item_id:@item.id)
+      params[:images][:image_url].each_with_index do |image, i|
+        if !image_flg.include?(i.to_s)
+          @item.images.create!(image_url: image,item_id:@item.id)
+        end
       end
       redirect_to root_path
     else
-      @categories = Category.all.order("id ASC")
       #画像フォーム消えることを防ぐため
       @item.images.build
       @categories = Category.all.order("id ASC")
@@ -87,8 +111,16 @@ class ItemsController < ApplicationController
   def item_params
     #次の4つは本来は出品ページから入れる物ではないため、機能実装後に削除
     #:order_id,:user_id,:size_type,:view
-    params.require(:item).permit(:item_name,:explain,:status,:fee,:s_prefecture,:s_date,:price,:size,:category_id,:brand_id,:order_id,:user_id,:size_type,:view)
+    params.require(:item).permit(:item_name,:explain,:status,:fee,:s_prefecture,:s_date,:price,:size,:category_id,:brand_id,:order_id,:user_id,:size_type,:view, images_attributes: [:image_url, :id, :_destroy])
 
+  end
+
+  def set_image_flg
+    params.require(:item).permit(:image_flg)["image_flg"].split(",")
+  end
+
+  def image_params(params)
+    params.permit(:image_url)
   end
 
   def order_params
@@ -98,6 +130,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.order("id ASC")
   end
 end
 
