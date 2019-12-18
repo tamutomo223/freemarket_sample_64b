@@ -83,7 +83,7 @@
 .drop-zone{
   //ドラッグアンドドロップのデザイン
   height: 160px;
-  width: 620px;
+  flex: 1;
   font-size: 14px;
   background-color: #F5F5F5;
   border: dashed thin #cccccc;
@@ -103,22 +103,23 @@
   position: absolute;
   opacity: 0;
 }
-
-.image-preview-space {
-  width: 10px;
+.inputed{
+  display: flex;
+}
+.image-preview-space{
   height: 160px;
+  width: 10px;
 }
 //画像のプレビュー表示
 .image-preview-box{
   display: inline-block;
   height: 160px;
   width: 114px;
-  margin: 0px, 0px, 10px, 10px;
+  
   background-color: whitesmoke;
 
   &__wrapper{
     display: flex;
-    justify-content: space-between;
     text-align: center;
     line-height: 40px;
     color: #3EA7EA;
@@ -153,13 +154,20 @@
 
 .input-image-drop{
   display: flex;
+  justify-content: start;
+  flex-flow: wrap;
+  align-items:flex-end;
 }
 .input-image-drop-none{
   display: none;
 }
 .preview{
   display: flex;
+  flex-flow: wrap;
+  align-items:flex-end;
+  
 }
+
 //画像本体
 .image-preview{
   height: 116px;
