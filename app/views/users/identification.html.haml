@@ -2,10 +2,11 @@
   = render "/items/header"
   = render "/items/sell"
   .pankuzu
-    =link_to "#" do
+    =link_to root_path do
       %p.top メルカリ
     =fa_icon "chevron-right"
-    %p.top マイページ
+    =link_to mypage_users_path do
+      %p.top マイページ
     =fa_icon "chevron-right"
     .bold 支払い方法
   .identification-content
@@ -19,7 +20,7 @@
             お客さまの本人情報をご登録ください。
             登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
             = link_to '#' do
-              本人確認書類のアップロードについて
+              本人確認書類のアップロードについて>
           .identification__form--box
             .big__text
             お名前
@@ -63,7 +64,7 @@
             .form
               = f.text_field :building,placeholder:"例）柳ビル103",class:"identification-form"
           .identification__form--btn
-            = f.submit value:"次へ進む",class:"identification-send"
+            = f.submit value:"登録する",class:"identification-send"
           .message
             = link_to '#' do
               本人確認書類の登録について
