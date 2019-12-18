@@ -20,7 +20,6 @@ $(function () {
     let check_box = $(`[id *= ${index}__destroy]`);
     check_box.prop("checked", true);
 
-
     ipb_none = "image-preview-box-none";
     // 画像と画像の間のスペースを削除する。
     let space = $(".image-preview-space");
@@ -33,4 +32,12 @@ $(function () {
     
     $(this).parents(".image-preview-box").addClass(ipb_none);
   });
+
+  // 画像が全て削除した状態で、「変更する」を押下した場合のエラーメッセージの表示について
+  let image_error = $(".image-error");
+  for (let i = 0; i < image_error.length; i++){
+    if (i != 0){
+      image_error.eq(i).remove();
+    };
+  };
 });

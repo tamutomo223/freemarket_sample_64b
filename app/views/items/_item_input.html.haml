@@ -12,7 +12,7 @@
     - else
       -# 出品の場合
       - url = exhibit_items_path
-    = form_for @item,url: url, html: {class: "form_operation"} do |f|
+    = form_for @item,url: url, html: {class: "form_operation",id:"new_item"} do |f|
       .body__head
         商品の情報を入力
       .body__content
@@ -33,6 +33,7 @@
                     -# 編集の場合
                     - images = @item.images
                     - images.each_with_index do |image, i|
+                      .db-data
                       .image-preview-box
                         = image_tag "#{image.image_url}", class: "image-preview"
                         .image-preview-box__wrapper
@@ -198,7 +199,7 @@
         
         = f.hidden_field :size_type,value:"0"
         = f.hidden_field :view,value:0
-        /画像削除フラグ　本編集画面にて選択されたファイルの削除ボタンが押下された場合に設定を行う。
+        /画像削除フラグ本編集画面にて選択されたファイルの削除ボタンが押下された場合に設定を行う。
         = f.hidden_field :image_flg, value: "11", class: "hidden-image-flg"
         - if !request.path.include?("edit")
           -# 購入画面前の場合

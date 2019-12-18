@@ -9,7 +9,6 @@ $(function() {
   $(document).on("click", ".destroy-js", function(){
     // 画像の削除
     $(this).parents(".image-preview-box").remove();
-
     // 削除ボタンが押下されたことのフラグを設定する。
     image_flg = $(".hidden-image-flg");
     let temp = $(this).data("index");
@@ -31,6 +30,8 @@ $(function() {
 
   //フォームに入れた画像を表示
   $('.input-image-box').change(function(){
+    //フォームの画像表示をリセット
+    $('.inputed').remove();
     // 削除フラグの初期化を行う。
     image_destroy_flg = [];
     let length = image.files.length;
@@ -40,7 +41,8 @@ $(function() {
     var image_path = URL.createObjectURL(image.files[0]);
 
     //表示するhtmlの作成
-    var html = `<div class="image-preview-box" >
+    var html = `<div class="inputed" >
+                  <div class="image-preview-box" >
                   <img src="${image_path}" class="image-preview"height="64" width="114" >
                   <div class="image-preview-box__wrapper">
                     <div class="image-preview-box__wrapper--edit">
@@ -51,8 +53,9 @@ $(function() {
                 </div>
                 <div class="image-preview-space" data-space_js = 0></div>`
     //htmlをビューへ追加
-    $('.preview').html(html);
+    $('.preview').append(html);
     URL.revokeObjectURL(".image_preview.src");
+    
     }
     else{
       //画像が複数の時
@@ -62,7 +65,8 @@ $(function() {
         var image_path = URL.createObjectURL(value);
 
         //表示するhtmlの作成
-        var html = `<div class="image-preview-box" >
+        var html = `<div class="inputed" >
+                  <div class="image-preview-box" >
                   <img src="${image_path}" class="image-preview"height="64" width="114" >
                   <div class="image-preview-box__wrapper">
                     <div class="image-preview-box__wrapper--edit">
@@ -89,7 +93,6 @@ $(function() {
     //フォームに入れた数字
     var price = $(this).val()
     
-    
     //販売利益
     var profit = Math.round(price * 0.9)//(price)-parseInt(charge)
     //手数料
@@ -101,18 +104,24 @@ $(function() {
 
   });
 
-  //画像バリデーション
+  //出品編集画面画像バリデーション
   $('#new_item').submit(function() {
-    
+    cnt = $(".db-data").length;
     
     if (image.files.length == 0) {
+      //フォーム内の画像が0なら送信できない
       $('.image-error').html("画像がありません")
+      scrollTo(0, 0);
       return false; 
-    } else {
-      
-      return true; 
+    } 
+    //DBからの画像を全て消すと送信できない(画像0枚の編集を防ぐため)
+    else if(cnt=0){
+      scrollTo(0, 0);
+      $('.image-error').html("画像がありません")
+      return false;
     }
+    else {return true;} 
+    
   })
-  
 
 });
