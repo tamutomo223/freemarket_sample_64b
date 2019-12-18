@@ -109,7 +109,6 @@ $(function() {
   
     $('#new_item').submit(function() {
       cnt = $(".image-preview-box").length;
-      alert(cnt)
       if (cnt == 0) {
         scrollTo(0, 0);
         $('.image-error').html("画像がありません")
