@@ -107,6 +107,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    Item.find(params[:id]).destroy
+    redirect_to mypage_listings_users_path
+  end
+
   private
   def item_params
     #次の4つは本来は出品ページから入れる物ではないため、機能実装後に削除
