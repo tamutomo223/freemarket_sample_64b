@@ -33,14 +33,13 @@ Rails.application.routes.draw do
   resources :users ,only:[:mypage,:logout,:signup,:address,:address_create,:identification,:update] do
     collection do
       get 'mypage'
-      get "mypage/listings", to: "users#listings"
       get 'logout'
       get "signup"
       get "address"
       post "address_create"
       get "mypage/profile" ,to: "users#profile"
       get "mypage/card" ,to: "users#card"
-      get "mypage/listings" ,to: "users#listings"
+      get "mypage/listings", to: "users#listings"
       get "mypage/tranceration" ,to: "users#tranceration"
       get "mypage/complete" ,to: "users#complete"
       get "mypage/identification",to:"users#identification"

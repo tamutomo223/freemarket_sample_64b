@@ -63,7 +63,7 @@
             img{
               height:300px;
               width:300px;
-              
+              object-fit: contain;
             }
           }
           .disp-none-main{
@@ -79,6 +79,7 @@
               cursor: pointer;
               width: 60px;
               height: 60px;
+              object-fit: contain;
             }
           }
           
@@ -235,7 +236,7 @@
         height: 60px;
         line-height: 60px;
         background-color: $red;
-        margin: 10px 40px 10px;
+        margin: 30px 40px 10px;
 
         &--link {
           color:white;
@@ -247,6 +248,7 @@
       }
       &__deco {
         background-color: $gray-black;
+        margin: 10px 40px 30px;
       }
     }
 

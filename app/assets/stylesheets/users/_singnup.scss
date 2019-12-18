@@ -66,8 +66,9 @@
 
         &__center {
           margin-left: 15px;
-          line-height: 50px;
           color: #fff;
+          i{margin-top: 10px;}
+          span{margin-top:0;}
           &--icon {
             font-weight: bold;
           }

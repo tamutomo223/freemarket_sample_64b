@@ -76,19 +76,39 @@
   display: flex;
   line-height: 60px;
   height: 80px;
+  border-bottom:1px solid #eeeeee ;
   &:hover {
     opacity: 0.5;
   }
-  .text {
-    width: 680px;
-    margin: auto 0;
-    color: black;
-  }
-  i {
-    margin: auto 0;
+  figure{
+    margin-top: 20px;
     margin-right: 10px;
-    color: black;
+    padding-left: 10px;
   }
+  &__body {
+    height: 80px;
+    font-size: 14px;
+    color: black;
+    .text {
+      width: 610px;
+      margin: auto 0;
+      height: 40px;
+    }
+    .time {
+      display: flex;
+      height: 40px;
+      line-height: 40px;
+      i {
+        color:#cccccc;
+        margin: auto 0;
+        margin-right: 10px;
+      }
+    }
+  }
+  .arrow {
+    margin-top: 40px;
+      color: black;
+}
 }
 .btn {
   background-color: #fff;
@@ -120,7 +140,7 @@
 }
 
 .active {
-  border-top: 1px solid red;
+  border-top: 2px solid red;
   background-color: #fff;
 }
 .show-none {

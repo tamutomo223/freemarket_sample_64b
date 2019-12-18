@@ -6,8 +6,9 @@
     .item__show 
       = render "show_table"
 
-    - if @item.order_id != 0 
+    - if @item.order_id == 0 
       -# 購入済みでない場合に表示させる。
+      -# 0は未購入
       .bar3
       .item__wrapper
         = link_to sell_edit_item_path(@item.id), class: "item__wrapper__edit--link" do
@@ -19,7 +20,7 @@
         -# = link_to "#", class: "item__wrapper__edit--link" do
         -#   .item__wrapper__edit.item__wrapper__deco
         -#     出品を一旦停止する
-        = link_to "#", class: "item__wrapper__edit--link" do
+        = link_to item_path(@item.id),method: :delete, data: {confirm: "削除してもよろしいですか？"}, class: "item__wrapper__edit--link" do
           .item__wrapper__edit.item__wrapper__deco
             この商品を削除する
             

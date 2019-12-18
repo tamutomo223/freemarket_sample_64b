@@ -1,17 +1,19 @@
 .mymein-content
   .mypage
     %section.mypage__icon
-      = link_to "#" do
+      = link_to mypage_profile_users_path do
         %figure
         = image_tag "/ロゴ/ningen.png", class:"icon"
-      %p.mypage__icon__nicname nicname
+      .mypage__icon__nicname 
+        = current_user.nickname
       .mypage__icon__number
         .mypage__icon__number__list
           %p 評価
           .bold 60
         .mypage__icon__number__list  
           %P 出品数
-          .bold 80
+          .bold 
+            =@items.length
           
   %section.tabb-var
     .tab-var__mypage
@@ -22,20 +24,33 @@
       =link_to "#" do
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text 商品情報商品情報
-          =fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text Mさんがあなたをいいねしました。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"  
       =link_to "#" do
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text 商品商品商品商品出品
-          = fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text Kさんがあなたを評価しました。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"
+      =link_to "#" do
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text 商品商品商品商品出品
-          =fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text Mさんがあなたを評価しました。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"
         %li.btn
           =link_to "#" do
             %p.mypage-list 一覧を見る
@@ -44,20 +59,32 @@
       =link_to "#" do
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text  やるやるヤルヤルヤルヤル
-          =fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text あなたにはやることがあります。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"
       =link_to "#" do
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text やるやるヤルヤルヤルヤル
-          = fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text あなたにはやることがあります。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text やるやるヤルヤルヤルヤル
-          =fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text あなたにはやることがあります。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"
         %li.btn
           =link_to "#" do
             %p.mypage-list 一覧を見る
@@ -72,15 +99,23 @@
       =link_to "#" do
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text 買ってる買ってる買ってる
-          =fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text Mさんがあなたを買いました。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"
       =link_to "#" do
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text 買ってる買ってる買ってる
-          =fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text Mさんがあなたを買いしました。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"
         %li.btn
           =link_to "#" do
             %p.mypage-list 一覧に戻る
@@ -89,15 +124,23 @@
       =link_to "#" do
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text 過去過去過去過去過去過去
-          =fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text Mさんがあなたを過去に買いました。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"
       =link_to "#" do
         %li.content
           %figure
-          = image_tag "/ロゴ/ロゴ.png", class:"icon"
-          .text 過去過去過去過去過去過去
-          =fa_icon "chevron-right"
+            = image_tag "/ロゴ/ロゴ.png", class:"icon"
+          .content__body 
+            .text Sさんがあなたを過去に買いました。
+            .time
+              =fa_icon "clock-o"
+              %p 999 年前
+          =fa_icon "chevron-right",class:"arrow"
         %li.btn
           =link_to "#" do
             %p.mypage-list 一覧に戻る

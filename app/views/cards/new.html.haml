@@ -7,12 +7,4 @@
   .title 
     %h2 支払い方法
   = render "new"
-  .c-footer
-    %ul.c-footer__ul
-      %li.c-footer__ul__li
-        = link_to "プライバシーポリシー", "#"
-      %li.c-footer__ul__li
-        = link_to "メルカリ利用規約", "#"
-      %li.c-footer__ul__li
-        = link_to "特定商取引に関する表記", "#"
-    = image_tag "/ロゴ/image (2).png"     
+  = render "items/c-footer"     
