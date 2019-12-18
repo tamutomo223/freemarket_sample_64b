@@ -6,19 +6,22 @@
 
   .type.type_singup
     .type__wrapper
-      .type__wrapper__mail
-        = link_to new_user_registration_path, class: "type__wrapper__mail__center" do
-          = fa_icon "envelope-o lg", class: "type__wrapper__mail__center--icon"
-          %span.type__wrapper__mail__center--content
-            メールアドレスで登録する
-      .type__wrapper__facebook.type__wrapper--radius
-        = link_to user_facebook_omniauth_authorize_path, class: "type__wrapper__facebook__center" do
-          = fa_icon "facebook-official 2x", class: "type__wrapper__facebook__center--icon"
-          %span.type__wrapper__facebook__center--content  Facebookで登録する
-      .type__wrapper__google.type__wrapper--radius
-        = link_to user_google_oauth2_omniauth_authorize_path , class: "type__wrapper__google__center" do
-          = fa_icon "google lg", class: "type__wrapper__google__center--icon"
-          %span.type__wrapper__google__center--content
-            Googleで登録する
+      = link_to new_user_registration_path do
+        .type__wrapper__mail
+          .type__wrapper__mail__center
+            = fa_icon "envelope-o lg", class: "type__wrapper__mail__center--icon"
+            %span.type__wrapper__mail__center--content
+              メールアドレスで登録する
+      = link_to user_facebook_omniauth_authorize_path  do
+        .type__wrapper__facebook.type__wrapper--radius
+          .type__wrapper__facebook__center
+            = fa_icon "facebook-official 2x", class: "type__wrapper__facebook__center--icon"
+            %span.type__wrapper__facebook__center--content  Facebookで登録する
+      = link_to user_google_oauth2_omniauth_authorize_path do
+        .type__wrapper__google.type__wrapper--radius
+          .type__wrapper__google__center
+            = fa_icon "google lg", class: "type__wrapper__google__center--icon"
+            %span.type__wrapper__google__center--content
+              Googleで登録する
 
   = render partial: "users/users_footer"
