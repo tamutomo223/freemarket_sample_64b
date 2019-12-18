@@ -30,7 +30,7 @@ $(function () {
       }
     });
     
-    $(this).parents(".image-preview-box").addClass(ipb_none);
+    $(this).parents(".image-preview-box").remove();
   });
 
   // 画像が全て削除した状態で、「変更する」を押下した場合のエラーメッセージの表示について

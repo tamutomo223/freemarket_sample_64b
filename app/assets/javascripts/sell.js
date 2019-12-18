@@ -8,6 +8,7 @@ $(function() {
   // 削除処理
   $(document).on("click", ".destroy-js", function(){
     // 画像の削除
+    alert("削除しました")
     $(this).parents(".image-preview-box").remove();
     // 削除ボタンが押下されたことのフラグを設定する。
     image_flg = $(".hidden-image-flg");
@@ -105,23 +106,14 @@ $(function() {
   });
 
   //出品編集画面画像バリデーション
-  $('#new_item').submit(function() {
-    cnt = $(".db-data").length;
-    
-    if (image.files.length == 0) {
-      //フォーム内の画像が0なら送信できない
-      $('.image-error').html("画像がありません")
-      scrollTo(0, 0);
-      return false; 
-    } 
-    //DBからの画像を全て消すと送信できない(画像0枚の編集を防ぐため)
-    else if(cnt=0){
-      scrollTo(0, 0);
-      $('.image-error').html("画像がありません")
-      return false;
-    }
-    else {return true;} 
-    
-  })
+  
+    $('#new_item').submit(function() {
+      cnt = $(".image-preview-box").length;
+      if (cnt == 0) {
+        scrollTo(0, 0);
+        $('.image-error').html("画像がありません")
+        return false;
+      }else{return true;}
+    })
 
 });
