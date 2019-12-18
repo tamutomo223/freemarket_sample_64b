@@ -28,11 +28,11 @@
             = form_tag(card_path(@card), method: :delete, id: 'charge-form',  name: "inputForm") do
               %input{ type: "hidden", name: "card_id", value: "" }
               %button.delete 削除する
-        %section.card__area__feild
-        = link_to add_cards_path do
-          .card__area__feild__btn
-            =fa_icon "credit-card",class:"i-card"
-            .card__area__feild__btn__p クレジットカードを追加する
+      %section.card__area__feild
+      = link_to add_cards_path do
+        .card__area__feild__btn
+          =fa_icon "credit-card",class:"i-card"
+          .card__area__feild__btn__p クレジットカードを追加する
       .card__area__how
         =link_to "#" do
           %p.card__area__how__p 支払い方法について
