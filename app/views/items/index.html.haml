@@ -5,7 +5,18 @@
 
   .slide
     .slide-image
-      = image_tag "/ロゴ/部屋.png"
+      .heya
+        .cach
+          %p スマホで かんたん
+          %p.q フリマアプリ
+        .naiyou
+          %p.w メルカリはスマホカメラだからすぐ出品できる
+          %p 購入時も安心な独自のシステムのアプリです
+        .app
+          = link_to "https://apps.apple.com/jp/app/id667861049?l=ja" do
+            = image_tag "/ロゴ/apple.png"
+          = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=" do
+            = image_tag "/ロゴ/google.png"
     .slide-image
       = image_tag "/ロゴ/クリスマス.png"
 
