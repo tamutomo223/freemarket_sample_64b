@@ -108,8 +108,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    Item.find(params[:id]).destroy
-    redirect_to mypage_listings_users_path
+    if Item.find(params[:id]).destroy
+      redirect_to mypage_listings_users_path
+    else
+      redirect_to edit_item_path(params[:id])
+    end
+    
   end
 
   private
