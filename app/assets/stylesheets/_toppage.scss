@@ -235,9 +235,11 @@
   }
 }
 .slide {
+  margin: 0;
+  padding:0;
+  width:100%;
   img {
     z-index: 30;
-    width:100vw;
     height:390px;
   }
 }
