@@ -1,6 +1,6 @@
 .left-content
   %ul.nav-list
-    =link_to "#" do
+    =link_to mypage_users_path do
       %li.mylink
         %p.mylink__p マイページ 
         =fa_icon "chevron-right"
@@ -16,7 +16,7 @@
       %li.mylink 
         %p.mylink__p やることリスト
         =fa_icon "chevron-right"
-    =link_to "#" do
+    =link_to mypage_listings_users_path do
       %li.mylink 
         %p.mylink__p 出品した商品-出品中
         =fa_icon "chevron-right"
@@ -24,7 +24,7 @@
       %li.mylink 
         %p.mylink__p 出品した商品-取引中
         =fa_icon "chevron-right"
-    =link_to "#" do
+    =link_to mypage_complete_users_path do
       %li.mylink 
         %p.mylink__p 出品した商品-売却済み
         =fa_icon "chevron-right"
