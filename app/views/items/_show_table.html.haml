@@ -92,7 +92,7 @@
   - if @item.order != nil
     .item__show__sold
       売り切れました
-  -else
+  -elsif user_signed_in?
     = link_to buy_item_path, class: "item__show__buy" do
       .item__show__buy
         購入画面に進む
