@@ -1,9 +1,21 @@
 
 .wrapper
-  .input-header
+  .input-header 
     = link_to root_path do
-      mercariロゴ
-    会員情報　　電話番号認証　　お届け先住所入力　　支払方法　　完了
+      = image_tag '/ロゴ/image.png', class: 'rogo'
+    .mo-ji
+      .moji2 会員情報
+      .moji お届け先住所入力
+      .moji1 支払い方法
+      .moji 完了
+    .ge-ji
+      .maruru
+      .sen
+      .maru
+      .sen
+      .maru
+      .sen
+      .maru
 
   %h1.user-h1 会員情報入力
 
