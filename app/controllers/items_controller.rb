@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    if @item.user_id = current_user.id
+    if @item.user_id == current_user.id
       redirect_to edit_item_path(@item)
     end  
     @user_item = Item.where(user_id: @item.user_id).where(order_id: 0).where.not(id: @item.id)
