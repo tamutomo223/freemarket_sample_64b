@@ -59,9 +59,11 @@ class ItemsController < ApplicationController
   end
 
   def show
-    if @item.user_id == current_user.id
-      redirect_to edit_item_path(@item)
-    end  
+    if user_signed_in?
+      if @item.user_id == current_user.id
+        redirect_to edit_item_path(@item)
+      end  
+    end
     @user_item = Item.where(user_id: @item.user_id).where(order_id: 0).where.not(id: @item.id)
     @category_item = Item.where(category_id: @item.category_id).where(order_id: 0).where.not(id: @item.id)
     @next_item = Item.find_by(id: @item.id.to_i + 1)
