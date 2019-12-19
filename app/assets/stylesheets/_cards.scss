@@ -18,11 +18,51 @@
     }
     }
     &__ba{
-      img{
-        display: block;
-        height:110px;
-        width:auto;
-        padding-top: 14px;
+      .mo-ji{
+        top:50px;
+        position: absolute;
+        display: flex;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .moji{
+        margin-left: 20px;
+        margin-right:50px ;
+        color: $darkgray;
+      }
+      .moji1{
+        color: $red;
+        margin-right:53px;
+      }
+      .ge-ji {
+        position: relative;
+        display: flex;
+        margin-top: 30px;
+        padding: 40px 0 0 44px;
+      }
+      .maruru {
+        width: 12px;
+        height: 12px;
+        background-color: $red;
+        border-radius: 50%;
+      }
+      .maru {
+        width: 12px;
+        height: 12px;
+        background-color: $darkgray;
+        border-radius: 50%;
+      }
+      .sen {
+        height: 2px;
+        width: 100px;
+        background: $darkgray;
+        margin-top: 4px;
+      }
+      .sensen {
+        height: 2px;
+        width: 120px;
+        background: $red;
+        margin-top: 4px;
       }
     }
   }

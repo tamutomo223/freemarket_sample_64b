@@ -26,12 +26,14 @@
       border-radius: 50%;
     }
     .name-box{
+      color:$darkgray;
       width: 220px;
       height: 48px;
       margin: 74px 0 55px;
       margin-right: auto;
       margin-left: 10px;
-      border-radius: 4px;
+      border-radius: 1px;
+      padding-left: 10px;
     }
   }
 }
@@ -40,9 +42,12 @@
   padding: 40px 16px;
 }
 .profile-box{
+  color: $darkgray;
   width: 668px;
-  height: 216px;
-  border-color: $darkgray#cccccc;
+  height: 206px;
+  border-color: $darkgray;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 .profile-btn{
   margin:0 auto;
