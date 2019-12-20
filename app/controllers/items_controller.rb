@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :edit_input, :update]
   before_action :set_categories, only:[:sell, :edit_input]
-  before_action :set_myself_items
+  before_action :set_myself_items, except:[:index]
   require 'payjp'
 
   def index
