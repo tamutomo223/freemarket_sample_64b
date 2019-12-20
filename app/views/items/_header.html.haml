@@ -38,7 +38,9 @@
           .top__header__content__2__right__mypage
             = link_to "/users/mypage" do
               = image_tag "/ロゴ/ningen.png", class:"icon"
-              %span.m マイページ
+              .m
+                マイページ
+                = render "items/menu_mypage.html.haml"
       - else
         .top__header__content__2__right
           = link_to signup_users_path do

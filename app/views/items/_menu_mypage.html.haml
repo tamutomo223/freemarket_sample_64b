@@ -1,0 +1,41 @@
+.mypage-menu
+  .menu-wrapper-top
+    = image_tag "/ロゴ/ningen.png", class: "menu-wrapper-top__image"
+    %p.menu-wrapper-top__name
+      = current_user.nickname
+    %span
+      = "評価: 0  出品数: #{@myself_items.length}"
+  %ul
+    %li
+      = link_to "#" do
+        .menu-wrapper-center
+          .menu-wrapper-center__contens
+            売上金
+          .menu-wrapper-center__right
+            .menu-wrapper-center__right__num
+              ¥0
+              %span
+                = fa_icon "chevron-right"
+    %li
+      = link_to "#" do 
+        .menu-wrapper-center
+          .menu-wrapper-center__contens
+            ポイント
+          .menu-wrapper-center__right
+            .menu-wrapper-center__right__num
+              P0
+              %span
+                = fa_icon "chevron-right"
+  .mypage-menu__space
+  %ul
+    .first-bottom
+    - menu_array = ["いいね！一覧", "出品した商品 - 出品中", "出品した商品 - 取引中", "出品した商品 - 売却済み", "購入した商品 - 取引中", "購入した商品 - 過去の取引"]
+    - link_array = ["#", mypage_listings_users_path, "#", mypage_complete_users_path, "#", "#"]
+    - menu_array.each_with_index do |value, i|
+      %li
+        = link_to link_array[i] do 
+          .menu-wrapper-bottom
+            .menu-wrapper-bottom__title
+              = value
+            .menu-wrapper-bottom__arrow
+              = fa_icon "chevron-right"
