@@ -153,7 +153,7 @@ class ItemsController < ApplicationController
   end
 
   def set_myself_items
-    if user_signen_in?
+    if user_signed_in?
       @myself_items = Item.where(user_id: current_user.id)
     end  
   end
