@@ -8,7 +8,6 @@ $(function() {
   // 削除処理
   $(document).on("click", ".destroy-js", function(){
     // 画像の削除
-    alert("削除しました")
     $(this).parents(".image-preview-box").remove();
     // 削除ボタンが押下されたことのフラグを設定する。
     image_flg = $(".hidden-image-flg");
