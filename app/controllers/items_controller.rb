@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :edit_input, :update]
   before_action :set_categories, only:[:sell, :edit_input]
-  before_action :set_myself_items, except:[:index]
+  before_action :set_myself_items
   require 'payjp'
 
   def index
@@ -153,7 +153,9 @@ class ItemsController < ApplicationController
   end
 
   def set_myself_items
-    @myself_items = Item.where(user_id: current_user.id)
+    if user_signen_in?
+      @myself_items = Item.where(user_id: current_user.id)
+    end  
   end
 end
 

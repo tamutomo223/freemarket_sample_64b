@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_myself_items ,except:[:signup]
+  before_action :set_myself_items
 
   # signup 「新規会員登録」画面
   def signup
@@ -88,7 +88,9 @@ class UsersController < ApplicationController
   end
 
   def set_myself_items
-    @myself_items = Item.where(user_id: current_user.id)
+    if user_signed_in?
+      @myself_items = Item.where(user_id: current_user.id)
+    end  
   end
 
 end
