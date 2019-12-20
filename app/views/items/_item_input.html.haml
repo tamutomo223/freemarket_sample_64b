@@ -204,12 +204,12 @@
         - if !request.path.include?("edit")
           -# 購入画面前の場合
           = f.submit value: '出品する',class:"form-btn"
-          %input(type="button" value="もどる" class="return-btn")
+          %input(type="button" value="もどる" class="return-btn" onclick="history.back()")
           = f.hidden_field :order_id,value:0
         - else
           -# 編集画面前の場合
           = f.submit value: '変更する',class: "form-btn form-btn-edit"
-          %input(type="button" value="キャンセル" class="return-btn")
+          %input(type="button" value="キャンセル" class="return-btn" onclick="history.back()")
 
           
   .sellbottom
