@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  # signup 「新規会員登録」画面
+  before_action :set_myself_items
 
+  # signup 「新規会員登録」画面
   def signup
   end
 
@@ -84,6 +85,10 @@ class UsersController < ApplicationController
   
   def update_shipping_params
     params.require(:shipping).permit(:address_number,:prefecture_id,:city,:town,:building,:s_tel)
+  end
+
+  def set_myself_items
+    @myself_items = Item.where(user_id: current_user.id)
   end
 
 end

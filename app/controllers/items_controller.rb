@@ -1,11 +1,13 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :edit_input, :update]
   before_action :set_categories, only:[:sell, :edit_input]
+  before_action :set_myself_items
   require 'payjp'
 
   def index
     @items = Item.all.includes(:images).order("created_at DESC").limit(10)
     @category = Category.all
+
   end  
 
   def sell
@@ -146,6 +148,10 @@ class ItemsController < ApplicationController
 
   def set_categories
     @categories = Category.order("id ASC")
+  end
+
+  def set_myself_items
+    @myself_items = Item.where(user_id: current_user.id)
   end
 end
 

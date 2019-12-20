@@ -24,4 +24,12 @@ $(function()   {
       $(".list-D").removeClass("show-none");
       $(".list-C").addClass("show-none");
     })
+
+    const mypage_obj = $(".mypage-menu");
+    $(".m").hover(function(){
+      mypage_obj.show();
+
+    }, function(){
+      mypage_obj.hide();
+    });
   });
