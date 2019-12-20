@@ -103,17 +103,16 @@
         &__category {
           width:159px;
           position: relative;
-          // height: 600px;
-          z-index: 100;
+          z-index: 101;
           a{
             &:hover {
               color: $skyblue;
             }
           }
           .hidden{
-            display: none;
+            // display: none;
             position: absolute;
-            z-index: -100;
+            
             top:44px;
             left:4px;
             font-weight: 400;

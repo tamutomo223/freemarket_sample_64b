@@ -12,11 +12,11 @@
           = link_to "#" do
             = fa_icon "list-ul"
             %span カテゴリから探す
-          -# .hidden
-          -#   - @category= Category.all
-          -#   - @category.each do |c|
-          -#     .hidden__category.none
-          -#       = c.category_name
+          .hidden
+            - @category= Category.all
+            - @category.each do |c|
+              .hidden__category.none
+                = c.category_name
         .top__header__content__2__left__brand
           = link_to "#" do
             = fa_icon "tag"
@@ -40,7 +40,7 @@
               = image_tag "/ロゴ/ningen.png", class:"icon"
               .m
                 マイページ
-                = render "items/menu_mypage.html.haml"
+                = render "items/menu_mypage"
       - else
         .top__header__content__2__right
           = link_to signup_users_path do
