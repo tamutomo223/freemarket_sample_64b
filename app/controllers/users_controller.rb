@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_myself_items
+  before_action :set_myself_items ,except:[:signup]
 
   # signup 「新規会員登録」画面
   def signup
