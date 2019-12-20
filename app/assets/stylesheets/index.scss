@@ -1,41 +1,45 @@
-.slide-image{
-  display: flex;
-  
-}
-.heya{
-  width: 1440px;
-  height: 390px;
-  background-image :url(/ロゴ/部屋.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-  .cach{
-    padding-top:30px ;
-    margin-right: 360px;
-    font-size: 60px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    .q{
-      margin-right: 120px;
-    }
-  }
-  .naiyou{
-    font-size:18px;
-    margin-right:460px;
-    margin-top: 20px;
-    .w{
-      margin-left: 10px;
-    }
-  }
-  .app{
-    margin-top:  30px;
-    margin-left: 300px;
+.wrapper{
+  width: 100%;
+  overflow:hidden;
+  .slide-image{
     display: flex;
-    a{
-    img{
-    margin: 0 10px;
-    width: 170px;
-    height: 50px;}
+    
+  }
+  .heya{
+    width: 1440px;
+    height: 390px;
+    background-image :url(/ロゴ/部屋.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    .cach{
+      padding-top:30px ;
+      margin-right: 360px;
+      font-size: 60px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      .q{
+        margin-right: 120px;
+      }
+    }
+    .naiyou{
+      font-size:18px;
+      margin-right:460px;
+      margin-top: 20px;
+      .w{
+        margin-left: 10px;
+      }
+    }
+    .app{
+      margin-top:  30px;
+      margin-left: 300px;
+      display: flex;
+      a{
+        img{
+          margin: 0 10px;
+          width: 170px;
+          height: 50px;}
+        }
+      }
     }
   }
-}
