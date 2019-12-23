@@ -8,3 +8,6 @@ ssh_otions: {
   user: "odatakashi",
   forward_agent: true,
 }
+
+set :rails_env, "production"
+set :unicorn_rack_env, "production"
