@@ -31,10 +31,10 @@ class UsersController < ApplicationController
     end
   end
   def listings
-    @items = Item.where(user_id: current_user.id).where(order_id: 0)
+    @items = Item.where(user_id: current_user.id).where(order_id: 0).order("created_at DESC")
   end
   def complete
-    @items = Item.where(user_id:current_user.id).where("order_id > ?",0)
+    @items = Item.where(user_id:current_user.id).where("order_id > ?",0).order("created_at DESC")
   end
   def address
     @shipping = Shipping.new
