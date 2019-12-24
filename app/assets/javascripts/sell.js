@@ -34,6 +34,7 @@ $(function() {
     $('.inputed').remove();
     // 削除フラグの初期化を行う。
     image_destroy_flg = [];
+    $(".hidden-image-flg").val("11");
     let length = image.files.length;
     if (length == 1){
       //画像が一枚だけの時
